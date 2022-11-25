@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
+import Footer from "@/Components/Footer";
+import HeaderNoBg from "@/Components/HeaderNoBg";
 
 export default function Welcome(props) {
     return (
@@ -34,8 +36,12 @@ export default function Welcome(props) {
                 </div> */}
 
                 <div className="bg-blue-bg bg-cover bg-no-repeat">
-                    <h1 className="font-bold text-brown">Helo</h1>
+                    <HeaderNoBg />
                 </div>
+
+                <div className="h-96"></div>
+
+                <Footer />
             </div>
         </>
     );
