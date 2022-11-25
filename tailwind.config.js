@@ -20,6 +20,9 @@ module.exports = {
                 lightblue: "#D2F5FF",
                 brown: "#703900",
             },
+            backgroundImage: {
+                "blue-bg": "url('/img/blue_background.svg')",
+            },
         },
     },
 

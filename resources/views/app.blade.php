@@ -6,6 +6,8 @@
 
         <title inertia>{{ config('app.name', 'Kukoki') }}</title>
 
+        <link rel="icon" href={{ asset('img/logo/logo2.svg') }}>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
