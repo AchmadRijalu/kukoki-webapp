@@ -3,8 +3,8 @@ import React from "react";
 export default function Footer() {
     return (
         <div className="bg-blue-bg bg-cover bg-no-repeat text-white py-3 px-8">
-            <img src="img/logo/logo.svg" className="w-40 mt-2" alt="" />
-            <div className="md:grid grid-cols-3 gap-20 mt-5 md:px-0">
+            <img src="img/logo/logo.svg" className="w-32 md:w-40 mt-2" alt="" />
+            <div className="md:grid grid-cols-3 gap-5 lg:gap-20 mt-5 md:px-0">
                 <div className="mb-3 flex justify-center">
                     <div>
                         <h2 className="text-2xl font-bold">Kantor</h2>
@@ -14,7 +14,7 @@ export default function Footer() {
                         </p>
                     </div>
                 </div>
-                <div className="mb-3 flex justify-center">
+                <div className="mb-3 flex md:justify-center">
                     <div>
                         <h2 className="text-2xl font-bold">Hubungi Kami</h2>
                         <div className="flex items-center gap-2 py-2">
@@ -36,7 +36,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="mb-3 flex justify-center">
+                <div className="mb-3 flex md:justify-center">
                     <div>
                         <h2 className="text-2xl font-bold">Sosial Media</h2>
                         <div className="flex items-center gap-2 py-2">
