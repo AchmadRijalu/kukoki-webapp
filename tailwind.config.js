@@ -16,9 +16,22 @@ module.exports = {
             },
             colors: {
                 blue: "#1C9FE2",
+                bluehover: "#208BC0",
                 darkblue: "#006CAA",
                 lightblue: "#D2F5FF",
                 brown: "#703900",
+                smoke: "#F9F9F9",
+
+                dagingsayur: "#FCEAB2",
+                cepatmudah: "#D2F5FF",
+                sayur: "#F8D1B7",
+                roti: "#C6F0D7",
+                produksusu: "#F6D5FB",
+                proteintinggi: "#F8CDD5",
+                makananlaut: "#DFFCFB",
+                menudiet: "#D9E8FB",
+                
+                
             },
             backgroundImage: {
                 "blue-bg": "url('/img/blue_background.svg')",

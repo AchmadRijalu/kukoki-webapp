@@ -11,7 +11,8 @@ class Category extends Model
 
 
     protected $table = "categories";
-
+    
+    protected $fillage = ['name', 'image'];
 
     protected $primaryKey = "id";
 }
