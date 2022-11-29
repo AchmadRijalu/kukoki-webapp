@@ -26,21 +26,21 @@ export default function LoginTry(props) {
                                 <form action="/" method="POST">
 
                                     <div>
-                                        <label for="email" class="text-black font-medium ml-4 mb-44">Email</label>
+
+                                        <label htmlFor="email" className="text-black font-medium ml-4 mb-44">Email</label>
                                         <div className="mb-2">
 
                                         </div>
-                                        <input type="text" name="email"
-                                            class=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
-                                        />
 
-                                        <label for="password" class="text-black font-medium ml-4 mb-44">Password</label>
+                                        <input type="text" name="email" className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+
+
+                                        <label htmlFor="password" className="text-black font-medium ml-4 mb-44">Password</label>
                                         <div className="mb-2">
 
                                         </div>
-                                        <input type="password" name="password"
-                                            class=" border-1   border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
-                                        />
+
+                                        <input type="password" name="password" className="border-1   border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
 
 
                                         <div className="w-full mt-8 font-medium underline flex flex-row  justify-center cursor-pointer">
@@ -48,15 +48,12 @@ export default function LoginTry(props) {
                                                 Lupa Password?
                                             </h6>
                                         </div>
-                                        <div class="w-full mt-8  rounded-2x flex flex-row justify-center">
-                                            <button type=""
-                                                class="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-blue  transition delay-50 text-md "
-                                            >
-
+                                        <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
+                                            <button className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-blue  transition delay-50 text-md " type="">
                                                 Masuk
-
                                             </button>
                                         </div>
+
                                         <div className="w-full mt-6 font-medium  flex lg:flex-row mini:flex-col  lg:justify-center mini:items-center  cursor-pointer">
                                             <h6>
                                                 Belum mempunyai akun?
@@ -86,7 +83,7 @@ export default function LoginTry(props) {
 
 
             </div>
-            </>
+        </>
 
 
     );

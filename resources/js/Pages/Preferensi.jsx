@@ -8,6 +8,10 @@ import PreferensiCard from "@/Components/PreferensiCard";
 
 export default function Preferensi(props) {
 
+
+
+    const [categoryList, setCategories] = useState([]);
+
     const { data, setData, post, processing, errors } = useForm({
         name: props.name,
         email: props.email,
@@ -18,7 +22,7 @@ export default function Preferensi(props) {
         kelurahan: props.kelurahan,
         alamatlengkap: props.kelurahan,
         nomortelepon: props.nomortelepon,
-        category: props.categories.category
+        category: categoryList
 
     })
 
@@ -28,14 +32,6 @@ export default function Preferensi(props) {
         Inertia.post(route('registerAccount.store'), data)
 
     }
-    //TRYING CODE 1
-    // const [selectedIndex, setSelectedIndex] = useState(0);
-
-    // const handleClick = (e) => {
-    //     setSelectedIndex(e);
-    // }
-
-    //TRYING CODE 2 WITH LOOPING USESTATE
 
     const [categories, setcategory] = useState([
         { id: props.categories[0].id, name: props.categories[0].name, image: props.categories[0].image, selected: false },
@@ -46,29 +42,46 @@ export default function Preferensi(props) {
         { id: props.categories[5].id, name: props.categories[5].name, image: props.categories[5].image, selected: false },
         { id: props.categories[6].id, name: props.categories[6].name, image: props.categories[6].image, selected: false },
         { id: props.categories[7].id, name: props.categories[7].name, image: props.categories[7].image, selected: false },
-
-
     ]);
 
+
+
     const categoryClicked = (e) => {
-    
+
         setcategory(
-            categories.map((cat) =>
-                cat.id == e.currentTarget.getAttribute("dataid")
-                    ? { ...cat, selected: !cat.selected  }
-                    : cat
-            )
+
+            categories.map(cat => {
+                if (cat.id == e.currentTarget.getAttribute("dataid")) {
+
+                    categoryList.push({
+                        id: cat.id,
+
+                    });
+                    //   setCategories(
+                    //     categoryList.filter(a =>
+                    //       a.id !== cat.id
+                    //     )
+                    //   );
+                    console.log(categoryList)
+                    return { ...cat, selected: !cat.selected }
+
+
+
+                } else {
+                    categoryList.filter(a => a.id !== cat.id)
+                    return cat
+                }
+            })
+
+            // categories.map((cat, i) =>
+            //     cat.id == e.currentTarget.getAttribute("dataid") ? { ...cat, selected: !cat.selected }
+            //         : cat
+            // )
         );
-        console.log(e.currentTarget)
+
 
     }
-    // const categoryClicked = () => {
-    //     console.log(!categories[0].selected)
-    //     setcategory(!categories);
-    // }
 
-
-    
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -101,22 +114,23 @@ export default function Preferensi(props) {
                         {categories.map((category, i) =>
                             <>
 
+                                <PreferensiCard arr={categoryList} key={category.id} id={category.id} name={category.name} image={category.image} dataid={category.id} clicking={categoryClicked} dataselect={category.selected} />
+
                                 {/* <div  onClick={categoryClicked} className = {` ${category.selected == true? "bg-red-400  border-8 ring-8 ring-red-600": ""}`}> */}
-                                    
-                                <PreferensiCard key={category.id} id={category.id} name={category.name} image={category.image} dataid={category.id} clicking = {categoryClicked} dataselect = {category.selected}/>
-                                    
-                                    
-                                   
-                                    
+
+
+
                                 {/* </div> */}
-                                {/* chooseCard={handleClick} */}
+
                             </>
                         )}
                     </div>
-                    <form className=" w-1/4 mt-10  rounded-2x flex flex-row justify-center" onSubmit={onSubmitHandler}  >
-                        <div class="w-full ">
-                            <button type="submit"
-                                class="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md "
+                    <form className=" w-1/4 mt-10  rounded-2x flex flex-row justify-center" onSubmit={onSubmitHandler}>
+
+                        <input type="hidden" onChange={e => setData('category', categoryList.length)} value={categoryList} />
+                        <div className="w-full ">
+                            <button
+                                className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md "
                             >
                                 Simpan
                             </button>
