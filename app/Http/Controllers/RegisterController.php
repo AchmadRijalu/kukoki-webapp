@@ -19,14 +19,32 @@ class RegisterController extends Controller
         return Inertia::render('Register', ['title' => 'Register']);
     }
 
-    public function informasipengiriman(){
-        return Inertia::render('InformasiPengiriman', ['title' => 'InformasiPengiriman']);
-    }
-    public function preferensi(){
+    public function informasipengiriman(Request $request){
 
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        
+        return Inertia::render('InformasiPengiriman', compact('name', 'email', 'password'));
+    }
+
+    public function preferensi(Request $request){
+        
+        // dd($request->all());
         $categories = Category::query()->get();
+        $allData = $request->all();
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
+        $provinsi = $request->provinsi;
+        $kota = $request->kota;
+        $kecamatan = $request->kecamatan;
+        $kelurahan = $request->kelurahan;
+        $alamatlengkap = $request->alamatlengkap;
+        $nomortelepon = $request->nomortelepon;
         $title = "Pilih Preferensi";
-        return Inertia::render('Preferensi', compact('categories', 'title'));
+        return Inertia::render('Preferensi', compact('categories', 'title', 'name', 'email', 'password', 'provinsi', 'kota', 'kecamatan', 'kelurahan', 'alamatlengkap', 'nomortelepon'));
     }
 
     /**
@@ -48,6 +66,8 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
+        
     }
 
     /**

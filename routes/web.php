@@ -13,8 +13,10 @@ Route::get('/', function(){
 
 Route::get('/Register', [RegisterController::class, 'index']);
 
-Route::get('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman']);
-Route::get('/Preferensi', [RegisterController::class, 'preferensi']);
+Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman']);
+Route::post('/Preferensi', [RegisterController::class, 'preferensi']);
+
+Route::resource('registerAccount', RegisterController::class);
 
 
 // Route::get('/', function () {
@@ -25,6 +27,8 @@ Route::get('/Preferensi', [RegisterController::class, 'preferensi']);
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
+// Route::resource('deliver', RegisterController::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
