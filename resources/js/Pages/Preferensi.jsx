@@ -57,12 +57,18 @@ export default function Preferensi(props) {
                         id: cat.id,
 
                     });
+
+                    //code test
                     //   setCategories(
                     //     categoryList.filter(a =>
                     //       a.id !== cat.id
                     //     )
                     //   );
                     console.log(categoryList)
+                    //code test
+                    // if (categoryList.indexOf(cat.id) !== -1) {
+                    //     alert("Yes, the value exists!")
+                    // }
                     return { ...cat, selected: !cat.selected }
 
 
