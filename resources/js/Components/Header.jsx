@@ -8,10 +8,10 @@ export default function Header() {
                 <img src="img/logo/logo.svg" alt="" className="w-32" />
             </div>
             <div className="flex gap-8 text-white font-bold text-lg">
-                <Link href="">Menu</Link>
-                <Link href="">Rencana</Link>
-                <Link href="">Pesanan</Link>
-                <Link href="">Profil</Link>
+                <Link href="/menu">Menu</Link>
+                <Link href="/rencana">Rencana</Link>
+                <Link href="/pesanan">Pesanan</Link>
+                <Link href="/profil">Profil</Link>
             </div>
         </nav>
 
