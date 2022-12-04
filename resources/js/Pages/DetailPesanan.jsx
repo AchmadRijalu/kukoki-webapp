@@ -8,22 +8,22 @@ export default function Pesanan(){
             <div className="bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
-            <div className="w-full h-max mt-8 mb-12 md:p-0 mini:p-3">
+            <div className="h-max mt-8 mb-12 lg:mx-64 md:mx-32 sm:mx-16 md:p-0 mini:p-3">
                 <div className="flex flex-row justify-center items-center mb-8">
                     <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                         Detail Pesanan
                     </h1>
                 </div>
-                <div className="flex flex-row justify-between mx-64">
+                <div className="flex flex-row justify-between grid lg:grid-cols-11 md:grid-cols-1 sm:grid-cols-1 gap-8">
 
-                    <div className="flex flex-auto w-2/3 flex-col">
+                    <div className="flex flex-auto flex-col col-span-6">
                         <div className="flex flex-row">
                             <h1 className="text-darkblue md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
                                 Informasi Produk
                             </h1>
                         </div>
                         {/* Card */}
-                        <div className="flex flex-row mt-8 w-5/6 bg-white rounded-md p-6 border-none drop-shadow-md">
+                        <div className="flex flex-row mt-8 bg-white rounded-md p-6 border-none drop-shadow-md">
                             <div className="flex-4 flex-col">
                                 <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
                             </div>
@@ -51,7 +51,7 @@ export default function Pesanan(){
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-row mt-8 w-5/6 bg-white rounded-md p-6 border-none drop-shadow-md">
+                        <div className="flex flex-row mt-8 bg-white rounded-md p-6 border-none drop-shadow-md">
                             <div className="flex-4 flex-col">
                                 <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
                             </div>
@@ -105,7 +105,7 @@ export default function Pesanan(){
                         </div>
                     </div>
 
-                    <div className="flex flex-auto w-1/3 flex-col">
+                    <div className="w-full flex flex-col col-span-5 md:justify-center md:items-center sm:items-center sm:justify-center">
                         <div className="flex flex-col w-full bg-white rounded-md p-6 border-none drop-shadow-md">
                             <div className="flex flex-row">
                                 <h1 className="text-gray md:text-base sm:text-base mini:text-base text-start">
