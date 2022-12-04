@@ -28,7 +28,24 @@ export default function Pesanan(){
                             </h2>
                         </div>
                         <div className="flex flex-row w-full">
-                            <div className="lg:w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
+                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
+                                <div className="flex justify-between flex-row w-full">
+                                    <p className="text-blue font-bold">3 Oktober 2022</p>
+                                    <p className="text-blue font-bold items-start text-sm">Dalam perjalanan</p>
+                                </div>
+                                <div className="flex justify-start flex-row w-full mt-6">
+                                    <div class="grid grid-rows-4 grid-cols-4 gap-4">
+                                    </div>
+                                    <div className="ml-6 flex flex-col w-full h-full">
+                                        <p className="items-start text-sm">Grilled Salmon</p>
+                                        <p className="items-start text-sm">Nabe Veggie Udon</p>
+                                        <p className="items-start text-sm">Pesto Pasta Chicken</p>
+                                        <p className="items-start text-sm">Unagi Ramen</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {/* <div className="lg:w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div>
                                     <p>aasdddddddddddd</p>
                                 </div>
@@ -37,12 +54,7 @@ export default function Pesanan(){
                                 <div>
                                     <p>aasdddddddddddd</p>
                                 </div>
-                            </div>
-                            <div className="lg:w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <div>
-                                    <p>aasdddddddddddd</p>
-                                </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
