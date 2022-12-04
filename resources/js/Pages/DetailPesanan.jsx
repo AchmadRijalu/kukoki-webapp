@@ -160,7 +160,7 @@ export default function Pesanan(){
                                 </h1>
                             </div>
                         </div>
-                        <button class="bg-blue font-semibold text-white py-4 px-4 border rounded-md mt-4">
+                        <button class="bg-blue font-semibold text-white py-4 px-4 rounded-md mt-4">
                             Beri Ulasan
                         </button>
                     </div>
