@@ -30,11 +30,20 @@ export default function Pesanan(){
                         </div>
                     </div>
                     <div className="flex flex-col mt-8 w-5/6 bg-white rounded-md p-4 border-none drop-shadow-md justify-between">
-                        <div className="flex flex-row mt-2">
-                            <p className="text-xl ml-2 text-darkblue font-bold">Nilai Makanan</p>
+                        <div className="flex flex-row mt-2 justify-between items-center mx-2">
+                            <div className="flex w-5/6">
+                                <p className="text-xl text-darkblue font-bold">Nilai Makanan</p>
+                            </div>
+                            <div className="flex w-1/6 justify-end">
+                                <img src="img/icon/unfilled_star.svg" alt="" className="w-4 mr-2"/>
+                                <img src="img/icon/unfilled_star.svg" alt="" className="w-4 mr-2"/>
+                                <img src="img/icon/unfilled_star.svg" alt="" className="w-4 mr-2"/>
+                                <img src="img/icon/unfilled_star.svg" alt="" className="w-4 mr-2"/>
+                                <img src="img/icon/unfilled_star.svg" alt="" className="w-4"/>
+                            </div>
                         </div>
                         <div className="flex flex-row mt-2">
-                            <textarea id="message" rows="6" class="mt-2 mx-2 block w-full text-sm text-gray-900 bg-gray-400 rounded-lg border border-gray-300" placeholder="Halo! Bagaimana menurutmu tentang Pesto Pasta Chicken?"></textarea>
+                            <textarea id="message" rows="12" class="mt-2 mx-2 block w-full text-sm text-gray-900 bg-gray-400 rounded-lg border border-gray-300" placeholder="Halo! Bagaimana menurutmu tentang Pesto Pasta Chicken?"></textarea>
                         </div>
                         <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2">
                             Bagikan Ulasan
