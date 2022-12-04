@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Foundation\Application;
@@ -7,16 +8,26 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
+
+
+
 Route::get('/', function(){
-    return Inertia::render('Login');
+    return Inertia::render('Welcome');
 });
-
+//Register route
 Route::get('/Register', [RegisterController::class, 'index']);
-
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman']);
 Route::post('/Preferensi', [RegisterController::class, 'preferensi']);
-
 Route::resource('registerAccount', RegisterController::class);
+
+//Login Route
+Route::resource('loginAccount', LoginController::class);
+
+
+
+//Profil Route
+Route::get('/profil', [ProfileController::class, 'index']);
+Route::resource('profileAccount', ProfileController::class);
 
 
 // Route::get('/', function () {

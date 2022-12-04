@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
-
+use App\Models\Category;
 class ProfileController extends Controller
 {
     /**
@@ -17,6 +17,19 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Inertia\Response
      */
+
+    public function index()
+    {
+        //
+        $categories = Category::query()->get();
+        $cat = $categories->offsetGet(0)->limit(2)->get();
+        return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
+    }
+
+    public function preferenceProfile(){
+        
+    }
+
     public function edit(Request $request)
     {
         return Inertia::render('Profile/Edit', [

@@ -122,11 +122,6 @@ export default function Preferensi(props) {
 
                                 <PreferensiCard arr={categoryList} key={category.id} id={category.id} name={category.name} image={category.image} dataid={category.id} clicking={categoryClicked} dataselect={category.selected} />
 
-                                {/* <div  onClick={categoryClicked} className = {` ${category.selected == true? "bg-red-400  border-8 ring-8 ring-red-600": ""}`}> */}
-
-
-
-                                {/* </div> */}
 
                             </>
                         )}

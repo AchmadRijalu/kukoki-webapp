@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class LoginController extends Controller
 {
@@ -14,6 +16,7 @@ class LoginController extends Controller
     public function index()
     {
         //
+        return Inertia::render('Login', ['title' => 'Login']);
     }
 
     /**
@@ -35,6 +38,9 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'full_name' => 'required'
+        ]);
     }
 
     /**
