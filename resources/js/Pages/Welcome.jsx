@@ -27,7 +27,7 @@ export default function Welcome(props) {
                                 </h2>
                                 <div className="flex justify-center md:justify-start mb-5 md:mb-0" onClick={(e) => handleLoginPage}>
                                     <Link
-                                        href= {route("profileAccount.index")}
+                                        href= {route("loginAccount.index")}
                                         className="text-darkblue bg-white py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-gray-200 transition"
                                     >
                                         Pesan Sekarang
