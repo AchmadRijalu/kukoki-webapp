@@ -8,7 +8,7 @@ export default function Pesanan(){
             <div className="bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
-            <div className="w-full h-max mt-8 mb-12 md:p-0 mini:p-3">
+            <div className="h-max mt-8 mb-12 mx-64 md:p-0 mini:p-3">
                 <div className="flex flex-row justify-center items-center">
                     <div className="flex flex-col justify-center items-center">
                         <h1 className="text-blue md:text-5xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
@@ -20,7 +20,7 @@ export default function Pesanan(){
                     </div>
                 </div>
                 {/* Sedang Berlangsung */}
-                <div className="flex flex-row mx-32 mt-12">
+                <div className="flex flex-row mt-12">
                     <div className="flex flex-col h-full w-full">
                         <div className="flex flex-row">
                             <h2 className="text-blue md:text-3xl sm:text-3xl mini:text-3xl font-bold mb-8">
@@ -125,7 +125,7 @@ export default function Pesanan(){
                     </div>
                 </div>
                 {/* Selesai */}
-                <div className="flex flex-row mx-32 my-12">
+                <div className="flex flex-row my-12">
                     <div className="flex flex-col h-full w-full">
                         <div className="flex flex-row">
                             <h2 className="text-blue md:text-3xl sm:text-3xl mini:text-3xl font-bold mb-8">
