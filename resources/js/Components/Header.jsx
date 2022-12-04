@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@inertiajs/inertia-react";
 
+
 export default function Header() {
     return (
         <nav className="bg-blue-bg bg-cover bg-no-repeat text-white flex items-center justify-between py-3 px-8">
@@ -11,7 +12,7 @@ export default function Header() {
                 <Link href="/menu">Menu</Link>
                 <Link href="/rencana">Rencana</Link>
                 <Link href="/pesanan">Pesanan</Link>
-                <Link href="/profil">Profil</Link>
+                <Link href={route("loginAccount.index")}>Profil</Link>
             </div>
         </nav>
 
