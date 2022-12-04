@@ -27,8 +27,8 @@ export default function Pesanan(){
                                 Sedang Berlangsung
                             </h2>
                         </div>
-                        <div className="flex flex-row w-full justify-between">
-                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
+                        <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-2">
+                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-blue font-bold items-start text-sm">Dalam perjalanan</p>
@@ -59,7 +59,7 @@ export default function Pesanan(){
                                     <p className="text-xl font-bold">160.000</p>
                                 </div>
                             </div>
-                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md mx-4">
+                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-blue font-bold items-start text-sm">Dalam perjalanan</p>
@@ -90,7 +90,7 @@ export default function Pesanan(){
                                     <p className="text-xl font-bold">160.000</p>
                                 </div>
                             </div>
-                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
+                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-blue font-bold items-start text-sm">Dalam perjalanan</p>
@@ -132,8 +132,8 @@ export default function Pesanan(){
                                 Selesai
                             </h2>
                         </div>
-                        <div className="flex flex-row w-full justify-between">
-                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
+                        <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-2">
+                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-blue font-bold items-start text-sm">Selesai</p>
@@ -164,7 +164,7 @@ export default function Pesanan(){
                                     <p className="text-xl font-bold">160.000</p>
                                 </div>
                             </div>
-                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md mx-4">
+                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-blue font-bold items-start text-sm">Selesai</p>
@@ -195,7 +195,7 @@ export default function Pesanan(){
                                     <p className="text-xl font-bold">160.000</p>
                                 </div>
                             </div>
-                            <div className="w-1/3 bg-white rounded-md p-6 border-none drop-shadow-md">
+                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-blue font-bold items-start text-sm">Selesai</p>
