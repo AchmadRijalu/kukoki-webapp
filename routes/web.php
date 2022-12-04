@@ -18,7 +18,7 @@ Route::post('/Preferensi', [RegisterController::class, 'preferensi']);
 
 Route::resource('registerAccount', RegisterController::class);
 
-
+Route::get('/pesanan', function(){return Inertia::render('Pesanan');});
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
