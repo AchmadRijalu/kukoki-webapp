@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "@inertiajs/inertia-react";
-
+import { Link, Head } from "@inertiajs/inertia-react";
+import route from "vendor/tightenco/ziggy/src/js";
 
 export default function Header() {
     return (
@@ -12,7 +12,7 @@ export default function Header() {
                 <Link href="/menu">Menu</Link>
                 <Link href="/rencana">Rencana</Link>
                 <Link href="/pesanan">Pesanan</Link>
-                <Link href={route("loginAccount.index")}>Profil</Link>
+                <Link href={route('profileAccount.index')}>Profil</Link>
             </div>
         </nav>
 

@@ -20,14 +20,17 @@ class ProfileController extends Controller
 
     public function index()
     {
-        //
         $categories = Category::query()->get();
         $cat = $categories->offsetGet(0)->limit(2)->get();
         return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
     }
 
-    public function preferenceProfile(){
-        
+    public function UbahInformasiPengiriman(){
+        return Inertia::render('UbahInformasiPengiriman', ['title' => 'Ubah Informasi Pengiriman']);
+    }
+
+    public function editProfile(){
+        return Inertia::render('UbahProfil', ['title' => 'Ubah Profil']);
     }
 
     public function edit(Request $request)

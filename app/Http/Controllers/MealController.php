@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meal;
 use App\Http\Requests\StoreMealRequest;
 use App\Http\Requests\UpdateMealRequest;
+use Inertia\Inertia;
 
 class MealController extends Controller
 {
@@ -16,6 +17,7 @@ class MealController extends Controller
     public function index()
     {
         //
+        return Inertia::render('Menu', ['title' => 'Menu']);
     }
 
     /**
