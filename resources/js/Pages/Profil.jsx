@@ -5,8 +5,12 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 import { Inertia } from "@inertiajs/inertia";
 import PreferensiCard from "@/Components/PreferensiCard";
 
+
+
 export default function Profil(props) {
 
+'/Menu'
+  
     return (
         <>
             <Head title="Profil" />
@@ -21,9 +25,12 @@ export default function Profil(props) {
                                 <div className=" w-72 h-72 bg-darkblue rounded-full p-2 relative top-20 mr-20">
                                     <img src="img/profile/anon.png" alt="" className=" w-64 rounded-full absolute top-4 right-5 left-4" />
                                     <div className="bg-white w-20 h-20 relative top-56 left-24 rounded-full p-2">
-                                        <div className="bg-darkblue w-full h-full rounded-full flex flex-row justify-center  items-center">
+                                        <Link className="bg-darkblue w-full h-full hover:bg-blue transition rounded-full cursor-pointer flex flex-row justify-center  items-center"
+                                        href="UbahProfile"
+                                        
+                                        >
                                             <img src="img/icon-temp/editProfile.svg" alt="" className="w-8 h-8" />
-                                        </div>
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -116,11 +123,12 @@ export default function Profil(props) {
                                         Jl. CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota Surabaya, Jawa Timur 60219
                                     </h3>
                                 </div>
-                                <div className="w-3/4 mt-8  rounded-2x flex flex-row justify-center">
-                                    <button className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-blue  transition delay-50 text-md " type="">
-                                        Ubah
-                                    </button>
-                                </div>
+                                <Link
+                                    href="Ubahinformasipengiriman"
+                                    className="text-white bg-blue py-2 lg:py-3 px-5 w-3/4 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                >
+                                    Ubah
+                                </Link>
                             </div>
 
 
@@ -136,16 +144,18 @@ export default function Profil(props) {
                                     {props.category.map((category, i) =>
                                         <>
 
-                                            <PreferensiCard key={category.id} id={category.id} name={category.name} image={category.image} />
+                                            <PreferensiCard key={i} id={category.id} name={category.name} image={category.image} />
 
                                         </>
                                     )}
                                 </div>
-                                <div className="w-3/4 mt-8  rounded-2x flex flex-row justify-center">
-                                    <button className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-blue  transition delay-50 text-md " type="">
-                                        Ubah
-                                    </button>
-                                </div>
+
+                                <Link
+                                    href=""
+                                    className="text-white bg-blue py-2 lg:py-3 px-5 w-3/4 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                >
+                                    Ubah
+                                </Link>
                             </div>
 
 
@@ -157,7 +167,7 @@ export default function Profil(props) {
 
                 </div>
 
-                <Footer/>
+                <Footer />
 
             </div>
 
