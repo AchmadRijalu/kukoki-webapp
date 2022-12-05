@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Foundation\Application;
@@ -57,4 +58,8 @@ Route::get('/Menu', [MealController::class, 'index'])->middleware('auth');;
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
+Route::resource('menu', MenuController::class);
+Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->name('menu.show.recipe');
+
+require __DIR__.'/auth.php';
 // require __DIR__.'/auth.php';
