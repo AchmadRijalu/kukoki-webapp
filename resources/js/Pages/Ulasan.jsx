@@ -8,7 +8,7 @@ export default function Pesanan(){
             <div className="bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
-            <div className="mx-64 h-max mt-8 mb-12 md:p-0 mini:p-3">
+            <div className="lg:mx-64 md:mx-8 sm:mx-8 h-max mt-8 mb-12 md:p-0 mini:p-3">
                 <div className="flex flex-col justify-center items-center mb-8">
                     <div className="flex flex-row">
                         <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
@@ -20,7 +20,7 @@ export default function Pesanan(){
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </h3>
                     </div>
-                    <div className="flex flex-row mt-8 w-5/6 bg-white rounded-md p-6 border-none drop-shadow-md justify-between">
+                    <div className="flex flex-row mt-8 lg:w-5/6 bg-white rounded-md p-6 border-none drop-shadow-md justify-between">
                         <div className="flex flex-row items-center">
                             <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
                             <p className="text-2xl ml-8 text-darkblue font-bold">Pesto Pasta Chicken</p>
@@ -29,8 +29,8 @@ export default function Pesanan(){
                             <p className="text-2xl ml-8 text-blue font-bold">V</p>
                         </div>
                     </div>
-                    <div className="flex flex-col mt-8 w-5/6 bg-white rounded-md p-4 border-none drop-shadow-md justify-between">
-                        <div className="flex flex-row mt-2 justify-between items-center mx-2">
+                    <div className="flex flex-col mt-8 sm:w-full md:w-full lg:w-5/6 bg-white rounded-md p-4 border-none drop-shadow-md justify-between">
+                        <div className="flex flex-row mt-2 justify-between items-center lg:mx-2">
                             <div className="flex w-5/6">
                                 <p className="text-xl text-darkblue font-bold">Nilai Makanan</p>
                             </div>
@@ -43,7 +43,7 @@ export default function Pesanan(){
                             </div>
                         </div>
                         <div className="flex flex-row mt-2">
-                            <textarea id="message" rows="12" class="mt-2 mx-2 block w-full text-sm text-white bg-gray rounded-lg placeholder-white border-none" placeholder="Halo! Bagaimana menurutmu tentang Pesto Pasta Chicken?"></textarea>
+                            <textarea id="message" rows="12" class="mt-2 lg:mx-2 block w-full text-sm text-white bg-gray rounded-lg placeholder-white border-none" placeholder="Halo! Bagaimana menurutmu tentang Pesto Pasta Chicken?"></textarea>
                         </div>
                         <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2">
                             Bagikan Ulasan
