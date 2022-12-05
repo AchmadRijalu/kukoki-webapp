@@ -8,8 +8,8 @@ export default function Pesanan(){
             <div className="bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
-            <div className="w-full h-max mt-8 mb-12 md:p-0 mini:p-3">
-                <div className="flex flex-col justify-center items-center mb-8 mx-64">
+            <div className="mx-64 h-max mt-8 mb-12 md:p-0 mini:p-3">
+                <div className="flex flex-col justify-center items-center mb-8">
                     <div className="flex flex-row">
                         <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                             Beri Ulasan
