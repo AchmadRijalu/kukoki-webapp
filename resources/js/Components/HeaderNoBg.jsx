@@ -11,7 +11,7 @@ export default function HeaderNoBg() {
                 </Link>
             </div>
             <div className="flex gap-8 text-white font-bold text-lg">
-                <Link href="/Menu">Menu</Link>
+                <Link href={route('menu.index')}>Menu</Link>
                 <Link href="/rencana">Rencana</Link>
                 <Link href="/pesanan">Pesanan</Link>
                 <Link href={route('profileAccount.index')}>Profil</Link>

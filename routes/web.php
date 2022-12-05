@@ -36,7 +36,7 @@ Route::get('/UbahProfile', [ProfileController::class, 'editProfile'])->middlewar
 
 
 //Menu Route
-Route::get('/Menu', [MealController::class, 'index'])->middleware('auth');;
+//Route::get('/Menu', [MealController::class, 'index'])->middleware('auth');;
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
