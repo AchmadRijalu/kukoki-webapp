@@ -20,7 +20,7 @@ export default function Preferensi(props) {
         kota: props.kota,
         kecamatan: props.kecamatan,
         kelurahan: props.kelurahan,
-        alamatlengkap: props.kelurahan,
+        alamatlengkap: props.alamatlengkap,
         nomortelepon: props.nomortelepon,
         category: categoryList
 
@@ -44,7 +44,16 @@ export default function Preferensi(props) {
         { id: props.categories[7].id, name: props.categories[7].name, image: props.categories[7].image, selected: false },
     ]);
 
-
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
 
     const categoryClicked = (e) => {
 
@@ -53,17 +62,17 @@ export default function Preferensi(props) {
             categories.map(cat => {
                 if (cat.id == e.currentTarget.getAttribute("dataid")) {
 
-                    categoryList.push({
-                        id: cat.id,
 
-                    });
+                    var index = categoryList.indexOf(cat.id);
+                    console.log(index);
+                    categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id): categoryList.splice(index, 1);;
 
                     //code test
-                    //   setCategories(
+                    // setCategories(
                     //     categoryList.filter(a =>
-                    //       a.id !== cat.id
+                    //         a.id !== cat.id
                     //     )
-                    //   );
+                    // );
                     console.log(categoryList)
                     //code test
                     // if (categoryList.indexOf(cat.id) !== -1) {
@@ -120,7 +129,7 @@ export default function Preferensi(props) {
                         {categories.map((category, i) =>
                             <>
 
-                                <PreferensiCard arr={categoryList} key={category.id} id={category.id} name={category.name} image={category.image} dataid={category.id} clicking={categoryClicked} dataselect={category.selected} />
+                                <PreferensiCard arr={categoryList} key={i} id={category.id} name={category.name} image={category.image} dataid={category.id} clicking={categoryClicked} dataselect={category.selected} />
 
 
                             </>

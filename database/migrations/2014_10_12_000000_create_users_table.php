@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('district');
             $table->string('province');
             $table->string('address');
-            $table->string('profile_picture');
+            $table->string('profile_picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
