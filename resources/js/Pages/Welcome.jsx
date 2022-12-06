@@ -2,8 +2,13 @@ import React from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
+import { Inertia } from "@inertiajs/inertia";
+
 
 export default function Welcome(props) {
+
+
+
     return (
         <>
             <Head title="Home" />
@@ -20,9 +25,9 @@ export default function Welcome(props) {
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Maxime, quibusdam!
                                 </h2>
-                                <div className="flex justify-center md:justify-start mb-5 md:mb-0">
+                                <div className="flex justify-center md:justify-start mb-5 md:mb-0" onClick={(e) => handleLoginPage}>
                                     <Link
-                                        href=""
+                                        href= {route("loginAccount.index")}
                                         className="text-darkblue bg-white py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-gray-200 transition"
                                     >
                                         Pesan Sekarang

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\CategoryPreferences;
 use Inertia\Inertia;
 
 class RegisterController extends Controller
@@ -66,7 +68,45 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
+        $kota = $request->kota;
+        $kecamatan = $request->kecamatan;
+        $kelurahan = $request->kelurahan;
+        $alamatlengkap = $request->alamatlengkap;
+        $nomortelepon = $request->nomortelepon;
+        $provinsi = $request->provinsi;
+        $category = $request->category;
+        
+        $user = User::create([
+            'full_name' => $name,
+            'email'     => $email,
+            'password'  => bcrypt($password),
+            'phone'     => $nomortelepon,
+            'city'     => $kota,
+            'ward'     => $kecamatan,
+            'district'     => $kelurahan,
+            'province'     => $provinsi,
+            'address'     => $alamatlengkap,
+            'profile_picture'     => null,
+        ]);
+
+        $this->lastCreatedUserId = $user->id;
+
+
+        foreach($category as $cat){
+            CategoryPreferences::create([
+            'user_id' => $this->lastCreatedUserId,
+            'category_id'     => $cat,
+            
+            ]);
+        }
+        // dd($this->lastCreatedUserId);
+
+        
+        // $latestUser = App\User::latest()->first();
+        return redirect('/login')->with('status', 'Register Berhasil!');
         
     }
 

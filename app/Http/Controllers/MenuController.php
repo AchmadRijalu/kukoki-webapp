@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meal;
-use App\Http\Requests\StoreMealRequest;
-use App\Http\Requests\UpdateMealRequest;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class MealController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,9 @@ class MealController extends Controller
      */
     public function index()
     {
-        //
-        return Inertia::render('Menu', ['title' => 'Menu']);
+        $meals = Meal::query()->get();
+
+        return Inertia::render('Menu/Menu', compact('meals'));
     }
 
     /**
@@ -33,10 +33,10 @@ class MealController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMealRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMealRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -44,21 +44,31 @@ class MealController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Meal  $meal
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Meal $meal)
+    public function show($id)
     {
-        //
+        $meal = Meal::query()->find($id);
+        $meals = Meal::query()->get()->take(3);
+
+        return Inertia::render('Menu/MenuShow', compact('meal', 'meals'));
+    }
+
+    public function showRecipe($id)
+    {
+        $meal = Meal::query()->find($id);
+
+        return Inertia::render('Menu/MenuShowRecipe', compact('meal'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Meal  $meal
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Meal $meal)
+    public function edit($id)
     {
         //
     }
@@ -66,11 +76,11 @@ class MealController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMealRequest  $request
-     * @param  \App\Models\Meal  $meal
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMealRequest $request, Meal $meal)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +88,10 @@ class MealController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Meal  $meal
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Meal $meal)
+    public function destroy($id)
     {
         //
     }

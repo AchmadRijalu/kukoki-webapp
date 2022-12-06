@@ -17,7 +17,9 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('description');
-            $table->bigInteger('Price');
+            $table->bigInteger('price');
+            $table->integer('duration');
+            $table->string('img_path');
             $table->timestamps();
         });
     }
