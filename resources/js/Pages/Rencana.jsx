@@ -32,6 +32,7 @@ export default function Rencana(props) {
         <RencanaDateCard />,
         <RencanaDateCard />,
     ]
+
     return (
         <div>
             <div className="bg-white w-full min-h-screen flex flex-col justify-between">

@@ -29,9 +29,9 @@ export default function RencanaRincian() {
                     31 Desember 2022
                 </h1>
             </div>
-            <div className="bg-blue p-5 mt-5 rounded-md cursor-pointer sm:w-9/12 w-full">
+            <a href={route('rencana.checkout')} className="bg-blue p-5 mt-5 rounded-md cursor-pointer sm:w-9/12 w-full">
                 <h1 className="text-white text-center">Lanjutkan Pembayaran</h1>
-            </div>
+            </a>
         </div>
     );
 }
