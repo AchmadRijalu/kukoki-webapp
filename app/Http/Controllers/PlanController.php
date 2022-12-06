@@ -15,7 +15,9 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        $cart = Meal::query()->get();
+
+        return Inertia::render('Rencana', compact('cart'));
     }
 
     /**
@@ -82,12 +84,6 @@ class PlanController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function rencana () {
-        //passing list menu yang ditambahkan kekeranjang disini
-        $cart = Meal::query()->get();
-        return Inertia::render('Rencana', compact('cart'));
     }
 
     public function pembayaranberhasil () {

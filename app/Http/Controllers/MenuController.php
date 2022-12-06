@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Meal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class MenuController extends Controller
@@ -64,9 +67,14 @@ class MenuController extends Controller
 
     public function addToPlan(Request $request, $id)
     {
-        $meal = Meal::query()->find($id);
+        Cart::query()->create([
+            'user_id' => Auth::id(),
+            'meal_id' => $id,
+            'date' => $request->date,
+            'portion' => $request->portion,
+        ]);
 
-        return Inertia::render('Menu/MenuShowRecipe', compact('meal'));
+        return Redirect::route('rencana.index');
     }
 
     /**

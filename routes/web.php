@@ -42,11 +42,10 @@ Route::get('/ubah_profil', [ProfileController::class, 'editProfile'])->middlewar
 
 //Menu Route
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
-Route::get('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->middleware('auth')->name('menu.add_to_plan');
+Route::post('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->middleware('auth')->name('menu.add_to_plan');
 Route::resource('menu', MenuController::class)->middleware('auth');
 
 //Rencana Route
-Route::resource("plan", PlanController::class)->middleware("auth");
-Route::get('/rencana', [PlanController::class, 'rencana'])->middleware('auth');
+Route::resource("rencana", PlanController::class)->middleware("auth");
 Route::get('/checkout', [PlanController::class, 'checkout'])->middleware('auth');
 Route::get('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth');

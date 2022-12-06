@@ -6,9 +6,20 @@ import Footer from "@/Components/Footer";
 import MenuCard from "@/Components/MenuCard";
 import MainLayout from "@/Layouts/MainLayout";
 import MenuReviewCard from "@/Components/MenuReviewCard";
+import {Inertia} from "@inertiajs/inertia";
 
 export default function MenuShow(props) {
     const [porsi, setPorsi] = useState(2);
+    const [date, setDate] = useState('');
+
+    function handleAddToPlan() {
+        let values ={
+            portion: porsi,
+            date: date
+        }
+
+        Inertia.post(route('menu.add_to_plan', props.meal.id), values)
+    }
 
     return (
         <MainLayout>
@@ -48,32 +59,30 @@ export default function MenuShow(props) {
                         <div className='pt-4'>
                             <p className="font-semibold text-darkblue">Tanggal Pengiriman</p>
                             <div className='relative flex justify-end items-center mt-1'>
-                                <input type="date" className='w-full border border-gray-400 rounded-md text-gray-500'/>
+                                <input type="date" onChange={(e) => setDate(e.target.value)} className='w-full border border-gray-400 rounded-md text-gray-500'/>
                                 <img src="/img/icon/calendar.svg" alt="Tanggal" className='absolute mr-4 w-5'/>
                             </div>
                         </div>
                         <div className='pt-4'>
-                            <Link href={route('menu.add_to_plan', props.meal.id)}>
-                                <button
-                                    className="
-                        mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
-						text-base
-						flex
-						items-center
-						justify-center
-						leading-none
-						text-white
-						font-bold
-						bg-blue
-						w-full
-						py-5
-						hover:bg-bluehover
-						rounded-md
-					"
-                                >
-                                    Tambahkan ke Rencana
-                                </button>
-                            </Link>
+                            <button onClick={handleAddToPlan}
+                                className="
+                    mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
+                    text-base
+                    flex
+                    items-center
+                    justify-center
+                    leading-none
+                    text-white
+                    font-bold
+                    bg-blue
+                    w-full
+                    py-5
+                    hover:bg-bluehover
+                    rounded-md
+                "
+                            >
+                                Tambahkan ke Rencana
+                            </button>
                         </div>
                     </div>
                 </div>
