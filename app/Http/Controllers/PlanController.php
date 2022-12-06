@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrderDetail;
-use App\Http\Requests\StoreOrderDetailRequest;
-use App\Http\Requests\UpdateOrderDetailRequest;
+use Illuminate\Http\Request;
+use App\Models\Plan;
 use Inertia\Inertia;
 
-class OrderDetailController extends Controller
+class PlanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +31,10 @@ class OrderDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOrderDetailRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrderDetailRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -43,10 +42,10 @@ class OrderDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\OrderDetail  $orderDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(OrderDetail $orderDetail)
+    public function show($id)
     {
         //
     }
@@ -54,10 +53,10 @@ class OrderDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\OrderDetail  $orderDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(OrderDetail $orderDetail)
+    public function edit($id)
     {
         //
     }
@@ -65,11 +64,11 @@ class OrderDetailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOrderDetailRequest  $request
-     * @param  \App\Models\OrderDetail  $orderDetail
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrderDetailRequest $request, OrderDetail $orderDetail)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,11 +76,24 @@ class OrderDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\OrderDetail  $orderDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OrderDetail $orderDetail)
+    public function destroy($id)
     {
         //
     }
+
+    public function rencana () {
+        //passing list menu yang ditambahkan kekeranjang disini
+        return Inertia::render('Rencana');
+    }
+
+    public function pembayaranberhasil () {
+        return Inertia::render('PembayaranBerhasil');
+    }
+
+    // public function checkout () {
+    //     return Inertia::render('Checkout');
+    // }
 }

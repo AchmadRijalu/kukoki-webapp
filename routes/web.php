@@ -5,6 +5,8 @@ use App\Http\Controllers\MealController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\PlanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,10 +16,13 @@ Route::get('/', function(){
     return Inertia::render('Welcome');
 });
 
-//Register route
+//Register routeRoute::get('/Rencana', [PlanController::class, 'rencana']);
+Route::get('/PembayaranBerhasil', [PlanController::class, 'pembayaranberhasil']);
+Route::get('/Checkout', [PlanController::class, 'checkout']);
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
 Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
-Route::resource('registerAccount', RegisterController::class);
+
+oute::resource('registerAccount', RegisterController::class);
 
 //Login Route
 Route::resource('loginAccount', LoginController::class)->middleware('guest');

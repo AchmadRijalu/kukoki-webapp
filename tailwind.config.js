@@ -22,7 +22,6 @@ module.exports = {
                 brown: "#703900",
                 smoke: "#F9F9F9",
                 gray: "#BFBFBF",
-
                 dagingsayur: "#FCEAB2",
                 cepatmudah: "#D2F5FF",
                 sayur: "#F8D1B7",
@@ -31,6 +30,11 @@ module.exports = {
                 proteintinggi: "#F8CDD5",
                 makananlaut: "#DFFCFB",
                 menudiet: "#D9E8FB",
+                rencanacard: "#F2F2F2",
+                rencanatext: "#6A6A6A",
+                rencanasend: "#A9A9A9",
+                pembayaranborder: "#D9D9D9",
+
             },
             backgroundImage: {
                 "blue-bg": "url('/img/blue_background.svg')",
