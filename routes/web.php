@@ -16,13 +16,12 @@ Route::get('/', function(){
     return Inertia::render('Welcome');
 });
 
-//Register routeRoute::get('/Rencana', [PlanController::class, 'rencana']);
+//Register route
 Route::get('/PembayaranBerhasil', [PlanController::class, 'pembayaranberhasil']);
 Route::get('/Checkout', [PlanController::class, 'checkout']);
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
 Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
-
-oute::resource('registerAccount', RegisterController::class);
+Route::resource('registerAccount', RegisterController::class);
 
 //Login Route
 Route::resource('loginAccount', LoginController::class)->middleware('guest');
@@ -43,3 +42,6 @@ Route::get('/UbahProfile', [ProfileController::class, 'editProfile'])->middlewar
 //Menu Route
 Route::resource('menu', MenuController::class)->middleware('auth');
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
+
+//Rencana Route
+Route::get('/Rencana', [PlanController::class, 'rencana']);
