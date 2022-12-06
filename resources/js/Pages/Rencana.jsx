@@ -11,17 +11,31 @@ export default function Rencana(props) {
     const [isSelected, setisSelected] = useState(null);
 
     //Meals in cart
-    const [mealsInCart, setMeals] = useState([])
-
+    const [mealsInCart, setMeals] = useState(props.cart);
+    const [refresher, setRefresher] = useState(null);
 
     //Logic for showing mealkits based on date
     const handlechange = (index) => {
         const newUsers = [...users];
-        newUsers[index].name = 'New Name';
-        newUsers[index].rollNo = 'New RollNo';
+        newUsers[index].name = "New Name";
+        newUsers[index].rollNo = "New RollNo";
         setMeals(newUsers);
-      };
+    };
 
+    // const deleteMeal = (index) => {
+    //     var newList = mealsInCart
+    //     newList.splice(index,1)
+    //     setMeals(newList)
+    //     setRefresher(index)
+    // }
+
+    const deleteItem = (id) => {
+        setMeals((prevItems) => {
+            return prevItems.filter((item,index) => {
+                return index !== id
+            })
+        })
+    }
 
     const rencanaDateOptions = [
         <RencanaDateCard />,
@@ -31,7 +45,7 @@ export default function Rencana(props) {
         <RencanaDateCard />,
         <RencanaDateCard />,
         <RencanaDateCard />,
-    ]
+    ];
     return (
         <div>
             <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -117,14 +131,29 @@ export default function Rencana(props) {
                                 </ul>
                             </div> */}
                             <div className="grid mt-2 justify-center grid-cols-4 sm:grid-cols-7">
-                                {rencanaDateOptions.map((option,index) => {
-                                    return <RencanaDateCard option={option} selected={isSelected === index} onChange = {()=> setisSelected(index)}/>
+                                {rencanaDateOptions.map((option, index) => {
+                                    return (
+                                        <RencanaDateCard
+                                            option={option}
+                                            selected={isSelected === index}
+                                            onChange={() =>
+                                                setisSelected(index)
+                                            }
+                                        />
+                                    );
                                 })}
                             </div>
 
                             <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
-                                {props.cart.map((item,index) => {
-                                    return <RencanaCard item={item}/>
+                                {mealsInCart.map((item, index) => {
+                                    return (
+                                        <RencanaCard
+                                            key={index}
+                                            id={index}
+                                            item={item}
+                                            deleteItem={deleteItem} 
+                                        />
+                                    );
                                 })}
                                 {/* <RencanaCard />
                                 <RencanaCard /> */}
