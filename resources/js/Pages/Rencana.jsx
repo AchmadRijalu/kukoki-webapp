@@ -7,45 +7,89 @@ import RencanaDateCard from "@/Components/RencanaDateCard";
 import RencanaCard from "@/Components/RencanaCard";
 import RencanaRincian from "@/Components/RencanaRincian";
 
-export default function Rencana(props) {
+export default function Rencana(props) { 
     const [isSelected, setisSelected] = useState(null);
 
     //Meals in cart
     const [mealsInCart, setMeals] = useState(props.cart);
-    const [refresher, setRefresher] = useState(null);
 
     //Logic for showing mealkits based on date
     const handlechange = (index) => {
-        const newUsers = [...users];
-        newUsers[index].name = "New Name";
-        newUsers[index].rollNo = "New RollNo";
-        setMeals(newUsers);
+        
     };
 
-    // const deleteMeal = (index) => {
-    //     var newList = mealsInCart
-    //     newList.splice(index,1)
-    //     setMeals(newList)
-    //     setRefresher(index)
-    // }
+    function getDaysInMonth(month, year) {
+        var date = new Date(year, month, 1);
+        var days = [];
+        while (date.getMonth() === month) {
+            days.push(new Date(date));
+            date.setDate(date.getDate() + 1);
+        }
+        const week1 = days.slice(0, 7);
+        const week2 = days.slice(7,14);
+        const week3 = days.slice(14,21);
+        const week4 = days.slice(22);
+
+        const weeks = {
+            "week1": week1,
+            "week2": week2,
+            "week3": week3,
+            "week4": week4,
+        }
+        return weeks
+    }
+
+    let currentWeek = () => {
+        var date = new Date()
+        let allWeeks = getDaysInMonth(date.getMonth(),date.getFullYear())
+        //do checks on each weeks
+        //check for if 1st week
+        for (let week of allWeeks["week1"]) {
+            if (week.getDate() === date.getDate()) {
+                return 1;
+            }
+        }
+        //check for if 2nd week
+        for (let week of allWeeks["week2"]) {
+            if (week.getDate() === date.getDate()) {
+                return 2;
+            }
+        }
+        //check for if 3rd week
+        for (let week of allWeeks["week3"]) {
+            if (week.getDate() === date.getDate()) {
+                return 3;
+            }
+        }
+        //check for if 4th week
+        for (let week of allWeeks["week4"]) {
+            if (week.getDate() === date.getDate()) {
+                return 4;
+            }
+        }
+    }
 
     const deleteItem = (id) => {
         setMeals((prevItems) => {
-            return prevItems.filter((item,index) => {
-                return index !== id
-            })
-        })
+            return prevItems.filter((item, index) => {
+                return index !== id;
+            });
+        });
+    };
+
+    const rencanaDateOptions = () => {
+        let date = new Date()
+        const weekList = getDaysInMonth(date.getMonth(), date.getFullYear())
+        if (currentWeek() == 1) {
+            return weekList.week1
+        } else if (currentWeek() == 2) {
+            return weekList.week2
+        } else if (currentWeek() == 3) {
+            return weekList.week3
+        }
+        return weekList.week4
     }
 
-    const rencanaDateOptions = [
-        <RencanaDateCard />,
-        <RencanaDateCard />,
-        <RencanaDateCard />,
-        <RencanaDateCard />,
-        <RencanaDateCard />,
-        <RencanaDateCard />,
-        <RencanaDateCard />,
-    ];
     return (
         <div>
             <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -131,7 +175,7 @@ export default function Rencana(props) {
                                 </ul>
                             </div> */}
                             <div className="grid mt-2 justify-center grid-cols-4 sm:grid-cols-7">
-                                {rencanaDateOptions.map((option, index) => {
+                                {rencanaDateOptions().map((option, index) => {
                                     return (
                                         <RencanaDateCard
                                             option={option}
@@ -151,7 +195,7 @@ export default function Rencana(props) {
                                             key={index}
                                             id={index}
                                             item={item}
-                                            deleteItem={deleteItem} 
+                                            deleteItem={deleteItem}
                                         />
                                     );
                                 })}
