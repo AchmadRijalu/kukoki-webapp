@@ -48,3 +48,9 @@ Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middlewa
 Route::get('/rencana', [PlanController::class, 'rencana'])->middleware('auth');
 Route::get('/checkout', [PlanController::class, 'checkout'])->middleware('auth');
 Route::get('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth');
+
+//Plan Route
+Route::resource("plan", PlanController::class)->middleware("auth");
+Route::get('/pembayaranBerhasil', [PlanController::class, 'pembayaranberhasil'])->middleware("auth");
+Route::get('/checkout', [PlanController::class, 'checkout'])->middleware("auth");
+Route::get('/rencana', [PlanController::class, 'rencana']);

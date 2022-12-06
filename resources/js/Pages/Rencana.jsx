@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 import Footer from "@/Components/Footer";
@@ -7,7 +7,31 @@ import RencanaDateCard from "@/Components/RencanaDateCard";
 import RencanaCard from "@/Components/RencanaCard";
 import RencanaRincian from "@/Components/RencanaRincian";
 
-export default function Rencana() {
+export default function Rencana(props) {
+    const [isSelected, setisSelected] = useState(null);
+
+    //Meals in cart
+    const [mealsInCart, setMeals] = useState([])
+
+
+    //Logic for showing mealkits based on date
+    const handlechange = (index) => {
+        const newUsers = [...users];
+        newUsers[index].name = 'New Name';
+        newUsers[index].rollNo = 'New RollNo';
+        setMeals(newUsers);
+      };
+
+
+    const rencanaDateOptions = [
+        <RencanaDateCard />,
+        <RencanaDateCard />,
+        <RencanaDateCard />,
+        <RencanaDateCard />,
+        <RencanaDateCard />,
+        <RencanaDateCard />,
+        <RencanaDateCard />,
+    ]
     return (
         <div>
             <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -93,18 +117,17 @@ export default function Rencana() {
                                 </ul>
                             </div> */}
                             <div className="grid mt-2 justify-center grid-cols-4 sm:grid-cols-7">
-                                <RencanaDateCard />
-                                <RencanaDateCard />
-                                <RencanaDateCard />
-                                <RencanaDateCard />
-                                <RencanaDateCard />
-                                <RencanaDateCard />
-                                <RencanaDateCard />
+                                {rencanaDateOptions.map((option,index) => {
+                                    return <RencanaDateCard option={option} selected={isSelected === index} onChange = {()=> setisSelected(index)}/>
+                                })}
                             </div>
 
                             <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
-                                <RencanaCard />
-                                <RencanaCard />
+                                {props.cart.map((item,index) => {
+                                    return <RencanaCard item={item}/>
+                                })}
+                                {/* <RencanaCard />
+                                <RencanaCard /> */}
                             </div>
                         </div>
                         <RencanaRincian />
