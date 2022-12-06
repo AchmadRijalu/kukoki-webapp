@@ -85,6 +85,7 @@ class PlanController extends Controller
     }
 
     public function rencana () {
+        //passing list menu yang ditambahkan kekeranjang disini
         return Inertia::render('Rencana');
     }
 
@@ -92,7 +93,7 @@ class PlanController extends Controller
         return Inertia::render('PembayaranBerhasil');
     }
 
-    public function checkout () {
-        return Inertia::render('Checkout');
-    }
+    // public function checkout () {
+    //     return Inertia::render('Checkout');
+    // }
 }
