@@ -14,7 +14,6 @@ Route::get('/', function(){
     return Inertia::render('Welcome');
 });
 
-
 //Register route
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
 Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
@@ -26,40 +25,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::post('/login', [LoginController::class, 'store']);
 
-
-
-
 //Profil Route
 Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
 Route::get('/Ubahinformasipengiriman', [ProfileController::class, 'UbahInformasiPengiriman'])->middleware('auth');;
 Route::get('/UbahProfile', [ProfileController::class, 'editProfile'])->middleware('auth');;
 
-
 //Menu Route
-//Route::get('/Menu', [MealController::class, 'index'])->middleware('auth');;
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
-// Route::resource('deliver', RegisterController::class);
-
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-Route::resource('menu', MenuController::class);
-Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->name('menu.show.recipe');
-
-require __DIR__.'/auth.php';
-// require __DIR__.'/auth.php';
+Route::resource('menu', MenuController::class)->middleware('auth');
+Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
