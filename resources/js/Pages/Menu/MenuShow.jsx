@@ -20,7 +20,7 @@ export default function MenuShow(props) {
                     </div>
                     <div className='w-1/2'>
                         <div>
-                            <p className="text-sm leading-none text-gray-600">Balenciaga Fall Collection</p>
+                            <p className="text-sm leading-none text-gray-600">Daging dan Sayur</p>
                             <h1
                                 className="
 							lg:text-5xl
@@ -30,14 +30,11 @@ export default function MenuShow(props) {
 							mt-2
 						"
                             >
-                                Balenciaga Signature Sweatshirt
+                                {props.meal.name}
                             </h1>
                         </div>
                         <div className='pt-4'>
-                            <p className="text-base lg:leading-tight leading-normal text-gray-600">It is a long
-                                established fact that a reader will be distracted by thereadable content of a page when
-                                looking at its layout. The point of usingLorem Ipsum is that it has a more-or-less
-                                normal distribution of letters.</p>
+                            <p className="text-base lg:leading-tight leading-normal text-gray-600">{props.meal.description}</p>
                         </div>
                         <div className='pt-4'>
                             <p className="font-semibold text-darkblue">Jumlah Porsi</p>
@@ -56,10 +53,10 @@ export default function MenuShow(props) {
                             </div>
                         </div>
                         <div className='pt-4'>
-                            <button
-                                className="
-                        mt-4
-						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
+                            <Link href={route('menu.add_to_plan', props.meal.id)}>
+                                <button
+                                    className="
+                        mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
 						text-base
 						flex
 						items-center
@@ -73,9 +70,10 @@ export default function MenuShow(props) {
 						hover:bg-bluehover
 						rounded-md
 					"
-                            >
-                                Tambahkan ke Rencana
-                            </button>
+                                >
+                                    Tambahkan ke Rencana
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -83,21 +81,17 @@ export default function MenuShow(props) {
                     <div className='w-1/2'>
                         <h4 className='text-darkblue font-bold text-2xl'>Bahan</h4>
                         <ul className='list-disc pl-6 mt-1'>
-                            <li>aaa</li>
-                            <li>aaa</li>
-                            <li>aaa</li>
-                            <li>aaa</li>
-                            <li>aaa</li>
+                            {props.meal.ingredients.map((ingredient, i) =>
+                                <li>{ingredient.pivot.amount} {ingredient.unit} {ingredient.name}</li>
+                            )}
                         </ul>
                     </div>
                     <div className='w-1/2'>
                         <h4 className='text-darkblue font-bold text-2xl'>Alat yang dibutuhkan</h4>
                         <ul className='list-disc pl-6 mt-1'>
-                            <li>aaa</li>
-                            <li>aaa</li>
-                            <li>aaa</li>
-                            <li>aaa</li>
-                            <li>aaa</li>
+                            {props.meal.tools.map((tool, i) =>
+                                <li>{tool.pivot.amount} {tool.name}</li>
+                            )}
                         </ul>
                     </div>
                 </div>

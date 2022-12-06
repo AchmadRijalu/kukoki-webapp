@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Tools;
+use App\Models\Tool;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ToolsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Tools $tools)
+    public function view(User $user, Tool $tools)
     {
         //
     }
@@ -48,10 +48,10 @@ class ToolsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Tools $tools)
+    public function update(User $user, Tool $tools)
     {
         //
     }
@@ -60,10 +60,10 @@ class ToolsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Tools $tools)
+    public function delete(User $user, Tool $tools)
     {
         //
     }
@@ -72,10 +72,10 @@ class ToolsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Tools $tools)
+    public function restore(User $user, Tool $tools)
     {
         //
     }
@@ -84,10 +84,10 @@ class ToolsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Tools $tools)
+    public function forceDelete(User $user, Tool $tools)
     {
         //
     }

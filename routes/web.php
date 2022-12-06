@@ -41,8 +41,9 @@ Route::get('/ubah_informasi_pengiriman', [ProfileController::class, 'UbahInforma
 Route::get('/ubah_profil', [ProfileController::class, 'editProfile'])->middleware('auth');
 
 //Menu Route
-Route::resource('menu', MenuController::class)->middleware('auth');
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
+Route::get('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->middleware('auth')->name('menu.add_to_plan');
+Route::resource('menu', MenuController::class)->middleware('auth');
 
 //Rencana Route
 Route::resource("plan", PlanController::class)->middleware("auth");

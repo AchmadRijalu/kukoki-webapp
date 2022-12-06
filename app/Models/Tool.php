@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tools extends Model
+class Tool extends Model
 {
     use HasFactory;
     protected $table = "tools";
-
-
     protected $primaryKey = "id";
 }

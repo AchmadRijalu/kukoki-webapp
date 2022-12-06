@@ -49,13 +49,20 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        $meal = Meal::query()->find($id);
+        $meal = Meal::query()->with(['tools', 'ingredients'])->find($id);
         $meals = Meal::query()->get()->take(3);
 
         return Inertia::render('Menu/MenuShow', compact('meal', 'meals'));
     }
 
     public function showRecipe($id)
+    {
+        $meal = Meal::query()->find($id);
+
+        return Inertia::render('Menu/MenuShowRecipe', compact('meal'));
+    }
+
+    public function addToPlan(Request $request, $id)
     {
         $meal = Meal::query()->find($id);
 

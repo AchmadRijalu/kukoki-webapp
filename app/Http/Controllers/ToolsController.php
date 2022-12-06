@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tools;
+use App\Models\Tool;
 use App\Http\Requests\StoreToolsRequest;
 use App\Http\Requests\UpdateToolsRequest;
 
@@ -42,10 +42,10 @@ class ToolsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Http\Response
      */
-    public function show(Tools $tools)
+    public function show(Tool $tools)
     {
         //
     }
@@ -53,10 +53,10 @@ class ToolsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tools $tools)
+    public function edit(Tool $tools)
     {
         //
     }
@@ -65,10 +65,10 @@ class ToolsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateToolsRequest  $request
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateToolsRequest $request, Tools $tools)
+    public function update(UpdateToolsRequest $request, Tool $tools)
     {
         //
     }
@@ -76,10 +76,10 @@ class ToolsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tools  $tools
+     * @param  \App\Models\Tool  $tools
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tools $tools)
+    public function destroy(Tool $tools)
     {
         //
     }

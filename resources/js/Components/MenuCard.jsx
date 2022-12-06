@@ -5,27 +5,32 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 import Footer from "@/Components/Footer";
 
 export default function MenuCard({meal}) {
+    const formatter = new Intl.NumberFormat('de-DE', {
+    });
+
     return (
         <Link href={route('menu.show', meal.id)}>
             <div className="max-w-xs rounded overflow-hidden shadow-lg hover:scale-[102%] transition">
-                <img className="w-full" src="/img/menu/grilled_salmon.png" alt="Sunset in the mountains" />
+                <img className="w-full" src="/img/menu/grilled_salmon.png" alt={meal.name} />
                 <div className="px-4 py-4">
                     <div className="font-bold text-xl mb-2 text-darkblue">{meal.name}</div>
-                    <p className="text-gray-700 text-xs">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
+                    <p className="text-gray-700 text-xs">{meal.description}</p>
                 </div>
                 <div className="px-4 pb-4 flex flex-row gap-4">
                     <div className='flex flex-row gap-2 items-center'>
                         <img className='w-6' src="/img/icon/category.svg" alt=""/>
-                        <p className='text-xs'>Daging dan Sayur</p>
+                        <div>
+                            <p className='text-xs'>Daging dan Sayur</p>
+
+                        </div>
                     </div>
                     <div className='flex flex-row gap-2 items-center'>
                         <img className='w-6' src="/img/icon/chef_hat.svg" alt=""/>
-                        <p className='text-xs'>40 min</p>
+                        <p className='text-xs'>{meal.duration} min</p>
                     </div>
                 </div>
                 <div className="py-2 bg-blue flex justify-center">
-                    <h6 className='font-bold text-white'>Rp40.000/2 porsi</h6>
+                    <h6 className='font-bold text-white'>{'Rp' + formatter.format(meal.price)}/2 porsi</h6>
                 </div>
             </div>
         </Link>

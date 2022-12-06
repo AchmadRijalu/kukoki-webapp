@@ -15,7 +15,13 @@ class Meal extends Model
     protected $primaryKey = "id";
 
 
-    // public function anggotas(){
-    //     return $this->hasMany(Anggota::class, 'kode_kk', 'no_kk');
-    // }
+    public function ingredients()
+    {
+        return $this->belongsToMany(Ingredient::class, 'meal_ingredients')->withPivot(['amount']);
+    }
+
+    public function tools()
+    {
+        return $this->belongsToMany(Tool::class, 'meal_tools')->withPivot(['amount']);
+    }
 }
