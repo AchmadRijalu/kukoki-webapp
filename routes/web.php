@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\OrderDetailController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -12,7 +13,9 @@ Route::get('/', function(){
 });
 
 Route::get('/Register', [RegisterController::class, 'index']);
-
+Route::get('/Rencana', [OrderDetailController::class, 'rencana']);
+Route::get('/PembayaranBerhasil', [OrderDetailController::class, 'pembayaranberhasil']);
+Route::get('/Checkout', [OrderDetailController::class, 'checkout']);
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman']);
 Route::post('/Preferensi', [RegisterController::class, 'preferensi']);
 

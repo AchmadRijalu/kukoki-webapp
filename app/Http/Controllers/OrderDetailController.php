@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OrderDetail;
 use App\Http\Requests\StoreOrderDetailRequest;
 use App\Http\Requests\UpdateOrderDetailRequest;
+use Inertia\Inertia;
 
 class OrderDetailController extends Controller
 {
@@ -82,5 +83,17 @@ class OrderDetailController extends Controller
     public function destroy(OrderDetail $orderDetail)
     {
         //
+    }
+
+    public function rencana () {
+        return Inertia::render('Rencana');
+    }
+
+    public function pembayaranberhasil () {
+        return Inertia::render('PembayaranBerhasil');
+    }
+
+    public function checkout () {
+        return Inertia::render('Checkout');
     }
 }

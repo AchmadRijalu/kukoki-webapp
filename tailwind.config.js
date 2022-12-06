@@ -30,7 +30,10 @@ module.exports = {
                 proteintinggi: "#F8CDD5",
                 makananlaut: "#DFFCFB",
                 menudiet: "#D9E8FB",
-                
+                rencanacard: "#F2F2F2",
+                rencanatext: "#6A6A6A",
+                rencanasend: "#A9A9A9",
+                pembayaranborder: "#D9D9D9",
                 
             },
             backgroundImage: {
