@@ -25,6 +25,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::post('/login', [LoginController::class, 'store']);
 
+//Pesanan Route
+Route::get('/pesanan', function(){return Inertia::render('Pesanan');});
+Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan');});
+Route::get('/ulasan', function(){return Inertia::render('Ulasan');});
+
 //Profil Route
 Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
 Route::get('/Ubahinformasipengiriman', [ProfileController::class, 'UbahInformasiPengiriman'])->middleware('auth');;

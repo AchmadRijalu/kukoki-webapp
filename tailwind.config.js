@@ -21,6 +21,7 @@ module.exports = {
                 lightblue: "#D2F5FF",
                 brown: "#703900",
                 smoke: "#F9F9F9",
+                gray: "#BFBFBF",
 
                 dagingsayur: "#FCEAB2",
                 cepatmudah: "#D2F5FF",
@@ -30,8 +31,6 @@ module.exports = {
                 proteintinggi: "#F8CDD5",
                 makananlaut: "#DFFCFB",
                 menudiet: "#D9E8FB",
-                
-                
             },
             backgroundImage: {
                 "blue-bg": "url('/img/blue_background.svg')",
