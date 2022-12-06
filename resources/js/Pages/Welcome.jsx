@@ -3,6 +3,7 @@ import { Link, Head } from "@inertiajs/inertia-react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import { Inertia } from "@inertiajs/inertia";
+import MenuCard from "@/Components/MenuCard";
 
 
 export default function Welcome(props) {
@@ -55,8 +56,13 @@ export default function Welcome(props) {
                             Lorem ipsum dolor, sit amet consectetur adipisicing
                             elit. Non, quis?
                         </h2>
+                        <div className="grid grid-cols-3 gap-10 my-5">
+                            {props.meals.map((meal, i) =>
+                                <MenuCard meal={meal} key={i}></MenuCard>
+                            )}
+                        </div>
                         <Link
-                            href=""
+                            href="/menu"
                             className="text-white my-5 bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                         >
                             Lihat Semua
