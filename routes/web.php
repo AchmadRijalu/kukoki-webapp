@@ -17,14 +17,14 @@ Route::get('/', function(){
 });
 
 //Register route
-Route::get('/PembayaranBerhasil', [PlanController::class, 'pembayaranberhasil']);
-Route::get('/Checkout', [PlanController::class, 'checkout']);
-Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
-Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
-Route::resource('registerAccount', RegisterController::class);
+Route::get('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil']);
+Route::get('/checkout', [PlanController::class, 'checkout']);
+Route::post('/informasi_pengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
+Route::post('/preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
+Route::resource('register_account', RegisterController::class);
 
 //Login Route
-Route::resource('loginAccount', LoginController::class)->middleware('guest');
+Route::resource('login_account', LoginController::class)->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::post('/login', [LoginController::class, 'store']);
@@ -35,13 +35,13 @@ Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan')
 Route::get('/ulasan', function(){return Inertia::render('Ulasan');});
 
 //Profil Route
-Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
-Route::get('/Ubahinformasipengiriman', [ProfileController::class, 'UbahInformasiPengiriman'])->middleware('auth');;
-Route::get('/UbahProfile', [ProfileController::class, 'editProfile'])->middleware('auth');;
+Route::resource('profil', ProfileController::class)->middleware('auth');;
+Route::get('/ubah_informasi_pengiriman', [ProfileController::class, 'UbahInformasiPengiriman'])->middleware('auth');;
+Route::get('/ubah_profil', [ProfileController::class, 'editProfile'])->middleware('auth');;
 
 //Menu Route
 Route::resource('menu', MenuController::class)->middleware('auth');
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
 
 //Rencana Route
-Route::get('/Rencana', [PlanController::class, 'rencana']);
+Route::get('/rencana', [PlanController::class, 'rencana']);

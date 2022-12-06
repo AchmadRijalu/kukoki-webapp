@@ -10,7 +10,7 @@ import PreferensiCard from "@/Components/PreferensiCard";
 export default function Profil(props) {
 
 '/Menu'
-  
+
     return (
         <>
             <Head title="Profil" />
@@ -26,8 +26,8 @@ export default function Profil(props) {
                                     <img src="img/profile/anon.png" alt="" className=" w-64 rounded-full absolute top-4 right-5 left-4" />
                                     <div className="bg-white w-20 h-20 relative top-56 left-24 rounded-full p-2">
                                         <Link className="bg-darkblue w-full h-full hover:bg-blue transition rounded-full cursor-pointer flex flex-row justify-center  items-center"
-                                        href="UbahProfile"
-                                        
+                                        href="ubah_profil"
+
                                         >
                                             <img src="img/icon-temp/editProfile.svg" alt="" className="w-8 h-8" />
                                         </Link>
@@ -124,7 +124,7 @@ export default function Profil(props) {
                                     </h3>
                                 </div>
                                 <Link
-                                    href="Ubahinformasipengiriman"
+                                    href="ubah_informasi_pengiriman"
                                     className="text-white bg-blue py-2 lg:py-3 px-5 w-3/4 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Ubah

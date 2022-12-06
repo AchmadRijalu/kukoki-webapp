@@ -21,7 +21,7 @@ export default function UbahInformasiPengiriman(props) {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         console.log(data);
-        Inertia.post('/Preferensi', data)
+        Inertia.post('/preferensi', data)
 
     }
     return (

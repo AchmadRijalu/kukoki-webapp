@@ -19,7 +19,7 @@ export default function Register() {
         e.preventDefault();
 
         // Inertia.post(route('deliver.store'), values)
-        Inertia.post('/InformasiPengiriman', data)
+        Inertia.post('/informasi_pengiriman', data)
 
     }
 

@@ -47,12 +47,12 @@ export default function LoginTry(props) {
                                 <form onSubmit={storeLogin}>
 
                                     <div>
-                                    
+
                                         <label htmlFor="email" className="text-black font-medium ml-4 mb-44">Email</label>
                                         <div className="mb-2">
                                         </div>
                                         <input type="email" onChange={(e) => setEmail(e.target.value)} name="email" className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
-                                        
+
 
                                         <label htmlFor="password" className="text-black font-medium ml-4 mb-44">Password</label>
                                         <div className="mb-2">
@@ -60,7 +60,7 @@ export default function LoginTry(props) {
                                         </div>
 
                                         <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} className="border-1 border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
-                                        
+
                                         {errors.email && (
                                             <div className="text-red-400 font-semibold mt-4 text-center">
                                                 {errors.email}
@@ -88,7 +88,7 @@ export default function LoginTry(props) {
                                                 Belum mempunyai akun?
                                             </h6>
                                             <h6 className="lg:ml-2 lg:mt-0 mini:mt-4 mini:ml-0  underline">
-                                                <Link href={route('registerAccount.index')}>
+                                                <Link href={route('register_account.index')}>
                                                     <h2>Daftar disini</h2>
                                                 </Link>
 
