@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Plan;
+use App\Models\Meal;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
@@ -86,7 +86,8 @@ class PlanController extends Controller
 
     public function rencana () {
         //passing list menu yang ditambahkan kekeranjang disini
-        return Inertia::render('Rencana');
+        $cart = Meal::query()->get();
+        return Inertia::render('Rencana', compact('cart'));
     }
 
     public function pembayaranberhasil () {

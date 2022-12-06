@@ -16,13 +16,10 @@ Route::get('/', function(){
     return Inertia::render('Welcome');
 });
 
-//Register routeRoute::get('/Rencana', [PlanController::class, 'rencana']);
-Route::get('/PembayaranBerhasil', [PlanController::class, 'pembayaranberhasil']);
-Route::get('/Checkout', [PlanController::class, 'checkout']);
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
 Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
 
-oute::resource('registerAccount', RegisterController::class);
+Route::resource('registerAccount', RegisterController::class);
 
 //Login Route
 Route::resource('loginAccount', LoginController::class)->middleware('guest');
@@ -38,3 +35,9 @@ Route::get('/UbahProfile', [ProfileController::class, 'editProfile'])->middlewar
 //Menu Route
 Route::resource('menu', MenuController::class)->middleware('auth');
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
+
+//Plan Route
+Route::resource("plan", PlanController::class)->middleware("auth");
+Route::get('/pembayaranBerhasil', [PlanController::class, 'pembayaranberhasil'])->middleware("auth");
+Route::get('/checkout', [PlanController::class, 'checkout'])->middleware("auth");
+Route::get('/rencana', [PlanController::class, 'rencana']);
