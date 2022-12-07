@@ -16,9 +16,9 @@ export default function RencanaDateCard(props) {
         <div
             className={`flex flex-col justify-start items-center ${
                 props.selected
-                    ? `bg-blue text-orange-300`
+                    ? `bg-blue text-white`
                     : `bg-rencanacard text-rencanatext`
-            } p-6 lg:p-3 rounded-lg text-rencanatext mx-3 mb-5 cursor-pointer`}
+            } p-6 lg:p-3 rounded-lg mx-3 mb-5 cursor-pointer`}
             onClick={props.onChange}
             selected={props.selected}
         >
