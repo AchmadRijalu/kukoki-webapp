@@ -129,7 +129,7 @@ export default function Rencana(props) {
                                                         },
                                                     ]);
                                                 }}
-                                                editableDateInputs={true}
+                                                editableDateInputs={false}
                                                 moveRangeOnFirstSelection={
                                                     false
                                                 }
