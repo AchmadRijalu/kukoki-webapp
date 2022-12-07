@@ -11,8 +11,10 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
 export default function Rencana(props) {
+    let options;
+    let currentDate;
     const [isSelected, setisSelected] = useState(null);
-
+    const [mealsInCart, setMeals] = useState(props.cart);
     const [range, setRange] = useState([
         {
             startDate: new Date(),
@@ -22,6 +24,7 @@ export default function Rencana(props) {
     ]);
     const [open, setOpen] = useState(false);
     const referenceContainer = useRef(null);
+
     useEffect(() => {
         document.addEventListener("click", hideOnClick, true);
     }, []);
@@ -44,18 +47,6 @@ export default function Rencana(props) {
         }
         return dates;
     }
-
-    //Meals in cart
-    const [mealsInCart, setMeals] = useState(props.cart);
-    let options;
-    let currentDate;
-    //Logic for showing mealkits based on date
-
-    const selectionRange = {
-        startDate: new Date(),
-        endDate: new Date(),
-        key: "selection",
-    };
 
     function filterMeals() {
         let checkerArray = getDates(range);
@@ -176,8 +167,6 @@ export default function Rencana(props) {
                                         />
                                     );
                                 })}
-                                {/* <RencanaCard />
-                                <RencanaCard /> */}
                             </div>
                         </div>
                         <RencanaRincian
