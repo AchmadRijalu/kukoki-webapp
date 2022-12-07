@@ -1,14 +1,49 @@
-import React, { useState } from "react";
-import { Link, Head } from "@inertiajs/inertia-react";
-import { Inertia } from "@inertiajs/inertia";
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import RencanaDateCard from "@/Components/RencanaDateCard";
 import RencanaCard from "@/Components/RencanaCard";
 import RencanaRincian from "@/Components/RencanaRincian";
+import { DateRange } from "react-date-range";
+import format from "date-fns/format";
+import { addDays } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 export default function Rencana(props) {
     const [isSelected, setisSelected] = useState(null);
+
+    const [range, setRange] = useState([
+        {
+            startDate: new Date(),
+            endDate: addDays(new Date(), 6),
+            key: "selection",
+        },
+    ]);
+    const [open, setOpen] = useState(false);
+    const referenceContainer = useRef(null);
+    useEffect(() => {
+        document.addEventListener("click", hideOnClick, true);
+    }, []);
+
+    const hideOnClick = (item) => {
+        if (
+            referenceContainer.current &&
+            !referenceContainer.current.contains(item.target)
+        ) {
+            setOpen(false);
+        }
+    };
+
+    function getDates(range) {
+        const date = new Date(range[0].startDate.getTime());
+        const dates = [];
+        while (date <= range[0].endDate) {
+            dates.push(new Date(date));
+            date.setDate(date.getDate() + 1);
+        }
+        return dates;
+    }
 
     //Meals in cart
     const [mealsInCart, setMeals] = useState(props.cart);
@@ -17,73 +52,29 @@ export default function Rencana(props) {
     let currentDate;
     //Logic for showing mealkits based on date
 
+    const selectionRange = {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+    };
+
     function filterMeals() {
+        let checkerArray = getDates(range);
         const filteredList = mealsInCart.filter((item) => {
             let normalizedDate = new Date(item.date);
             if (
                 normalizedDate?.getDate() ===
-                rencanaDateOptions()[isSelected]?.getDate()
+                checkerArray[isSelected]?.getDate()
             ) {
                 currentDate = normalizedDate;
             }
             return (
                 normalizedDate?.getDate() ===
-                rencanaDateOptions()[isSelected]?.getDate()
+                checkerArray[isSelected]?.getDate()
             );
         });
         return filteredList;
     }
-
-    function getDaysInMonth(month, year) {
-        var date = new Date(year, month, 1);
-        var days = [];
-        while (date.getMonth() === month) {
-            days.push(new Date(date));
-            date.setDate(date.getDate() + 1);
-        }
-        const week1 = days.slice(0, 7);
-        const week2 = days.slice(7, 14);
-        const week3 = days.slice(14, 21);
-        const week4 = days.slice(22);
-
-        const weeks = {
-            "Minggu 1": week1,
-            "Minggu 2": week2,
-            "Minggu 3": week3,
-            "Minggu 4": week4,
-        };
-        return weeks;
-    }
-
-    let currentWeek = () => {
-        var date = new Date();
-        let allWeeks = getDaysInMonth(date.getMonth(), date.getFullYear());
-        //do checks on each weeks
-        //check for if 1st week
-        for (let week of allWeeks["Minggu 1"]) {
-            if (week.getDate() === date.getDate()) {
-                return 1;
-            }
-        }
-        //check for if 2nd week
-        for (let week of allWeeks["Minggu 2"]) {
-            if (week.getDate() === date.getDate()) {
-                return 2;
-            }
-        }
-        //check for if 3rd week
-        for (let week of allWeeks["Minggu 3"]) {
-            if (week.getDate() === date.getDate()) {
-                return 3;
-            }
-        }
-        //check for if 4th week
-        for (let week of allWeeks["Minggu 4"]) {
-            if (week.getDate() === date.getDate()) {
-                return 4;
-            }
-        }
-    };
 
     const deleteItem = (id) => {
         setMeals((prevItems) => {
@@ -91,19 +82,6 @@ export default function Rencana(props) {
                 return index !== id;
             });
         });
-    };
-
-    const rencanaDateOptions = () => {
-        let date = new Date();
-        const weekList = getDaysInMonth(date.getMonth(), date.getFullYear());
-        if (currentWeek() == 1) {
-            return weekList["Minggu 1"];
-        } else if (currentWeek() == 2) {
-            return weekList["Minggu 2"];
-        } else if (currentWeek() == 3) {
-            return weekList["Minggu 3"];
-        }
-        return weekList["Minggu 4"];
     };
 
     return (
@@ -125,9 +103,57 @@ export default function Rencana(props) {
                     </div>
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                         <div className="flex flex-col items-center">
+                            <div className="calendarWrap mb-5">
+                                <div>
+                                    <input
+                                        value={`${format(
+                                            range[0].startDate,
+                                            "MM-dd-yyyy"
+                                        )}/${format(
+                                            range[0].endDate,
+                                            "MM-dd-yyyy"
+                                        )}`}
+                                        readOnly
+                                        className="inputBox border-blue"
+                                        onClick={() => {
+                                            setOpen((open) => !open);
+                                        }}
+                                    />
+                                    <div ref={referenceContainer}>
+                                        {open && (
+                                            <DateRange
+                                                minDate={new Date()}
+                                                className="calendarElement"
+                                                onChange={(item) => {
+                                                    return setRange([
+                                                        {
+                                                            startDate:
+                                                                item.selection
+                                                                    .startDate,
+                                                            endDate: addDays(
+                                                                item.selection
+                                                                    .startDate,
+                                                                6
+                                                            ),
+                                                            key: "selection",
+                                                        },
+                                                    ]);
+                                                }}
+                                                editableDateInputs={true}
+                                                moveRangeOnFirstSelection={
+                                                    false
+                                                }
+                                                ranges={range}
+                                                months={1}
+                                                direction="horizontal"
+                                            />
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
                             <div className="grid mt-2 justify-center grid-cols-4 sm:grid-cols-7">
-                                {rencanaDateOptions().map((option, index) => {
-                                    options = rencanaDateOptions();
+                                {getDates(range).map((option, index) => {
+                                    options = getDates(range);
                                     return (
                                         <RencanaDateCard
                                             option={option}
@@ -164,7 +190,7 @@ export default function Rencana(props) {
                                 setHarga(total);
                                 return total;
                             }}
-                            date = {currentDate}
+                            date={currentDate}
                         />
                     </div>
                 </div>

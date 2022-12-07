@@ -9,3 +9,30 @@
     -moz-user-select: none;
     -webkit-user-drag: none;
 }
+
+
+input.inputBox {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 15px 60px;
+    color: #006CAA;
+    border-radius: 8px;
+    border: 3px solid #1C9FE2;
+}
+
+
+.calenderWrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.calendarElement {
+    position: absolute;
+    transform: translateX(-20%);
+    padding: 20px 80px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    z-index: 999;
+}

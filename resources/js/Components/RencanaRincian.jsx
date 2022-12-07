@@ -36,7 +36,7 @@ export default function RencanaRincian(props) {
     const year = props?.date?.getFullYear();
 
     return (
-        <div className="flex flex-col justify-start items-center ">
+        <div className="flex flex-col justify-center items-center">
             <div className="shadow-md p-5 rounded-xl w-full sm:w-9/12">
                 <h1 className="text-lg lg:text-md font-bold text-blue">
                     Rincian Pembayaran
