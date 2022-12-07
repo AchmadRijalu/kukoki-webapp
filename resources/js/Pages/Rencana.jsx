@@ -12,17 +12,26 @@ export default function Rencana(props) {
 
     //Meals in cart
     const [mealsInCart, setMeals] = useState(props.cart);
-    const [tempList, setTemp] = useState([]);
+    const [totalHargaKeranjang, setHarga] = useState(0);
     let options;
-
+    let currentDate;
     //Logic for showing mealkits based on date
 
     function filterMeals() {
         const filteredList = mealsInCart.filter((item) => {
-            let normalizedDate = new Date(item.date)
-            return normalizedDate?.getDate() === rencanaDateOptions()[isSelected]?.getDate() 
-        })
-        return filteredList
+            let normalizedDate = new Date(item.date);
+            if (
+                normalizedDate?.getDate() ===
+                rencanaDateOptions()[isSelected]?.getDate()
+            ) {
+                currentDate = normalizedDate;
+            }
+            return (
+                normalizedDate?.getDate() ===
+                rencanaDateOptions()[isSelected]?.getDate()
+            );
+        });
+        return filteredList;
     }
 
     function getDaysInMonth(month, year) {
@@ -118,7 +127,7 @@ export default function Rencana(props) {
                         <div className="flex flex-col items-center">
                             <div className="grid mt-2 justify-center grid-cols-4 sm:grid-cols-7">
                                 {rencanaDateOptions().map((option, index) => {
-                                    options = rencanaDateOptions()
+                                    options = rencanaDateOptions();
                                     return (
                                         <RencanaDateCard
                                             option={option}
@@ -146,7 +155,17 @@ export default function Rencana(props) {
                                 <RencanaCard /> */}
                             </div>
                         </div>
-                        <RencanaRincian />
+                        <RencanaRincian
+                            totalPrice={() => {
+                                const total = filterMeals()?.reduce(
+                                    (acc, item) => acc + item.price,
+                                    0
+                                );
+                                setHarga(total);
+                                return total;
+                            }}
+                            date = {currentDate}
+                        />
                     </div>
                 </div>
                 <Footer />
