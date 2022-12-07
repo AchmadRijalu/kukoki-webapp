@@ -11,16 +11,16 @@ export default function MenuCard({meal}) {
     return (
         <Link href={route('menu.show', meal.id)}>
             <div className="max-w-xs rounded overflow-hidden shadow-lg hover:scale-[102%] transition">
-                <img className="w-full" src="/img/menu/grilled_salmon.png" alt={meal.name} />
+                <img className="w-full" src={'/img/menu/' + meal.img_path} alt={meal.name} />
                 <div className="px-4 py-4">
                     <div className="font-bold text-xl mb-2 text-darkblue">{meal.name}</div>
-                    <p className="text-gray-700 text-xs">{meal.description}</p>
+                    <p className="text-gray-700 text-xs menu-card-description">{meal.description}</p>
                 </div>
                 <div className="px-4 pb-4 flex flex-row gap-4">
                     <div className='flex flex-row gap-2 items-center'>
                         <img className='w-6' src="/img/icon/category.svg" alt=""/>
                         <div>
-                            <p className='text-xs'>Daging dan Sayur</p>
+                            <p className='text-xs'>Snel Koken</p>
 
                         </div>
                     </div>

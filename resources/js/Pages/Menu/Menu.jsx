@@ -25,14 +25,14 @@ export default function Menu(props) {
                         <MenuCard meal={meal} key={i}></MenuCard>
                     )}
                 </div>
-                <h5 className='text-darkblue text-3xl font-semibold mt-8'>
-                    Coba Meal Kit Lainnya
-                </h5>
-                <div className="grid grid-cols-3 gap-10 mt-5">
-                    {props.meals.map((meal, i) =>
-                        <MenuCard meal={meal} key={i}></MenuCard>
-                    )}
-                </div>
+                {/*<h5 className='text-darkblue text-3xl font-semibold mt-8'>*/}
+                {/*    Coba Meal Kit Lainnya*/}
+                {/*</h5>*/}
+                {/*<div className="grid grid-cols-3 gap-10 mt-5">*/}
+                {/*    {props.meals.map((meal, i) =>*/}
+                {/*        <MenuCard meal={meal} key={i}></MenuCard>*/}
+                {/*    )}*/}
+                {/*</div>*/}
             </div>
         </MainLayout>
     );

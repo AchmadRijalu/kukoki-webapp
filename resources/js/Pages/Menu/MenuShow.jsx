@@ -31,7 +31,7 @@ export default function MenuShow(props) {
                     </div>
                     <div className='w-1/2'>
                         <div>
-                            <p className="text-sm leading-none text-gray-600">Daging dan Sayur</p>
+                            <p className="text-sm leading-none text-gray-600">Snel Koken</p>
                             <h1
                                 className="
 							lg:text-5xl
