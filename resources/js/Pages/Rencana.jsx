@@ -47,7 +47,6 @@ export default function Rencana(props) {
 
     //Meals in cart
     const [mealsInCart, setMeals] = useState(props.cart);
-    const [totalHargaKeranjang, setHarga] = useState(0);
     let options;
     let currentDate;
     //Logic for showing mealkits based on date
@@ -187,7 +186,6 @@ export default function Rencana(props) {
                                     (acc, item) => acc + item.price,
                                     0
                                 );
-                                setHarga(total);
                                 return total;
                             }}
                             date={currentDate}
