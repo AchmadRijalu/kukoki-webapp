@@ -1,21 +1,6 @@
 import React from "react";
 
 export default function RencanaRincian(props) {
-    const format = (num) => {
-        let stringReplace = String(num).replace(
-            /(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g,
-            "$1,"
-        );
-        stringReplace = stringReplace.replace(",", ".");
-        return stringReplace;
-    };
-    function countTotal() {
-        if (props.totalPrice() == 0) {
-            return 0;
-        }
-        return props.totalPrice() + 20000;
-    }
-
     const months = [
         "Januari",
         "Februari",
@@ -30,10 +15,24 @@ export default function RencanaRincian(props) {
         "November",
         "Desember",
     ];
-    console.log(props?.date);
     const month = months[props?.date?.getMonth()];
     const date = props?.date?.getDate();
     const year = props?.date?.getFullYear();
+
+    const format = (num) => {
+        let stringReplace = String(num).replace(
+            /(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g,
+            "$1,"
+        );
+        stringReplace = stringReplace.replace(",", ".");
+        return stringReplace;
+    };
+    function countTotal() {
+        if (props.totalPrice() == 0) {
+            return 0;
+        }
+        return props.totalPrice() + 20000;
+    }
 
     return (
         <div className="flex flex-col justify-center items-center">
