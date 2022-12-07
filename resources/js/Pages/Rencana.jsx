@@ -52,6 +52,11 @@ export default function Rencana(props) {
         let checkerArray = getDates(range);
         const filteredList = mealsInCart.filter((item) => {
             let normalizedDate = new Date(item.date);
+            
+            if(normalizedDate?.getDate() ===
+            checkerArray[isSelected]?.getDate() && normalizedDate?.getMonth() === checkerArray[isSelected]?.getMonth() && normalizedDate?.getFullYear() === checkerArray[isSelected]?.getFullYear()) {
+                currentDate = normalizedDate
+            }
             return (
                 normalizedDate?.getDate() ===
                 checkerArray[isSelected]?.getDate() && normalizedDate?.getMonth() === checkerArray[isSelected]?.getMonth() && normalizedDate?.getFullYear() === checkerArray[isSelected]?.getFullYear()
