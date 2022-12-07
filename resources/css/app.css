@@ -29,8 +29,8 @@ input.inputBox {
 
 .calendarElement {
     position: absolute;
-    transform: translateX(-20%);
-    padding: 20px 80px;
+    transform: translateX(-8.5%) translateY(-2%);
+    padding: 20px 30px;
     margin: 20px;
     border-radius: 10px;
     border: 1px solid #ccc;
