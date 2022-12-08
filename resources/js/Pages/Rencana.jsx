@@ -66,8 +66,8 @@ export default function Rencana(props) {
     }
 
     const deleteItem = (id) => {
-        setMeals((prevItems) => {
-            return prevItems.filter((item, index) => {
+        setMeals(() => {
+            return mealsInCart.filter((item, index) => {
                 return index !== id;
             });
         });
@@ -93,7 +93,7 @@ export default function Rencana(props) {
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                         <div className="flex flex-col items-center">
                             <div className="calendarWrap mb-5">
-                                <div>
+                                <div className="outer-input">
                                     <input
                                         value={`${format(
                                             range[0].startDate,
@@ -103,7 +103,7 @@ export default function Rencana(props) {
                                             "MM-dd-yyyy"
                                         )}`}
                                         readOnly
-                                        className="inputBox border-blue"
+                                        className="inputBox"
                                         onClick={() => {
                                             setOpen((open) => !open);
                                         }}
@@ -146,6 +146,7 @@ export default function Rencana(props) {
                                     options = getDates(range);
                                     return (
                                         <RencanaDateCard
+                                            key= {index}
                                             option={option}
                                             selected={isSelected === index}
                                             onChange={() =>
