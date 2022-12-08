@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
         //
         return Inertia::render('Login', ['title' => 'Login']);
-        
+
     }
 
     /**
@@ -52,8 +52,8 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             //redirect route dashboard
-            return redirect()->intended('/Menu');
-            
+            return redirect()->intended('/menu');
+
         }
 
         return back()->withErrors([
@@ -118,7 +118,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        
+
         return redirect('/');
     }
 }
