@@ -27,9 +27,14 @@ Route::post('/login', [LoginController::class, 'store']);
 
 //Profil Route
 Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
-Route::get('/Ubahinformasipengiriman', [ProfileController::class, 'UbahInformasiPengiriman'])->middleware('auth');;
-Route::get('/UbahProfile', [ProfileController::class, 'editProfile'])->middleware('auth');;
+
+Route::get('/UbahProfil/{id}', [ProfileController::class, 'UbahProfil'])->middleware('auth')->name('profile.ubah');
+Route::post('/UpdateProfil/{id}', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
+
+Route::get('/Ubahinformasipengiriman/{id}', [ProfileController::class, 'Ubahinformasipengiriman'])->middleware('auth')->name('pengiriman.ubah');
+Route::post('/UpdateInformasiPengiriman/{id}', [ProfileController::class, 'UpdateInformasiPengiriman'])->middleware('auth')->name('pengiriman.update');
 
 //Menu Route
 Route::resource('menu', MenuController::class)->middleware('auth');
+Route::get('/menu,', [MenuController::class ,'index']);
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');

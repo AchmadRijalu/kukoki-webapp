@@ -67,17 +67,8 @@ export default function Preferensi(props) {
                     console.log(index);
                     categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id): categoryList.splice(index, 1);;
 
-                    //code test
-                    // setCategories(
-                    //     categoryList.filter(a =>
-                    //         a.id !== cat.id
-                    //     )
-                    // );
                     console.log(categoryList)
-                    //code test
-                    // if (categoryList.indexOf(cat.id) !== -1) {
-                    //     alert("Yes, the value exists!")
-                    // }
+
                     return { ...cat, selected: !cat.selected }
 
 
@@ -88,10 +79,6 @@ export default function Preferensi(props) {
                 }
             })
 
-            // categories.map((cat, i) =>
-            //     cat.id == e.currentTarget.getAttribute("dataid") ? { ...cat, selected: !cat.selected }
-            //         : cat
-            // )
         );
 
 

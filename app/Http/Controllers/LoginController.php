@@ -52,7 +52,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             //redirect route dashboard
-            return redirect()->intended('/Menu');
+            return redirect()->intended('/menu');
             
         }
 

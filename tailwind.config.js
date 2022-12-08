@@ -36,6 +36,12 @@ module.exports = {
             backgroundImage: {
                 "blue-bg": "url('/img/blue_background.svg')",
             },
+            width: {
+                '68': '17rem',
+              },
+              height: {
+                '68': '17rem',
+              },
             screens: {
                 mini: '320px'
             }

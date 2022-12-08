@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Category;
+use App\Models\User;
+
 class ProfileController extends Controller
 {
     /**
@@ -25,20 +27,30 @@ class ProfileController extends Controller
         return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
     }
 
-    public function UbahInformasiPengiriman(){
-        return Inertia::render('UbahInformasiPengiriman', ['title' => 'Ubah Informasi Pengiriman']);
+    public function Ubahinformasipengiriman($id){
+        $user = User::findorfail($id);
+        return Inertia::render('UbahInformasiPengiriman', ['user' => $user]);
     }
+    public function UpdateInformasiPengiriman(Request $request,  $user){
+        $userprofile = User::findorFail($user);
+        $userprofile->update(
+            [
+                'province' => $request->province,
+                'city' => $request->city,
+                'ward' => $request->ward,
+                'district' => $request->district,
+                'address' => $request->address,
+                'phone' => $request->phone,
 
-    public function editProfile(){
-        return Inertia::render('UbahProfil', ['title' => 'Ubah Profil']);
-    }
-
-    public function edit(Request $request)
-    {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
+                
         ]);
+        return Redirect::route('profileAccount.index');
+    }
+
+    public function UbahProfil( $id){
+        $title = "Ubah Profil";
+        $user = User::findorfail($id);
+        return Inertia::render('UbahProfil', ['title' => 'Ubah Profil', 'user' => $user]);
     }
 
     /**
@@ -47,17 +59,42 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\ProfileUpdateRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileUpdateRequest $request)
+    public function update(Request $request,  $user)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if($request->profile_picture === null){
+            $userprofile = User::findorFail($user);
+            $userprofile->update(
+                [
+                    'full_name' => $request->full_name,
+                    'email' => $request->email,
+                    
+            ]);
         }
+        else if($request->profile_picture !=""){
+            // dd("ini ada isinya");
+            
+            $filename = time().'.'.$request->profile_picture->getClientOriginalName(); 
+            $this->validate($request, [
+                   'profile_picture' => "mimes:jpeg,png|max:10000"
+               ]);
 
-        $request->user()->save();
+            // if($request->oldfoto != null){
+            //     Storage::delete($request->oldfoto);
+            // }
+            $locateimage =$request->profile_picture->move('img/profile/', $filename);
 
-        return Redirect::route('profile.edit');
+
+
+            $userprofile = User::findorFail($user);
+            $userprofile->update(
+                [
+                    'full_name' => $request->full_name,
+                    'email' => $request->email,
+                    'profile_picture' => $locateimage
+            ]);
+        
+        }
+        return Redirect::route('profileAccount.index');
     }
 
     /**
@@ -83,4 +120,5 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
 }
