@@ -53,7 +53,7 @@ export default function Welcome(props) {
                         <h2 className="text-center font-semibold text-lg lg:text-xl text-darkblue mb-5">
                             Semua meal kit dilengkapi dengan bahan-bahan segar langsung dari petani lokal!
                         </h2>
-                        <div className="grid grid-cols-3 gap-10 my-5">
+                        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 my-5">
                             {props.meals.map((meal, i) =>
                                 <MenuCard meal={meal} key={i}></MenuCard>
                             )}
