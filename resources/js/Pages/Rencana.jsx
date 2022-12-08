@@ -15,6 +15,8 @@ export default function Rencana(props) {
     let currentDate;
     const [isSelected, setisSelected] = useState(null);
     const [mealsInCart, setMeals] = useState(props.cart);
+    const [open, setOpen] = useState(false);
+    const referenceContainer = useRef(null);
     const [range, setRange] = useState([
         {
             startDate: new Date(),
@@ -22,8 +24,6 @@ export default function Rencana(props) {
             key: "selection",
         },
     ]);
-    const [open, setOpen] = useState(false);
-    const referenceContainer = useRef(null);
 
     useEffect(() => {
         document.addEventListener("click", hideOnClick, true);
@@ -114,7 +114,7 @@ export default function Rencana(props) {
                                                 minDate={new Date()}
                                                 className="calendarElement"
                                                 onChange={(item) => {
-                                                    return setRange([
+                                                    setRange([
                                                         {
                                                             startDate:
                                                                 item.selection
@@ -127,6 +127,7 @@ export default function Rencana(props) {
                                                             key: "selection",
                                                         },
                                                     ]);
+                                                    setisSelected(0)
                                                 }}
                                                 editableDateInputs={false}
                                                 moveRangeOnFirstSelection={
