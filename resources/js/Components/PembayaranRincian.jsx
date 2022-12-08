@@ -13,7 +13,7 @@ export default function PembayaranRincian() {
                 <h1 className="text-lg lg:text-md font-bold text-blue">
                     Rincian Pembayaran
                 </h1>
-                <div className="border-gray border rounded mt-2">
+                <div className="border-gray2 border rounded mt-2">
                     <div className="mx-2 my-2 flex">
                         <h1 className="text-md lg:text-sm mr-auto">Harga Makanan</h1>
                         <h1 className="text-md lg:text-sm font-semibold">Rp90.000</h1>

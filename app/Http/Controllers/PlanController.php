@@ -17,7 +17,8 @@ class PlanController extends Controller
     {
         $cart = Meal::query()->get();
 
-        return Inertia::render('Rencana', compact('cart'));
+//        return Inertia::render('Rencana', compact('cart'));
+        return Inertia::render('Maintenance');
     }
 
     /**

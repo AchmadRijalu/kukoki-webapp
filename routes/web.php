@@ -31,9 +31,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::post('/login', [LoginController::class, 'store']);
 
 //Pesanan Route
-Route::get('/pesanan', function(){return Inertia::render('Pesanan');})->middleware('auth');
-Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan');})->middleware('auth');
-Route::get('/ulasan', function(){return Inertia::render('Ulasan');})->middleware('auth');
+Route::get('/pesanan', function(){return Inertia::render('Maintenance');})->middleware('auth');
+Route::get('/detail-pesanan', function(){return Inertia::render('Maintenance');})->middleware('auth');
+Route::get('/ulasan', function(){return Inertia::render('Maintenance');})->middleware('auth');
 
 //Profil Route
 Route::resource('profil', ProfileController::class)->middleware('auth');
@@ -41,9 +41,9 @@ Route::get('/ubah_informasi_pengiriman', [ProfileController::class, 'UbahInforma
 Route::get('/ubah_profil', [ProfileController::class, 'editProfile'])->middleware('auth');
 
 //Menu Route
-Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
-Route::post('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->middleware('auth')->name('menu.add_to_plan');
-Route::resource('menu', MenuController::class)->middleware('auth');
+Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->name('menu.show.recipe');
+Route::post('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->name('menu.add_to_plan');
+Route::resource('menu', MenuController::class);
 
 //Rencana Route
 Route::resource("rencana", PlanController::class)->middleware("auth");

@@ -108,7 +108,7 @@ export default function Pesanan(){
                     <div className="flex flex-col lg:col-span-5">
                         <div className="flex flex-col w-full bg-white rounded-md p-6 border-none drop-shadow-md">
                             <div className="flex flex-row">
-                                <h1 className="text-gray md:text-base sm:text-base mini:text-base text-start">
+                                <h1 className="text-gray2 md:text-base sm:text-base mini:text-base text-start">
                                     Status Pesanan
                                 </h1>
                             </div>
@@ -124,7 +124,7 @@ export default function Pesanan(){
                                     Rincian Pembayaran
                                 </h1>
                             </div>
-                            <div className="flex flex-col border-solid border-2 rounded-md border-gray mt-4 p-4">
+                            <div className="flex flex-col border-solid border-2 rounded-md border-gray2 mt-4 p-4">
                                 <div className="flex flex-row justify-between">
                                     <p>Harga Makanan</p>
                                     <p>Rp90.000</p>
@@ -133,14 +133,14 @@ export default function Pesanan(){
                                     <p>Ongkos Kirim</p>
                                     <p>Rp20.000</p>
                                 </div>
-                                
+
                                 <div className="flex flex-row justify-between mt-4 text-darkblue text-xl font-semibold">
                                     <p>Total</p>
                                     <p>Rp20.000</p>
                                 </div>
                             </div>
                             <div className="flex flex-row mt-4">
-                                <h1 className="text-gray md:text-sm sm:text-sm mini:text-sm font-semibold text-start">
+                                <h1 className="text-gray2 md:text-sm sm:text-sm mini:text-sm font-semibold text-start">
                                     Dikirimkan pada Tanggal
                                 </h1>
                             </div>
@@ -150,7 +150,7 @@ export default function Pesanan(){
                                 </h1>
                             </div>
                             <div className="flex flex-row mt-4">
-                                <h1 className="text-gray md:text-sm sm:text-sm mini:text-sm font-semibold text-start">
+                                <h1 className="text-gray2 md:text-sm sm:text-sm mini:text-sm font-semibold text-start">
                                     Metode Pembayaran
                                 </h1>
                             </div>

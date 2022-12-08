@@ -22,7 +22,8 @@ class ProfileController extends Controller
     {
         $categories = Category::query()->get();
         $cat = $categories->offsetGet(0)->limit(2)->get();
-        return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
+//        return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
+        return Inertia::render('Maintenance');
     }
 
     public function UbahInformasiPengiriman(){

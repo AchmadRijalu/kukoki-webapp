@@ -27,7 +27,7 @@ export default function MenuShow(props) {
                 <div className='flex flex-row justify-center gap-10'>
                     <div className='w-1/2'>
                         <img className="object-cover rounded-2xl h-full" alt="img of a girl posing"
-                             src="https://i.ibb.co/QMdWfzX/component-image-one.png"/>
+                             src={'/img/menu/' + props.meal.img_path}/>
                     </div>
                     <div className='w-1/2'>
                         <div>
@@ -50,10 +50,8 @@ export default function MenuShow(props) {
                         <div className='pt-4'>
                             <p className="font-semibold text-darkblue">Jumlah Porsi</p>
                             <div className='flex flex-row w-full items-center justify-between mt-1'>
-                                <span onClick={() => setPorsi(2)}
+                                <span
                                       className={'w-full h-full text-center text-3xl font-bold py-4 border border-gray-400 cursor-pointer rounded-l-md ' + (porsi === 2 ? 'bg-blue text-white' : 'text-blue')}>2</span>
-                                <span onClick={() => setPorsi(4)}
-                                      className={'w-full h-full text-center text-3xl font-bold py-4 border border-gray-400 cursor-pointer rounded-r-md ' + (porsi === 4 ? 'bg-blue text-white' : 'text-blue')}>4</span>
                             </div>
                         </div>
                         <div className='pt-4'>
@@ -81,7 +79,7 @@ export default function MenuShow(props) {
                     rounded-md
                 "
                             >
-                                Tambahkan ke Rencana
+                                Pesan
                             </button>
                         </div>
                     </div>
@@ -104,14 +102,14 @@ export default function MenuShow(props) {
                         </ul>
                     </div>
                 </div>
-                <div className='mt-10'>
-                    <h4 className='text-darkblue font-bold text-2xl'>Ulasan Pembeli</h4>
-                    <div className="grid grid-cols-3 gap-10">
-                        {props.meals.map((meal, i) =>
-                            <MenuReviewCard></MenuReviewCard>
-                        )}
-                    </div>
-                </div>
+                {/*<div className='mt-10'>*/}
+                {/*    <h4 className='text-darkblue font-bold text-2xl'>Ulasan Pembeli</h4>*/}
+                {/*    <div className="grid grid-cols-3 gap-10">*/}
+                {/*        {props.meals.map((meal, i) =>*/}
+                {/*            <MenuReviewCard></MenuReviewCard>*/}
+                {/*        )}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className='mt-10'>
                     <h4 className='text-darkblue font-bold text-2xl'>Menu Lain dalam Kategori </h4>
                     <div className="grid grid-cols-3 gap-10">

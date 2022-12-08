@@ -21,7 +21,7 @@ module.exports = {
                 lightblue: "#D2F5FF",
                 brown: "#703900",
                 smoke: "#F9F9F9",
-                gray: "#BFBFBF",
+                gray2: "#BFBFBF",
                 white: "#FFFFFF",
                 dagingsayur: "#FCEAB2",
                 cepatmudah: "#D2F5FF",
