@@ -67,14 +67,13 @@ class MenuController extends Controller
 
     public function addToPlan(Request $request, $id)
     {
-        Cart::query()->create([
-            'user_id' => Auth::id(),
-            'meal_id' => $id,
-            'date' => $request->date,
-            'portion' => $request->portion,
-        ]);
+        $meal = Meal::query()->find($id);
 
-        return Redirect::route('rencana.index');
+        $waLink = "https://wa.me/62895339398188?text=Halo,%20saya%20ingin%20memesan%20meal%20kit%20$meal->name" .
+        "%0aPorsi:%20" . $request->portion .
+        "%0aTanggal:%20" . $request->date;
+
+        return Inertia::location($waLink);
     }
 
     /**

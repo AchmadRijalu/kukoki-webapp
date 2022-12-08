@@ -13,12 +13,14 @@ export default function MenuShow(props) {
     const [date, setDate] = useState('');
 
     function handleAddToPlan() {
-        let values ={
-            portion: porsi,
-            date: date
-        }
+        if (date !== '') {
+            let values ={
+                portion: porsi,
+                date: date
+            }
 
-        Inertia.post(route('menu.add_to_plan', props.meal.id), values)
+            Inertia.post(route('menu.add_to_plan', props.meal.id), values)
+        }
     }
 
     return (
@@ -63,21 +65,10 @@ export default function MenuShow(props) {
                         </div>
                         <div className='pt-4'>
                             <button onClick={handleAddToPlan}
-                                className="
-                    mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
-                    text-base
-                    flex
-                    items-center
-                    justify-center
-                    leading-none
-                    text-white
-                    font-bold
-                    bg-blue
-                    w-full
-                    py-5
-                    hover:bg-bluehover
-                    rounded-md
-                "
+                                className={
+                    'mt-4 text-base flex items-center justify-center leading-none font-bold w-full py-5 rounded-md '
+                                    + (date === '' ? 'bg-gray-200 text-gray-400 cursor-default' : 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue hover:bg-bluehover bg-blue text-white')
+                                }
                             >
                                 Pesan
                             </button>

@@ -19,7 +19,7 @@ export default function Menu(props) {
                     </svg>
                     <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none text-blue lg:mb-6 md:text-5xl xl:text-6xl">Dalam Perbaikan</h1>
                     <p className="font-light text-gray-500 md:text-lg xl:text-xl">Maaf! Halaman yang anda tuju masih dalam proses perbaikan. Kami usahakan agar halaman ini dapat anda akses secepatnya!</p>
-                    <Link>
+                    <Link href='/'>
                         <button className="mt-6 sm:w-full font-bold lg:w-auto my-2 border rounded-lg md py-4 px-8 text-center bg-blue text-white hover:bg-bluehover focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">Kembali ke halaman utama</button>
                     </Link>
                 </div>

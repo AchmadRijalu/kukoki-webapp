@@ -159,7 +159,7 @@ export default function Welcome(props) {
                                 rekomendasi sesuai keinginan anda.
                             </p>
                             <Link
-                                href=""
+                                href="/profil"
                                 className="text-white bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                             >
                                 Atur Preferensi
