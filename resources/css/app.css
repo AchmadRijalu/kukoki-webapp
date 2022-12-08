@@ -15,14 +15,20 @@
 }
 
 input.inputBox {
+    cursor: pointer;
     font-size: 20px;
-    text-align: right;
     font-weight: 600;
-    text-indent: -3.6px;
-    padding: 15px 60px;
+    padding: 15px;
+    padding-right: 55px;
     color: #006CAA;
     border-radius: 8px;
     border: 3px solid #1C9FE2;
+    background: url("img/icon/calendar_blue.svg") no-repeat 95% 47%;
+    background-size: 19px;
+}
+
+input.inputBox::placeholder {
+    overflow: visible;
 }
 
 
@@ -34,7 +40,7 @@ input.inputBox {
 
 .calendarElement {
     position: absolute;
-    transform: translateX(-8.5%) translateY(-2%);
+    transform: translateX(-13%) translateY(-2%);
     padding: 20px 30px;
     margin: 20px;
     border-radius: 10px;

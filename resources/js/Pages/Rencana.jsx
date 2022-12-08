@@ -97,11 +97,12 @@ export default function Rencana(props) {
                                     <input
                                         value={`${format(
                                             range[0].startDate,
-                                            "MM-dd-yyyy"
-                                        )}/${format(
+                                            "dd/MM/yyyy"
+                                        )} - ${format(
                                             range[0].endDate,
-                                            "MM-dd-yyyy"
+                                            "dd/MM/yyyy"
                                         )}`}
+                                        size="24"
                                         readOnly
                                         className="inputBox"
                                         onClick={() => {
