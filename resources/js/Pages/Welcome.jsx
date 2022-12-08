@@ -22,9 +22,7 @@ export default function Welcome(props) {
                                 <h1 className="text-center md:text-left text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                                     Masak Tanpa <br /> Ribet!
                                 </h1>
-                                <h2 className="text-center md:text-left text-lg lg:text-xl font-semibold mb-3 lg:my-5">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Maxime, quibusdam!
+                                <h2 className="text-center md:text-left text-lg lg:text-xl font-semibold mb-3 lg:my-5">Masak di rumah tapi ga mau ribet? Dapatkan berbagai bumbu, bahan, dan resep makanan yang siap untuk dimasak!
                                 </h2>
                                 <div className="flex justify-center md:justify-start mb-5 md:mb-0" onClick={(e) => handleLoginPage}>
                                     <Link
@@ -53,8 +51,7 @@ export default function Welcome(props) {
                             Temukan Meal Kit Favoritmu
                         </h1>
                         <h2 className="text-center font-semibold text-lg lg:text-xl text-darkblue mb-5">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Non, quis?
+                            Semua meal kit dilengkapi dengan bahan-bahan segar langsung dari petani lokal!
                         </h2>
                         <div className="grid grid-cols-3 gap-10 my-5">
                             {props.meals.map((meal, i) =>
