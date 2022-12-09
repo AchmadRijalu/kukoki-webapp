@@ -52,25 +52,31 @@ export default function Rencana(props) {
         let checkerArray = getDates(range);
         const filteredList = mealsInCart.filter((item) => {
             let normalizedDate = new Date(item.date);
-            
-            if(normalizedDate?.getDate() ===
-            checkerArray[isSelected]?.getDate() && normalizedDate?.getMonth() === checkerArray[isSelected]?.getMonth() && normalizedDate?.getFullYear() === checkerArray[isSelected]?.getFullYear()) {
-                currentDate = normalizedDate
+
+            if (
+                normalizedDate?.getDate() ===
+                    checkerArray[isSelected]?.getDate() &&
+                normalizedDate?.getMonth() ===
+                    checkerArray[isSelected]?.getMonth() &&
+                normalizedDate?.getFullYear() ===
+                    checkerArray[isSelected]?.getFullYear()
+            ) {
+                currentDate = normalizedDate;
             }
             return (
                 normalizedDate?.getDate() ===
-                checkerArray[isSelected]?.getDate() && normalizedDate?.getMonth() === checkerArray[isSelected]?.getMonth() && normalizedDate?.getFullYear() === checkerArray[isSelected]?.getFullYear()
+                    checkerArray[isSelected]?.getDate() &&
+                normalizedDate?.getMonth() ===
+                    checkerArray[isSelected]?.getMonth() &&
+                normalizedDate?.getFullYear() ===
+                    checkerArray[isSelected]?.getFullYear()
             );
         });
         return filteredList;
     }
 
-    const deleteItem = (id) => {
-        setMeals(() => {
-            return mealsInCart.filter((item, index) => {
-                return index !== id;
-            });
-        });
+    function deleteItem(id) {
+        setMeals(mealsInCart.filter((item) => item.id !== id));
     };
 
     return (
@@ -128,7 +134,7 @@ export default function Rencana(props) {
                                                             key: "selection",
                                                         },
                                                     ]);
-                                                    setisSelected(0)
+                                                    setisSelected(0);
                                                 }}
                                                 editableDateInputs={false}
                                                 moveRangeOnFirstSelection={
@@ -147,7 +153,7 @@ export default function Rencana(props) {
                                     options = getDates(range);
                                     return (
                                         <RencanaDateCard
-                                            key= {index}
+                                            key={index}
                                             option={option}
                                             selected={isSelected === index}
                                             onChange={() =>
@@ -162,8 +168,8 @@ export default function Rencana(props) {
                                 {filterMeals()?.map((item, index) => {
                                     return (
                                         <RencanaCard
-                                            key={index}
-                                            id={index}
+                                            key={item.id}
+                                            id={item.id}
                                             item={item}
                                             deleteItem={deleteItem}
                                         />
