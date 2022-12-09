@@ -169,7 +169,6 @@ export default function Rencana(props) {
                                     return (
                                         <RencanaCard
                                             key={item.id}
-                                            id={item.id}
                                             item={item}
                                             deleteItem={deleteItem}
                                         />
