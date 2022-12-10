@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Meal;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $cart = Meal::query()->get();
+        $cart = Cart::query()->with('meal')->where('user_id', Auth::id())->get();
 
         return Inertia::render('Rencana', compact('cart'));
     }

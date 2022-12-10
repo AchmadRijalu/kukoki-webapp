@@ -36,7 +36,7 @@ Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan')
 Route::get('/ulasan', function(){return Inertia::render('Ulasan');})->middleware('auth');
 
 //Profil Route
-Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
+Route::resource('profil', ProfileController::class)->middleware('auth');;
 
 Route::get('/UbahProfil/{id}', [ProfileController::class, 'UbahProfil'])->middleware('auth')->name('profile.ubah');
 Route::post('/UpdateProfil/{id}', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');

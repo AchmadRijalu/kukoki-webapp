@@ -17,4 +17,9 @@ class Cart extends Model
         'date',
         'portion'
     ];
+
+    public function meal()
+    {
+        return $this->belongsTo(Meal::class);
+    }
 }
