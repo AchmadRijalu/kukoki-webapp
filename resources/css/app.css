@@ -17,3 +17,41 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.outer-input {
+    width: 100%
+}
+
+input.inputBox {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px;
+    padding-right: 55px;
+    color: #006CAA;
+    border-radius: 8px;
+    border: 3px solid #1C9FE2;
+    background: url("img/icon/calendar_blue.svg") no-repeat 95% 47%;
+    background-size: 19px;
+}
+
+input.inputBox::placeholder {
+    overflow: visible;
+}
+
+
+.calenderWrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.calendarElement {
+    position: absolute;
+    transform: translateX(-13%) translateY(-2%);
+    padding: 20px 30px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    z-index: 999;
+}

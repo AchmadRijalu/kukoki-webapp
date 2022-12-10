@@ -21,8 +21,7 @@ module.exports = {
                 lightblue: "#D2F5FF",
                 brown: "#703900",
                 smoke: "#F9F9F9",
-                gray: "#BFBFBF",
-                white: "#FFFFFF",
+                test: "#FFFFFF",
                 dagingsayur: "#FCEAB2",
                 cepatmudah: "#D2F5FF",
                 sayur: "#F8D1B7",
@@ -35,6 +34,7 @@ module.exports = {
                 rencanatext: "#6A6A6A",
                 rencanasend: "#A9A9A9",
                 pembayaranborder: "#D9D9D9",
+
             },
             backgroundImage: {
                 "blue-bg": "url('/img/blue_background.svg')",

@@ -1,94 +1,83 @@
-import React, { useState } from "react";
-import { Link, Head } from "@inertiajs/inertia-react";
-import { Inertia } from "@inertiajs/inertia";
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import RencanaDateCard from "@/Components/RencanaDateCard";
 import RencanaCard from "@/Components/RencanaCard";
 import RencanaRincian from "@/Components/RencanaRincian";
+import { DateRange } from "react-date-range";
+import format from "date-fns/format";
+import { addDays } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 export default function Rencana(props) {
+    let options;
+    let currentDate;
     const [isSelected, setisSelected] = useState(null);
-
-    //Meals in cart
     const [mealsInCart, setMeals] = useState(props.cart);
+    const [open, setOpen] = useState(false);
+    const referenceContainer = useRef(null);
+    const [range, setRange] = useState([
+        {
+            startDate: new Date(),
+            endDate: addDays(new Date(), 6),
+            key: "selection",
+        },
+    ]);
 
-    //Logic for showing mealkits based on date
-    const handlechange = (index) => {
+    useEffect(() => {
+        document.addEventListener("click", hideOnClick, true);
+    }, []);
 
+    const hideOnClick = (item) => {
+        if (
+            referenceContainer.current &&
+            !referenceContainer.current.contains(item.target)
+        ) {
+            setOpen(false);
+        }
     };
 
-    function getDaysInMonth(month, year) {
-        var date = new Date(year, month, 1);
-        var days = [];
-        while (date.getMonth() === month) {
-            days.push(new Date(date));
+    function getDates(range) {
+        const date = new Date(range[0].startDate.getTime());
+        const dates = [];
+        while (date <= range[0].endDate) {
+            dates.push(new Date(date));
             date.setDate(date.getDate() + 1);
         }
-        const week1 = days.slice(0, 7);
-        const week2 = days.slice(7,14);
-        const week3 = days.slice(14,21);
-        const week4 = days.slice(22);
-
-        const weeks = {
-            "week1": week1,
-            "week2": week2,
-            "week3": week3,
-            "week4": week4,
-        }
-        return weeks
+        return dates;
     }
 
-    let currentWeek = () => {
-        var date = new Date()
-        let allWeeks = getDaysInMonth(date.getMonth(),date.getFullYear())
-        //do checks on each weeks
-        //check for if 1st week
-        for (let week of allWeeks["week1"]) {
-            if (week.getDate() === date.getDate()) {
-                return 1;
-            }
-        }
-        //check for if 2nd week
-        for (let week of allWeeks["week2"]) {
-            if (week.getDate() === date.getDate()) {
-                return 2;
-            }
-        }
-        //check for if 3rd week
-        for (let week of allWeeks["week3"]) {
-            if (week.getDate() === date.getDate()) {
-                return 3;
-            }
-        }
-        //check for if 4th week
-        for (let week of allWeeks["week4"]) {
-            if (week.getDate() === date.getDate()) {
-                return 4;
-            }
-        }
-    }
+    function filterMeals() {
+        let checkerArray = getDates(range);
+        const filteredList = mealsInCart.filter((item) => {
+            let normalizedDate = new Date(item.date);
 
-    const deleteItem = (id) => {
-        setMeals((prevItems) => {
-            return prevItems.filter((item, index) => {
-                return index !== id;
-            });
+            if (
+                normalizedDate?.getDate() ===
+                    checkerArray[isSelected]?.getDate() &&
+                normalizedDate?.getMonth() ===
+                    checkerArray[isSelected]?.getMonth() &&
+                normalizedDate?.getFullYear() ===
+                    checkerArray[isSelected]?.getFullYear()
+            ) {
+                currentDate = normalizedDate;
+            }
+            return (
+                normalizedDate?.getDate() ===
+                    checkerArray[isSelected]?.getDate() &&
+                normalizedDate?.getMonth() ===
+                    checkerArray[isSelected]?.getMonth() &&
+                normalizedDate?.getFullYear() ===
+                    checkerArray[isSelected]?.getFullYear()
+            );
         });
-    };
-
-    const rencanaDateOptions = () => {
-        let date = new Date()
-        const weekList = getDaysInMonth(date.getMonth(), date.getFullYear())
-        if (currentWeek() == 1) {
-            return weekList.week1
-        } else if (currentWeek() == 2) {
-            return weekList.week2
-        } else if (currentWeek() == 3) {
-            return weekList.week3
-        }
-        return weekList.week4
+        return filteredList;
     }
+
+    function deleteItem(id) {
+        setMeals(mealsInCart.filter((item) => item.id !== id));
+    };
 
     return (
         <div>
@@ -109,75 +98,62 @@ export default function Rencana(props) {
                     </div>
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                         <div className="flex flex-col items-center">
-                            {/* <button
-                                id="dropdownDefault"
-                                data-dropdown-toggle="dropdown"
-                                class="text-blue bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-2/12 my-4"
-                                type="button"
-                            >
-                                3 Desember 2022{" "}
-                                <svg
-                                    class="ml-2 w-4 h-4"
-                                    aria-hidden="true"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    ></path>
-                                </svg>
-                            </button>
-                            <div
-                                id="dropdown"
-                                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-                            >
-                                <ul
-                                    class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                                    aria-labelledby="dropdownDefault"
-                                >
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Earnings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >
-                                            Sign out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div> */}
+                            <div className="calendarWrap mb-5">
+                                <div className="outer-input">
+                                    <input
+                                        value={`${format(
+                                            range[0].startDate,
+                                            "dd/MM/yyyy"
+                                        )} - ${format(
+                                            range[0].endDate,
+                                            "dd/MM/yyyy"
+                                        )}`}
+                                        size="24"
+                                        readOnly
+                                        className="inputBox"
+                                        onClick={() => {
+                                            setOpen((open) => !open);
+                                        }}
+                                    />
+                                    <div ref={referenceContainer}>
+                                        {open && (
+                                            <DateRange
+                                                minDate={new Date()}
+                                                className="calendarElement"
+                                                onChange={(item) => {
+                                                    setRange([
+                                                        {
+                                                            startDate:
+                                                                item.selection
+                                                                    .startDate,
+                                                            endDate: addDays(
+                                                                item.selection
+                                                                    .startDate,
+                                                                6
+                                                            ),
+                                                            key: "selection",
+                                                        },
+                                                    ]);
+                                                    setisSelected(0);
+                                                }}
+                                                editableDateInputs={false}
+                                                moveRangeOnFirstSelection={
+                                                    false
+                                                }
+                                                ranges={range}
+                                                months={1}
+                                                direction="horizontal"
+                                            />
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
                             <div className="grid mt-2 justify-center grid-cols-4 sm:grid-cols-7">
-                                {rencanaDateOptions().map((option, index) => {
+                                {getDates(range).map((option, index) => {
+                                    options = getDates(range);
                                     return (
                                         <RencanaDateCard
+                                            key={index}
                                             option={option}
                                             selected={isSelected === index}
                                             onChange={() =>
@@ -189,21 +165,27 @@ export default function Rencana(props) {
                             </div>
 
                             <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
-                                {mealsInCart.map((item, index) => {
+                                {filterMeals()?.map((item, index) => {
                                     return (
                                         <RencanaCard
-                                            key={index}
-                                            id={index}
+                                            key={item.id}
                                             item={item}
                                             deleteItem={deleteItem}
                                         />
                                     );
                                 })}
-                                {/* <RencanaCard />
-                                <RencanaCard /> */}
                             </div>
                         </div>
-                        <RencanaRincian />
+                        <RencanaRincian
+                            totalPrice={() => {
+                                const total = filterMeals()?.reduce(
+                                    (acc, item) => acc + item.price,
+                                    0
+                                );
+                                return total;
+                            }}
+                            date={currentDate}
+                        />
                     </div>
                 </div>
                 <Footer />
