@@ -34,6 +34,9 @@ Route::post('/UpdateProfil/{id}', [ProfileController::class, 'update'])->middlew
 Route::get('/Ubahinformasipengiriman/{id}', [ProfileController::class, 'Ubahinformasipengiriman'])->middleware('auth')->name('pengiriman.ubah');
 Route::post('/UpdateInformasiPengiriman/{id}', [ProfileController::class, 'UpdateInformasiPengiriman'])->middleware('auth')->name('pengiriman.update');
 
+Route::get("/UbahPassword", [ProfileController::class, 'UbahPassword'])->middleware('auth')->name('password.ubah');
+Route::post('/UpdatePassword/{id}', [ProfileController::class, 'UpdatePassword'])->middleware('auth')->name('password.update');
+
 //Menu Route
 Route::resource('menu', MenuController::class)->middleware('auth');
 Route::get('/menu,', [MenuController::class ,'index']);

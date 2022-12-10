@@ -7,7 +7,7 @@ import { useForm } from '@inertiajs/inertia-react'
 
 export default function UbahProfil(props) {
 
-    const { files } = usePage().props
+
     //open the React Hooks File Browser
 
     const ref = useRef()
@@ -76,7 +76,7 @@ export default function UbahProfil(props) {
     return (
         <div>
             <>
-                <div className="bg-white w-full min-h-screen flex flex-col ">
+                <div className="bg-white w-full min-h-screen flex flex-col justify-between">
                     <div className="bg-blue-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
@@ -138,13 +138,8 @@ export default function UbahProfil(props) {
 
                                 </div>
                                 <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
-                                    <button
-                                        className="bg-red-600 w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-red-800  transition delay-50 text-md "
-                                    >
 
-                                        Reset Password
-
-                                    </button>
+                                    <Link href="/UbahPassword" className="bg-red-600 w-full items-center h-14 outline-none rounded-xl text-center flex flex-col justify-center font-bold text-white  hover:bg-red-800  transition delay-50 text-md " method="get" data={{ id: auth.user.id }}>Reset Password</Link>
 
                                 </div>
                                 <div className="w-full mt-4  rounded-2x flex flex-row justify-center">
@@ -161,9 +156,9 @@ export default function UbahProfil(props) {
 
                         </div>
 
-                        <Footer />
+                        
                     </div>
-                    {/* <Footer /> */}
+                    <Footer />
                 </div>
             </>
 
