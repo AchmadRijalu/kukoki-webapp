@@ -3,27 +3,40 @@ import { Link, Head } from "@inertiajs/inertia-react";
 import Footer from "@/Components/Footer";
 import { Inertia } from '@inertiajs/inertia'
 import HeaderNoBg from "@/Components/HeaderNoBg";
-import { useForm } from '@inertiajs/inertia-react'
+import { useForm ,usePage} from '@inertiajs/inertia-react'
 
 export default function UbahInformasiPengiriman(props) {
     const { data, setData, post, processing, errors } = useForm({
-        name: props.name,
-        email: props.email,
-        password: props.password,
-        provinsi: '',
-        kota: '',
-        kecamatan: '',
-        kelurahan: '',
-        alamatlengkap: '',
-        nomortelepon: '',
+        provinsi: props.user.province || "",
+        kota: props.user.city || "",
+        kecamatan: props.user.ward || "",
+        kelurahan: props.user.district || "",
+        alamatlengkap: props.user.address || "",
+        nomortelepon: props.user.phone || "",
     })
+    const { auth } = usePage().props
 
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = async (e) => {
         e.preventDefault();
-        console.log(data);
-        Inertia.post('/preferensi', data)
 
+        Inertia.post(`/UpdateInformasiPengiriman/${auth.user.id}`, {
+            province: data.provinsi,
+            city: data.kota,
+            ward: data.kecamatan,
+            district: data.kelurahan,
+            address: data.alamatlengkap,
+            phone: data.nomortelepon,
+
+
+
+        },
+
+        );
     }
+
+    console.log(data.provinsi)
+
+
     return (
         <div>
             <>
@@ -94,9 +107,6 @@ export default function UbahInformasiPengiriman(props) {
                                                 />
                                             </div>
                                         </div>
-                                        <input type="hidden" onChange={e => setData('name', e.target.value)} value={data.name} />
-                                        <input type="hidden" onChange={e => setData('email', e.target.value)} value={data.email} />
-                                        <input type="hidden" onChange={e => setData('password', e.target.value)} value={data.password} />
 
                                         <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
                                             <button type="submit"

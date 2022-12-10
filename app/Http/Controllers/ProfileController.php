@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class ProfileController extends Controller
 {
     /**
@@ -25,20 +28,28 @@ class ProfileController extends Controller
         return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
     }
 
-    public function UbahInformasiPengiriman(){
-        return Inertia::render('UbahInformasiPengiriman', ['title' => 'Ubah Informasi Pengiriman']);
+    public function Ubahinformasipengiriman($id){
+        $user = User::findorfail($id);
+        return Inertia::render('UbahInformasiPengiriman', ['user' => $user]);
     }
-
-    public function editProfile(){
-        return Inertia::render('UbahProfil', ['title' => 'Ubah Profil']);
-    }
-
-    public function edit(Request $request)
-    {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
+    public function UpdateInformasiPengiriman(Request $request,  $user){
+        $userprofile = User::findorFail($user);
+        $userprofile->update(
+            [
+                'province' => $request->province,
+                'city' => $request->city,
+                'ward' => $request->ward,
+                'district' => $request->district,
+                'address' => $request->address,
+                'phone' => $request->phone,
         ]);
+        return Redirect::route('profileAccount.index');
+    }
+
+    public function UbahProfil( $id){
+        $title = "Ubah Profil";
+        $user = User::findorfail($id);
+        return Inertia::render('UbahProfil', ['title' => 'Ubah Profil', 'user' => $user]);
     }
 
     /**
@@ -47,17 +58,77 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\ProfileUpdateRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileUpdateRequest $request)
+    public function update(Request $request,  $user)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if($request->profile_picture === null){
+            $userprofile = User::findorFail($user);
+            $userprofile->update(
+                [
+                    'full_name' => $request->full_name,
+                    'email' => $request->email,
+                    
+            ]);
         }
+        else if($request->profile_picture !=""){
+            // dd("ini ada isinya");
+            
+            $filename = time().'.'.$request->profile_picture->getClientOriginalName(); 
+            $this->validate($request, [
+                   'profile_picture' => "mimes:jpeg,png|max:10000"
+               ]);
 
-        $request->user()->save();
+            // if($request->oldfoto != null){
+            //     Storage::delete($request->oldfoto);
+            // }
+            $locateimage =$request->profile_picture->move('img/profile/', $filename);
 
-        return Redirect::route('profile.edit');
+
+
+            $userprofile = User::findorFail($user);
+            $userprofile->update(
+                [
+                    'full_name' => $request->full_name,
+                    'email' => $request->email,
+                    'profile_picture' => $locateimage
+            ]);
+        
+        }
+        return Redirect::route('profileAccount.index');
+    }
+
+    public function UbahPassword(){
+        return Inertia::render('UbahPassword', ['title' => 'Ubah Password']);
+    }
+    
+    public function UpdatePassword(Request $request,  $user){
+        $userprofile = User::findorFail($user);
+        $this->validate($request, [
+            'password' => [
+                'required',
+                'string',
+                'min:6',
+                'max:12',
+            ],
+            'confirm_password' => 'required|same:password|min:6'
+        ]
+    );
+    $getPassword = $request->password;
+    $password = Hash::make($getPassword);
+    $userprofile->update(
+        [
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'password' => $password
+            
+    ]);
+
+    // return Redirect::route('profileAccount.index');
+    // Inertia.get(route('profile.ubah', id));
+    // return Inertia::render('/UbahProfil/{id}', ['title' => 'Profile', 'category' => $cat]);
+    return Redirect::route('profile.ubah', $user);
+    
+        
+        
     }
 
     /**
@@ -83,4 +154,5 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
 }

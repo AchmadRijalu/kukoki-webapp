@@ -36,9 +36,16 @@ Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan')
 Route::get('/ulasan', function(){return Inertia::render('Ulasan');})->middleware('auth');
 
 //Profil Route
-Route::resource('profil', ProfileController::class)->middleware('auth');
-Route::get('/ubah_informasi_pengiriman', [ProfileController::class, 'UbahInformasiPengiriman'])->middleware('auth');
-Route::get('/ubah_profil', [ProfileController::class, 'editProfile'])->middleware('auth');
+Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
+
+Route::get('/UbahProfil/{id}', [ProfileController::class, 'UbahProfil'])->middleware('auth')->name('profile.ubah');
+Route::post('/UpdateProfil/{id}', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
+
+Route::get('/Ubahinformasipengiriman/{id}', [ProfileController::class, 'Ubahinformasipengiriman'])->middleware('auth')->name('pengiriman.ubah');
+Route::post('/UpdateInformasiPengiriman/{id}', [ProfileController::class, 'UpdateInformasiPengiriman'])->middleware('auth')->name('pengiriman.update');
+
+Route::get("/UbahPassword", [ProfileController::class, 'UbahPassword'])->middleware('auth')->name('password.ubah');
+Route::post('/UpdatePassword/{id}', [ProfileController::class, 'UpdatePassword'])->middleware('auth')->name('password.update');
 
 //Menu Route
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
