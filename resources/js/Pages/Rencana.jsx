@@ -9,12 +9,13 @@ import format from "date-fns/format";
 import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import PembayaranRincian from "@/Components/PembayaranRincian";
 
 export default function Rencana(props) {
     let options;
     let currentDate;
     const [isSelected, setisSelected] = useState(null);
-    const [mealsInCart, setMeals] = useState(props.cart);
+    const [mealsInCart, setMeals] = useState(props.ordered);
     const [open, setOpen] = useState(false);
     const referenceContainer = useRef(null);
     const [range, setRange] = useState([
@@ -28,6 +29,13 @@ export default function Rencana(props) {
     useEffect(() => {
         document.addEventListener("click", hideOnClick, true);
     }, []);
+
+    let subtotal = 0
+    for (const meal of props.cart) {
+        subtotal += meal.meal.price
+    }
+    let ongkir = 20000
+    let total = subtotal + ongkir
 
     const hideOnClick = (item) => {
         if (
@@ -98,6 +106,7 @@ export default function Rencana(props) {
                     </div>
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                         <div className="flex flex-col items-center">
+                            <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center mb-5">Telah Dipesan</h2>
                             <div className="calendarWrap mb-5">
                                 <div className="outer-input">
                                     <input
@@ -176,16 +185,21 @@ export default function Rencana(props) {
                                 })}
                             </div>
                         </div>
-                        <RencanaRincian
-                            totalPrice={() => {
-                                const total = filterMeals()?.reduce(
-                                    (acc, item) => acc + item.price,
-                                    0
-                                );
-                                return total;
-                            }}
-                            date={currentDate}
-                        />
+                        <div>
+                            <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12 mx-auto">
+                                <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center">Keranjang</h2>
+                                {props.cart.map((item, index) => {
+                                    return (
+                                        <RencanaCard
+                                            key={item.id}
+                                            item={item}
+                                            deleteItem={deleteItem}
+                                        />
+                                    );
+                                })}
+                            </div>
+                            <PembayaranRincian ongkir={ongkir} subtotal={subtotal} total={total} />
+                        </div>
                     </div>
                 </div>
                 <Footer />

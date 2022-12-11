@@ -5,8 +5,7 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 import Footer from "@/Components/Footer";
 
 export default function MenuCard({meal}) {
-    const formatter = new Intl.NumberFormat('de-DE', {
-    });
+    const formatter = new Intl.NumberFormat('de-DE');
 
     return (
         <Link href={route('menu.show', meal.id)}>

@@ -10,7 +10,10 @@ class Order extends Model
     use HasFactory;
 
     protected $table = "orders";
-
-
     protected $primaryKey = "id";
+    protected $fillable = [
+        'user_id',
+        'date',
+        'address',
+    ];
 }

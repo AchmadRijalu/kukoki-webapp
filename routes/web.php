@@ -56,4 +56,4 @@ Route::resource('menu', MenuController::class)->middleware('auth');
 Route::resource("rencana", PlanController::class)->middleware("auth");
 Route::get('/checkout', [PlanController::class, 'checkout'])->middleware('auth')->name('rencana.checkout');
 Route::post('/checkout', [PlanController::class, 'checkoutPost'])->middleware('auth')->name('rencana.checkout.post');
-Route::get('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth');
+Route::post('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth')->name('rencana.pembayaran.berhasil');
