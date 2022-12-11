@@ -17,22 +17,113 @@ class IngredientSeeder extends Seeder
     public function run()
     {
         DB::table('ingredients')->insert([
-            'name' => 'Ingredient 1',
-            'unit' => 'Unit 1',
+            'id' => 1,
+            'name' => 'Wortel',
+            'unit' => 'gr',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         DB::table('ingredients')->insert([
-            'name' => 'Ingredient 2',
-            'unit' => 'Unit 2',
+            'id' => 2,
+            'name' => 'Kentang',
+            'unit' => 'gr',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         DB::table('ingredients')->insert([
-            'name' => 'Ingredient 3',
-            'unit' => 'Unit 3',
+            'id' => 3,
+            'name' => 'Kembang Kol',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 4,
+            'name' => 'Buncis',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 5,
+            'name' => 'Kubis',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 6,
+            'name' => 'Daun Bawang',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 7,
+            'name' => 'Seledri',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 8,
+            'name' => 'Bumbu',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 9,
+            'name' => 'Sosis',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 10,
+            'name' => 'Bakso',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 11,
+            'name' => 'Saus Tiram',
+            'unit' => 'ml',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 12,
+            'name' => 'Tepung Maizena',
+            'unit' => 'gr',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 13,
+            'name' => 'Ayam',
+            'unit' => 'ml',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('ingredients')->insert([
+            'id' => 14,
+            'name' => 'Lele',
+            'unit' => 'gr',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

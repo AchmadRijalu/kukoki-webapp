@@ -12,9 +12,9 @@ export default function MainLayout({ children }) {
                 <HeaderNoBg />
             </div>
 
-            <div className="w-full h-max mt-8 mb-12 md:p-0 mini:p-3">
+            <div className="w-full h-max mt-8 mb-12 md:p-0 p-3">
 
-                <div className="  flex flex-col mini:justify-center mini:items-center">
+                <div className="  flex flex-col justify-center items-center">
                     {children}
                 </div>
             </div>

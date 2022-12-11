@@ -26,7 +26,7 @@ export default function Welcome(props) {
                                 </h2>
                                 <div className="flex justify-center md:justify-start mb-5 md:mb-0" onClick={(e) => handleLoginPage}>
                                     <Link
-                                        href= {route("login_account.index")}
+                                        href= {route("menu.index")}
                                         className="text-darkblue bg-white py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-gray-200 transition"
                                     >
                                         Pesan Sekarang
@@ -53,7 +53,7 @@ export default function Welcome(props) {
                         <h2 className="text-center font-semibold text-lg lg:text-xl text-darkblue mb-5">
                             Semua meal kit dilengkapi dengan bahan-bahan segar langsung dari petani lokal!
                         </h2>
-                        <div className="grid grid-cols-3 gap-10 my-5">
+                        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 my-5">
                             {props.meals.map((meal, i) =>
                                 <MenuCard meal={meal} key={i}></MenuCard>
                             )}
@@ -137,7 +137,7 @@ export default function Welcome(props) {
                             </p>
                             <div className="flex justify-center md:justify-start">
                                 <Link
-                                    href=""
+                                    href={route("menu.index")}
                                     className="text-white bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Pesan Sekarang
@@ -159,7 +159,7 @@ export default function Welcome(props) {
                                 rekomendasi sesuai keinginan anda.
                             </p>
                             <Link
-                                href=""
+                                href="/profil"
                                 className="text-white bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                             >
                                 Atur Preferensi

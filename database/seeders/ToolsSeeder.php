@@ -17,19 +17,22 @@ class ToolsSeeder extends Seeder
     public function run()
     {
         DB::table('tools')->insert([
-            'name' => 'Tool 1',
+            'id' => 1,
+            'name' => 'Panci',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         DB::table('tools')->insert([
-            'name' => 'Tool 2',
+            'id' => 2,
+            'name' => 'Wajan',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         DB::table('tools')->insert([
-            'name' => 'Tool 3',
+            'id' => 3,
+            'name' => 'Alat Tirisan',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
