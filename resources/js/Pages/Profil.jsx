@@ -34,9 +34,6 @@ export default function Profil(props) {
         
     }
     
-    
-    
-    console.log(props.category)
     return (
         <>
             <Head title="Profil" />

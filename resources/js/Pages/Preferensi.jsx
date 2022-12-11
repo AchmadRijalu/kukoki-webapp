@@ -28,7 +28,6 @@ export default function Preferensi(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(data);
         Inertia.post(route('registerAccount.store'), data)
 
     }
@@ -55,11 +54,7 @@ export default function Preferensi(props) {
 
 
                     var index = categoryList.indexOf(cat.id);
-                    console.log(index);
                     categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id): categoryList.splice(index, 1);;
-
-                    console.log(categoryList)
-
                     return { ...cat, selected: !cat.selected }
 
 

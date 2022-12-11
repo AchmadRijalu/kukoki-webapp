@@ -43,7 +43,6 @@ export default function UbahProfil(props) {
 
         // I've kept this example simple by using the first image instead of multiple
         setSelectedImage(e.target.files[0])
-        console.log(selectedImage)
 
     }
 
