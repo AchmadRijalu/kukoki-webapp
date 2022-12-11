@@ -44,16 +44,7 @@ export default function Preferensi(props) {
         { id: props.categories[7].id, name: props.categories[7].name, image: props.categories[7].image, selected: false },
     ]);
 
-    Array.prototype.remove = function() {
-        var what, a = arguments, L = a.length, ax;
-        while (L && this.length) {
-            what = a[--L];
-            while ((ax = this.indexOf(what)) !== -1) {
-                this.splice(ax, 1);
-            }
-        }
-        return this;
-    };
+    
 
     const categoryClicked = (e) => {
 

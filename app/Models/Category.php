@@ -12,7 +12,11 @@ class Category extends Model
 
     protected $table = "categories";
     
-    protected $fillage = ['name', 'image'];
+    protected $fillable = ['name', 'image'];
 
     protected $primaryKey = "id";
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'category_preferences')->withTimestamps();;
+    }
 }

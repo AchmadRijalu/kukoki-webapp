@@ -37,6 +37,9 @@ Route::post('/UpdateInformasiPengiriman/{id}', [ProfileController::class, 'Updat
 Route::get("/UbahPassword", [ProfileController::class, 'UbahPassword'])->middleware('auth')->name('password.ubah');
 Route::post('/UpdatePassword/{id}', [ProfileController::class, 'UpdatePassword'])->middleware('auth')->name('password.update');
 
+Route::get("/UbahPreferensi/{id}", [ProfileController::class, 'UbahPreferensi'])->middleware('auth')->name('preferensi.ubah');
+Route::post('/UpdatePreferensi/{id}', [ProfileController::class, 'UpdatePreferensi'])->middleware('auth')->name('preferensi.update');
+
 //Menu Route
 Route::resource('menu', MenuController::class)->middleware('auth');
 Route::get('/menu,', [MenuController::class ,'index']);

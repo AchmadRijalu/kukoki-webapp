@@ -28,9 +28,15 @@ export default function Profil(props) {
         Inertia.get(route('pengiriman.ubah', id));
         
     }
+    function handleGetIdPreferensi(id) {
+       
+        Inertia.get(route('preferensi.ubah', id));
+        
+    }
     
     
-
+    
+    console.log(props.category)
     return (
         <>
             <Head title="Profil" />
@@ -187,7 +193,7 @@ export default function Profil(props) {
 
                                 <button
                                     // onClick={(e) => handleGetIdPengiriman(auth.user.id)}
-                                    onClick={(e) => handleGetIdPengiriman}
+                                    onClick={(e) => handleGetIdPreferensi(auth.user.id)}
                                     className="text-white bg-blue py-2 lg:py-3 px-5 w-3/6 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Ubah

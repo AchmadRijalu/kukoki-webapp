@@ -35,6 +35,9 @@ class User extends Authenticatable
         'profile_picture',
         'emaul_verified_at'
     ];
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'category_preferences')->withTimestamps();;
+    }
 
     /**
      * The attributes that should be hidden for serialization.
