@@ -67,6 +67,13 @@ class MenuController extends Controller
 
     public function addToPlan(Request $request, $id)
     {
+        if (Cart::query()->where('user_id', Auth::id())
+            ->where('meal_id', $id)
+            ->where('date', $request->date)
+            ->exists()) {
+            return Redirect::back();
+        }
+
         Cart::query()->create([
             'user_id' => Auth::id(),
             'meal_id' => $id,
