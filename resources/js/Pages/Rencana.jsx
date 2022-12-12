@@ -198,7 +198,16 @@ export default function Rencana(props) {
                                     );
                                 })}
                             </div>
-                            <PembayaranRincian ongkir={ongkir} subtotal={subtotal} total={total} />
+                            <RencanaRincian
+                                totalPrice={() => {
+                                    const total = filterMeals()?.reduce(
+                                        (acc, item) => acc + item.price,
+                                        0
+                                    );
+                                    return total;
+                                }}
+                                date={currentDate}
+                            />
                         </div>
                     </div>
                 </div>
