@@ -16,7 +16,10 @@ Route::get('/', function(){
 
 //Register route
 Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
+Route::get('/RegisterInformasiPengiriman', [RegisterController::class, 'RegisterInformasiPengiriman'])->name('RegisterInformasiPengiriman.index')->middleware('guest');
 Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
+Route::get('/RegisterPreferensi', [RegisterController::class, 'RegisterPreferensi'])->name('RegisterPreferensi.index')->middleware('guest');
+
 Route::resource('registerAccount', RegisterController::class);
 
 //Login Route

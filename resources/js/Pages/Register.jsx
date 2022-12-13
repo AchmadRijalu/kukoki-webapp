@@ -7,7 +7,7 @@ import { useForm } from '@inertiajs/inertia-react'
 
 
 
-export default function Register() {
+export default function Register(props) {
 
     const { data, setData, post, processing, errors } = useForm({
         name: '',
@@ -73,6 +73,27 @@ export default function Register() {
 
 
                                     <input type="password" name="password" onChange={e => setData('password', e.target.value)} value={data.password} className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    {props.errors.name && (
+                                        <div className="text-red-400 font-semibold mt-4 text-center">
+                                            <h1>
+                                                {props.errors.name}
+                                            </h1>
+                                        </div>
+                                    )}
+                                    {props.errors.email && (
+                                        <div className="text-red-400 font-semibold mt-4 text-center">
+                                            <h1>
+                                                {props.errors.email}
+                                            </h1>
+                                        </div>
+                                    )}
+                                    {props.errors.password && (
+                                        <div className="text-red-400 font-semibold mt-4 text-center">
+                                            <h1>
+                                                {props.errors.password}
+                                            </h1>
+                                        </div>
+                                    )}
 
                                     <div className="w-full mt-8 font-medium underline flex flex-row  justify-center cursor-pointer">
                                         <h6>
@@ -100,12 +121,6 @@ export default function Register() {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
 
             </div>
             <Footer />

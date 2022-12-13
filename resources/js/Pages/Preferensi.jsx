@@ -43,7 +43,7 @@ export default function Preferensi(props) {
         { id: props.categories[7].id, name: props.categories[7].name, image: props.categories[7].image, selected: false },
     ]);
 
-    
+
 
     const categoryClicked = (e) => {
 
@@ -54,7 +54,7 @@ export default function Preferensi(props) {
 
 
                     var index = categoryList.indexOf(cat.id);
-                    categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id): categoryList.splice(index, 1);;
+                    categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id) : categoryList.splice(index, 1);;
                     return { ...cat, selected: !cat.selected }
 
 
@@ -108,6 +108,13 @@ export default function Preferensi(props) {
                             </>
                         )}
                     </div>
+                    {props.errors.category && (
+                        <div className="text-red-400 font-semibold mt-4 text-center">
+                            <h1>
+                                {props.errors.category}
+                            </h1>
+                        </div>
+                    )}
                     <form className=" w-1/4 mt-10  rounded-2x flex flex-row justify-center" onSubmit={onSubmitHandler}>
 
                         <input type="hidden" onChange={e => setData('category', categoryList.length)} value={categoryList} />

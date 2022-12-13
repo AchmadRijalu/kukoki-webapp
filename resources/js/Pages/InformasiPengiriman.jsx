@@ -90,8 +90,53 @@ export default function InformasiPengiriman(props) {
                                         <input type="number" name="nomortelepon" onChange={e => setData('nomortelepon', e.target.value)} value={data.nomortelepon}
                                             className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
                                         />
+
                                     </div>
+
                                 </div>
+                                {props.errors.provinsi && (
+                                    <div className="text-red-400 font-semibold mt-4 text-center">
+                                        <h1>
+                                            {props.errors.provinsi}
+                                        </h1>
+                                    </div>
+
+                                )}
+                                {props.errors.kota && (
+                                    <div className="text-red-400 font-semibold mt-4 text-center">
+                                        <h1>
+                                            {props.errors.kota}
+                                        </h1>
+                                    </div>
+                                )}
+                                {props.errors.kecamatan && (
+                                    <div className="text-red-400 font-semibold mt-4 text-center">
+                                        <h1>
+                                            {props.errors.kecamatan}
+                                        </h1>
+                                    </div>
+                                )}
+                                {props.errors.kelurahan && (
+                                    <div className="text-red-400 font-semibold mt-4 text-center">
+                                        <h1>
+                                            {props.errors.kelurahan}
+                                        </h1>
+                                    </div>
+                                )}
+                                {props.errors.alamatlengkap && (
+                                    <div className="text-red-400 font-semibold mt-4 text-center">
+                                        <h1>
+                                            {props.errors.alamatlengkap}
+                                        </h1>
+                                    </div>
+                                )}
+                                {props.errors.nomortelepon && (
+                                    <div className="text-red-400 font-semibold mt-4 text-center">
+                                        <h1>
+                                            {props.errors.nomortelepon}
+                                        </h1>
+                                    </div>
+                                )}
                                 <input type="hidden" onChange={e => setData('name', e.target.value)} value={data.name} />
                                 <input type="hidden" onChange={e => setData('email', e.target.value)} value={data.email} />
                                 <input type="hidden" onChange={e => setData('password', e.target.value)} value={data.password} />
