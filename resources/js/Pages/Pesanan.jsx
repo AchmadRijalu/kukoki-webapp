@@ -138,6 +138,7 @@ export default function Pesanan(){
                         <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
 
                             <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
+                                <a href="/detail-pesanan" className="">
                                 <div className="flex justify-between flex-row w-full">
                                     <p className="text-blue font-bold">3 Oktober 2022</p>
                                     <p className="text-darkblue font-bold items-start text-sm">Lihat Rincian</p>
@@ -166,6 +167,7 @@ export default function Pesanan(){
                                     <p className="text-sm align-middle m-1 font-bold">Rp</p>
                                     <p className="text-xl font-bold">160.000</p>
                                 </div>
+                                </a>
                             </div>
 
                             <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
