@@ -14,7 +14,7 @@ import {Link} from "@inertiajs/inertia-react";
 export default function Rencana(props) {
     let options;
     let currentDate;
-    const [isSelected, setisSelected] = useState(null);
+    const [isSelected, setisSelected] = useState(0);
     const [mealsInCart, setMeals] = useState(props.ordered);
     const [open, setOpen] = useState(false);
     const referenceContainer = useRef(null);
