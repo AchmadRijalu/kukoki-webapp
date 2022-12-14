@@ -105,14 +105,18 @@ export default function Checkout(props) {
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                 </h4>
                                 <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
-                                    {props.cart.map((item, index) => {
-                                        return (
-                                            <RencanaCard
-                                                key={item.id}
-                                                item={item}
-                                            />
-                                        );
-                                    })}
+                                    <div className="flex flex-col justify-start items-center mt-4">
+                                        <div className="shadow-md px-5 pt-5 pb-2 rounded-xl w-full">
+                                            {props.cart.map((item, index) => {
+                                                return (
+                                                    <RencanaCard
+                                                        key={item.id}
+                                                        item={item}
+                                                    />
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <PembayaranRincian ongkir={ongkir} subtotal={subtotal} total={total} />
