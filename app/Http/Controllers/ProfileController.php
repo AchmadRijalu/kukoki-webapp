@@ -43,7 +43,7 @@ class ProfileController extends Controller
                 'address' => $request->address,
                 'phone' => $request->phone,
         ]);
-        return Redirect::route('profileAccount.index');
+        return Redirect::route('profil.index');
     }
 
     public function UbahProfil( $id){
@@ -66,13 +66,13 @@ class ProfileController extends Controller
                 [
                     'full_name' => $request->full_name,
                     'email' => $request->email,
-                    
+
             ]);
         }
         else if($request->profile_picture !=""){
             // dd("ini ada isinya");
-            
-            $filename = time().'.'.$request->profile_picture->getClientOriginalName(); 
+
+            $filename = time().'.'.$request->profile_picture->getClientOriginalName();
             $this->validate($request, [
                    'profile_picture' => "mimes:jpeg,png|max:10000"
                ]);
@@ -91,15 +91,15 @@ class ProfileController extends Controller
                     'email' => $request->email,
                     'profile_picture' => $locateimage
             ]);
-        
+
         }
-        return Redirect::route('profileAccount.index');
+        return Redirect::route('profil.index');
     }
 
     public function UbahPassword(){
         return Inertia::render('UbahPassword', ['title' => 'Ubah Password']);
     }
-    
+
     public function UpdatePassword(Request $request,  $user){
         $userprofile = User::findorFail($user);
         $this->validate($request, [
@@ -119,16 +119,16 @@ class ProfileController extends Controller
             'full_name' => $request->full_name,
             'email' => $request->email,
             'password' => $password
-            
+
     ]);
 
-    // return Redirect::route('profileAccount.index');
+    // return Redirect::route('profil.index');
     // Inertia.get(route('profile.ubah', id));
     // return Inertia::render('/UbahProfil/{id}', ['title' => 'Profile', 'category' => $cat]);
     return Redirect::route('profile.ubah', $user);
-    
-        
-        
+
+
+
     }
 
     /**

@@ -27,6 +27,7 @@ class MealSeeder extends Seeder
 //        ]);
 
         DB::table('meals')->insert([
+            'id' => 1,
             'name' => 'Capjay',
             'description' => 'Paket Capjay dari Snel Koken, lengkap dengan bumbu khas Chinese Food dan bisa kamu kreasikan mau kuah ataupun kering, yang penting jangan berantem buat nentuinnya',
             'price' => 25000,
@@ -37,6 +38,7 @@ class MealSeeder extends Seeder
         ]);
 
         DB::table('meals')->insert([
+            'id' => 2,
             'name' => 'Sop Kuah',
             'description' => 'Paket Sop Kuah dari Snel Koken, dengan sayur pilihan asli dari petani, sudah dipotong + lengkap dengan bumbunya. Yang lagi gaenak badan tapi gapunya ayang buat masakin, bisa nih masak sendiri tinggal kasih air.',
             'price' => 20000,
@@ -47,6 +49,7 @@ class MealSeeder extends Seeder
         ]);
 
         DB::table('meals')->insert([
+            'id' => 3,
             'name' => 'Lele Goreng',
             'description' => 'Paket Lele Goreng dari Snel Koken, sudah dimarinasi dengan resep bumbu khas yang pastinya rempah-rempahnya bakal meresap sampai di hati.',
             'price' => 18000,
@@ -57,6 +60,7 @@ class MealSeeder extends Seeder
         ]);
 
         DB::table('meals')->insert([
+            'id' => 4,
             'name' => 'Ayam Potong',
             'description' => 'Paket Ayam Potong Paha Utuh dari Snel Koken, sudah dimarinasi dengan rempah pilihan tinggal srenggg. Buat yang ga mau jumbo,bisa dipotong lagi paha bawah + atasnya.',
             'price' => 28000,

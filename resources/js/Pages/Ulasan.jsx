@@ -43,7 +43,7 @@ export default function Pesanan(){
                             </div>
                         </div>
                         <div className="flex flex-row mt-2">
-                            <textarea id="message" rows="12" class="mt-2 lg:mx-2 block w-full text-sm text-white bg-gray rounded-lg placeholder-white border-none" placeholder="Halo! Bagaimana menurutmu tentang Pesto Pasta Chicken?"></textarea>
+                            <textarea id="message" rows="12" class="mt-2 lg:mx-2 block w-full text-sm text-white bg-gray2 rounded-lg placeholder-white border-none" placeholder="Halo! Bagaimana menurutmu tentang Pesto Pasta Chicken?"></textarea>
                         </div>
                         <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2">
                             Bagikan Ulasan

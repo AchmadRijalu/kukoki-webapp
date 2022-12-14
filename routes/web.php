@@ -36,7 +36,7 @@ Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan')
 Route::get('/ulasan', function(){return Inertia::render('Ulasan');})->middleware('auth');
 
 //Profil Route
-Route::resource('profileAccount', ProfileController::class)->middleware('auth');;
+Route::resource('profil', ProfileController::class)->middleware('auth');
 
 Route::get('/UbahProfil/{id}', [ProfileController::class, 'UbahProfil'])->middleware('auth')->name('profile.ubah');
 Route::post('/UpdateProfil/{id}', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
@@ -50,10 +50,11 @@ Route::post('/UpdatePassword/{id}', [ProfileController::class, 'UpdatePassword']
 //Menu Route
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
 Route::post('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->middleware('auth')->name('menu.add_to_plan');
-Route::resource('menu', MenuController::class)->middleware('auth');
+Route::resource('menu', MenuController::class)->only(['addToPlan'])->middleware('auth');
+Route::resource('menu', MenuController::class)->except(['addToPlan']);
 
 //Rencana Route
 Route::resource("rencana", PlanController::class)->middleware("auth");
 Route::get('/checkout', [PlanController::class, 'checkout'])->middleware('auth')->name('rencana.checkout');
 Route::post('/checkout', [PlanController::class, 'checkoutPost'])->middleware('auth')->name('rencana.checkout.post');
-Route::get('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth');
+Route::post('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth')->name('rencana.pembayaran.berhasil');

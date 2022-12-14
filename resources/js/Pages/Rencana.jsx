@@ -9,12 +9,13 @@ import format from "date-fns/format";
 import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import {Link} from "@inertiajs/inertia-react";
 
 export default function Rencana(props) {
     let options;
     let currentDate;
     const [isSelected, setisSelected] = useState(null);
-    const [mealsInCart, setMeals] = useState(props.cart);
+    const [mealsInCart, setMeals] = useState(props.ordered);
     const [open, setOpen] = useState(false);
     const referenceContainer = useRef(null);
     const [range, setRange] = useState([
@@ -24,10 +25,16 @@ export default function Rencana(props) {
             key: "selection",
         },
     ]);
+    const formatter = new Intl.NumberFormat('de-DE');
 
     useEffect(() => {
         document.addEventListener("click", hideOnClick, true);
     }, []);
+
+    let total = 0
+    for (const meal of props.cart) {
+        total += meal.meal.price
+    }
 
     const hideOnClick = (item) => {
         if (
@@ -77,7 +84,7 @@ export default function Rencana(props) {
 
     function deleteItem(id) {
         setMeals(mealsInCart.filter((item) => item.id !== id));
-    };
+    }
 
     return (
         <div>
@@ -98,6 +105,7 @@ export default function Rencana(props) {
                     </div>
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                         <div className="flex flex-col items-center">
+                            <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center mb-5">Telah Dipesan</h2>
                             <div className="calendarWrap mb-5">
                                 <div className="outer-input">
                                     <input
@@ -165,27 +173,55 @@ export default function Rencana(props) {
                             </div>
 
                             <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
-                                {filterMeals()?.map((item, index) => {
-                                    return (
-                                        <RencanaCard
-                                            key={item.id}
-                                            item={item}
-                                            deleteItem={deleteItem}
-                                        />
-                                    );
-                                })}
+                                {filterMeals()?.length === 0 ? (
+                                    <h1 className='text-center text-xl font-semibold text-darkblue mt-10'>Belum ada pesanan!</h1>
+                                ) : (
+                                    filterMeals()?.map((item, index) => {
+                                        return (
+                                            <RencanaCard
+                                                key={item.id}
+                                                item={item}
+                                                deleteItem={deleteItem}
+                                            />
+                                        );
+                                    })
+                                )}
                             </div>
                         </div>
-                        <RencanaRincian
-                            totalPrice={() => {
-                                const total = filterMeals()?.reduce(
-                                    (acc, item) => acc + item.price,
-                                    0
-                                );
-                                return total;
-                            }}
-                            date={currentDate}
-                        />
+                        <div>
+                            <div className="flex flex-col justify-center w-full mx-auto px-6">
+                                <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center">Keranjang</h2>
+                                <div className="flex flex-col justify-start items-center mt-4">
+                                    <div className="shadow-md p-5 rounded-xl w-full">
+                                        {props.cart.map((item, index) => {
+                                            return (
+                                                <RencanaCard
+                                                    key={item.id}
+                                                    item={item}
+                                                    deleteItem={deleteItem}
+                                                />
+                                            );
+                                        })}
+                                        <hr className="mt-5"></hr>
+                                        <div className="rounded mt-2">
+                                            <div className="mx-2 mt-2 flex">
+                                                <h1 className="text-lg lg:text-md mr-auto font-bold text-blue">Total</h1>
+                                                <h1 className="text-lg lg:text-md font-bold text-blue">{'Rp' + formatter.format(total)}</h1>
+                                            </div>
+                                        </div>
+                                        {/*<h1 className="text-sm lg:text-xs font-semibold text-rencanasend mt-3">*/}
+                                        {/*    Dikirimkan pada Tanggal*/}
+                                        {/*</h1>*/}
+                                        {/*<h1 className="text-xl font-semibold font-bold text-blue mt-1">*/}
+                                        {/*    31 Desember 2022*/}
+                                        {/*</h1>*/}
+                                    </div>
+                                    <Link href={route('rencana.checkout')} className="bg-blue p-5 mt-5 rounded-md cursor-pointer hover:bg-bluehover transition font-bold w-full">
+                                        <h1 className="text-white text-center">Pesan</h1>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <Footer />

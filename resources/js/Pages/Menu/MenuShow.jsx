@@ -13,12 +13,14 @@ export default function MenuShow(props) {
     const [date, setDate] = useState('');
 
     function handleAddToPlan() {
-        let values ={
-            portion: porsi,
-            date: date
-        }
+        if (date !== '') {
+            let values ={
+                portion: porsi,
+                date: date
+            }
 
-        Inertia.post(route('menu.add_to_plan', props.meal.id), values)
+            Inertia.post(route('menu.add_to_plan', props.meal.id), values)
+        }
     }
 
     return (
@@ -27,7 +29,7 @@ export default function MenuShow(props) {
                 <div className='flex flex-row justify-center gap-10'>
                     <div className='w-1/2'>
                         <img className="object-cover rounded-2xl h-full" alt="img of a girl posing"
-                             src="https://i.ibb.co/QMdWfzX/component-image-one.png"/>
+                             src={'/img/menu/' + props.meal.img_path}/>
                     </div>
                     <div className='w-1/2'>
                         <div>
@@ -65,21 +67,10 @@ export default function MenuShow(props) {
                         </div>
                         <div className='pt-4'>
                             <button onClick={handleAddToPlan}
-                                className="
-                    mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
-                    text-base
-                    flex
-                    items-center
-                    justify-center
-                    leading-none
-                    text-white
-                    font-bold
-                    bg-blue
-                    w-full
-                    py-5
-                    hover:bg-bluehover
-                    rounded-md
-                "
+                                className={
+                    'mt-4 text-base flex items-center justify-center leading-none font-bold w-full py-5 rounded-md '
+                                    + (date === '' ? 'bg-gray-200 text-gray-400 cursor-default' : 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue hover:bg-bluehover bg-blue text-white')
+                                }
                             >
                                 Tambahkan ke Rencana
                             </button>
@@ -104,14 +95,14 @@ export default function MenuShow(props) {
                         </ul>
                     </div>
                 </div>
-                <div className='mt-10'>
-                    <h4 className='text-darkblue font-bold text-2xl'>Ulasan Pembeli</h4>
-                    <div className="grid grid-cols-3 gap-10">
-                        {props.meals.map((meal, i) =>
-                            <MenuReviewCard></MenuReviewCard>
-                        )}
-                    </div>
-                </div>
+                {/*<div className='mt-10'>*/}
+                {/*    <h4 className='text-darkblue font-bold text-2xl'>Ulasan Pembeli</h4>*/}
+                {/*    <div className="grid grid-cols-3 gap-10">*/}
+                {/*        {props.meals.map((meal, i) =>*/}
+                {/*            <MenuReviewCard></MenuReviewCard>*/}
+                {/*        )}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className='mt-10'>
                     <h4 className='text-darkblue font-bold text-2xl'>Menu Lain dalam Kategori </h4>
                     <div className="grid grid-cols-3 gap-10">

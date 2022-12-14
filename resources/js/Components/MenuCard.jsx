@@ -5,12 +5,11 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 import Footer from "@/Components/Footer";
 
 export default function MenuCard({meal}) {
-    const formatter = new Intl.NumberFormat('de-DE', {
-    });
+    const formatter = new Intl.NumberFormat('de-DE');
 
     return (
         <Link href={route('menu.show', meal.id)}>
-            <div className="max-w-xs rounded overflow-hidden shadow-lg hover:scale-[102%] transition">
+            <div className="max-w-xs rounded overflow-hidden shadow-lg hover:scale-[102%] transition mx-auto">
                 <img className="w-full" src={'/img/menu/' + meal.img_path} alt={meal.name} />
                 <div className="px-4 py-4">
                     <div className="font-bold text-xl mb-2 text-darkblue">{meal.name}</div>
