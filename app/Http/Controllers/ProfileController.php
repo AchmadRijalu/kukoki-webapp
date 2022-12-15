@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Category;
+use App\Models\CategoryPreferences;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,15 +24,34 @@ class ProfileController extends Controller
 
     public function index()
     {
-        $categories = Category::query()->get();
-        $cat = $categories->offsetGet(0)->limit(2)->get();
+        // $categories = Category::query()->get();
+        // $cat = $categories->offsetGet(0)->limit(2)->get();
+        // $cat = CategoryPreferences::where('user_id', Auth::id())->limit(2)
+        // ->get();
+        $cat = User::where('id', Auth::id())->first()->categories->skip(0)->take(2);;
+        
         return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
     }
+
+    public function ubahPreferensi($id){
+        $cat = Category::query()->get();
+        $user = User::findorfail($id);
+        $categoryUser = User::where('id', Auth::id())->first()->categories;
+        return Inertia::render('UbahPreferensi', ['user' => $user, 'categories' => $cat, 'catuser' => $categoryUser]);
+    }
+
+    public function UpdatePreferensi( Request $request, $id){
+        $categoryuser = User::findorFail($id);
+        $categoryuser->first()->categories()->sync($request->category);;
+        return Redirect::route('profileAccount.index');
+    }
+
 
     public function Ubahinformasipengiriman($id){
         $user = User::findorfail($id);
         return Inertia::render('UbahInformasiPengiriman', ['user' => $user]);
     }
+
     public function UpdateInformasiPengiriman(Request $request,  $user){
         $userprofile = User::findorFail($user);
         $userprofile->update(
@@ -81,8 +101,6 @@ class ProfileController extends Controller
             //     Storage::delete($request->oldfoto);
             // }
             $locateimage =$request->profile_picture->move('img/profile/', $filename);
-
-
 
             $userprofile = User::findorFail($user);
             $userprofile->update(
