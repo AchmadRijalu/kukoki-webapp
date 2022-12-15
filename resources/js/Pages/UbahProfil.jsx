@@ -60,7 +60,7 @@ export default function UbahProfil(props) {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
-        Inertia.post(`/UpdateProfil/${auth.user.id}`, {
+        Inertia.post(`/update_profil/${auth.user.id}`, {
             full_name: data.full_name,
             email: data.email,
             profile_picture: selectedImage
@@ -72,7 +72,7 @@ export default function UbahProfil(props) {
         );
     }
 
-    
+
     return (
         <div>
             <>
@@ -156,7 +156,7 @@ export default function UbahProfil(props) {
 
                         </div>
 
-                        
+
                     </div>
                     <Footer />
                 </div>

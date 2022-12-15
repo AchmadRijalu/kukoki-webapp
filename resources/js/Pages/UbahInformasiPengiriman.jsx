@@ -19,7 +19,7 @@ export default function UbahInformasiPengiriman(props) {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
-        Inertia.post(`/UpdateInformasiPengiriman/${auth.user.id}`, {
+        Inertia.post(`/update_informasi_pengiriman/${auth.user.id}`, {
             province: data.provinsi,
             city: data.kota,
             ward: data.kecamatan,

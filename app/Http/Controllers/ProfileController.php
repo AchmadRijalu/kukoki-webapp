@@ -29,7 +29,7 @@ class ProfileController extends Controller
         // $cat = CategoryPreferences::where('user_id', Auth::id())->limit(2)
         // ->get();
         $cat = User::where('id', Auth::id())->first()->categories->skip(0)->take(2);;
-        
+
         return Inertia::render('Profil', ['title' => 'Profile', 'category' => $cat]);
     }
 
@@ -43,7 +43,7 @@ class ProfileController extends Controller
     public function UpdatePreferensi( Request $request, $id){
         $categoryuser = User::findorFail($id);
         $categoryuser->first()->categories()->sync($request->category);;
-        return Redirect::route('profileAccount.index');
+        return Redirect::route('profil.index');
     }
 
 
