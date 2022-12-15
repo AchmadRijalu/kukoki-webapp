@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\OrderDetailController;
@@ -34,7 +35,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::post('/login', [LoginController::class, 'store']);
 
 //Pesanan Route
-Route::get('/pesanan', function(){return Inertia::render('Pesanan');})->middleware('auth');
+Route::resource("pesanan", PesananController::class)->middleware("auth");
 Route::get('/detail_pesanan', function(){return Inertia::render('DetailPesanan');})->middleware('auth');
 Route::get('/ulasan', function(){return Inertia::render('Ulasan');})->middleware('auth');
 

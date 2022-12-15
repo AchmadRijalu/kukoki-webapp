@@ -126,7 +126,6 @@ export default function Rencana(props) {
                                     <div ref={referenceContainer}>
                                         {open && (
                                             <DateRange
-                                                minDate={new Date()}
                                                 className="calendarElement"
                                                 onChange={(item) => {
                                                     setRange([

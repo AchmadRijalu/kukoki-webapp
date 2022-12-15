@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PesananController extends Controller
 {
@@ -13,7 +15,9 @@ class PesananController extends Controller
      */
     public function index()
     {
-        //
+        $riwayat = Order::query()->with(['orderDetails.meal'])->get();
+
+        return Inertia::render('Pesanan');
     }
 
     /**
