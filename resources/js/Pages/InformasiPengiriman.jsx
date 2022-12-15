@@ -21,7 +21,7 @@ export default function InformasiPengiriman(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        Inertia.post('/Preferensi', data)
+        Inertia.post('/preferensi', data)
 
     }
     return (

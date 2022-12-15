@@ -20,22 +20,22 @@ Route::get('/', function(){
 });
 
 //Register route
-Route::post('/InformasiPengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
-Route::get('/RegisterInformasiPengiriman', [RegisterController::class, 'RegisterInformasiPengiriman'])->name('RegisterInformasiPengiriman.index')->middleware('guest');
-Route::post('/Preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
-Route::get('/RegisterPreferensi', [RegisterController::class, 'RegisterPreferensi'])->name('RegisterPreferensi.index')->middleware('guest');
+Route::post('/informasi_pengiriman', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
+Route::get('/register_informasi_pengiriman', [RegisterController::class, 'RegisterInformasiPengiriman'])->name('register_informasi_pengiriman.index')->middleware('guest');
+Route::post('/preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
+Route::get('/register_preferensi', [RegisterController::class, 'RegisterPreferensi'])->name('register_preferensi.index')->middleware('guest');
 
-Route::resource('registerAccount', RegisterController::class);
+Route::resource('register_account', RegisterController::class);
 
 //Login Route
-Route::resource('loginAccount', LoginController::class)->middleware('guest');
+Route::resource('login_account', LoginController::class)->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::post('/login', [LoginController::class, 'store']);
 
 //Pesanan Route
 Route::get('/pesanan', function(){return Inertia::render('Pesanan');})->middleware('auth');
-Route::get('/detail-pesanan', function(){return Inertia::render('DetailPesanan');})->middleware('auth');
+Route::get('/detail_pesanan', function(){return Inertia::render('DetailPesanan');})->middleware('auth');
 Route::get('/ulasan', function(){return Inertia::render('Ulasan');})->middleware('auth');
 
 //Profil Route
@@ -47,11 +47,11 @@ Route::post('/update_profil/{id}', [ProfileController::class, 'update'])->middle
 Route::get('/ubah_informasi_pengiriman/{id}', [ProfileController::class, 'Ubahinformasipengiriman'])->middleware('auth')->name('pengiriman.ubah');
 Route::post('/update_informasi_pengiriman/{id}', [ProfileController::class, 'UpdateInformasiPengiriman'])->middleware('auth')->name('pengiriman.update');
 
-Route::get("/UbahPassword", [ProfileController::class, 'UbahPassword'])->middleware('auth')->name('password.ubah');
-Route::post('/UpdatePassword/{id}', [ProfileController::class, 'UpdatePassword'])->middleware('auth')->name('password.update');
+Route::get("/ubah_password", [ProfileController::class, 'UbahPassword'])->middleware('auth')->name('password.ubah');
+Route::post('/update_password/{id}', [ProfileController::class, 'UpdatePassword'])->middleware('auth')->name('password.update');
 
-Route::get("/UbahPreferensi/{id}", [ProfileController::class, 'UbahPreferensi'])->middleware('auth')->name('preferensi.ubah');
-Route::post('/UpdatePreferensi/{id}', [ProfileController::class, 'UpdatePreferensi'])->middleware('auth')->name('preferensi.update');
+Route::get("/ubah_preferensi/{id}", [ProfileController::class, 'UbahPreferensi'])->middleware('auth')->name('preferensi.ubah');
+Route::post('/update_preferensi/{id}', [ProfileController::class, 'UpdatePreferensi'])->middleware('auth')->name('preferensi.update');
 
 //Menu Route
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');

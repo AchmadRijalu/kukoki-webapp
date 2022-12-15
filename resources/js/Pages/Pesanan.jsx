@@ -138,7 +138,7 @@ export default function Pesanan(){
                         <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
 
                             <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <a href="/detail-pesanan" className="">
+                                <a href="/detail_pesanan" className="">
                                     <div className="flex justify-between flex-row w-full">
                                         <p className="text-blue font-bold">3 Oktober 2022</p>
                                         <p className="text-darkblue font-bold items-start text-sm">Lihat Rincian</p>

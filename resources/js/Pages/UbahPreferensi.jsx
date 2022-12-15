@@ -6,15 +6,15 @@ import { Link, Head, usePage, useForm } from "@inertiajs/inertia-react";
 import PreferensiCard from "@/Components/PreferensiCard";
 
 export default function UbahPreferensi(props) {
-  
+
 
     //checking if the user are from edit profile or register page
     //if true will print without '/'
     let categoryList = []
-    
+
     const [UbahData, setUbahData] = useState(true);
 
-    
+
     let catar = ([
         { id: props.categories[0].id, name: props.categories[0].name, image: props.categories[0].image, selected: false },
         { id: props.categories[1].id, name: props.categories[1].name, image: props.categories[1].image, selected: false },
@@ -32,15 +32,15 @@ export default function UbahPreferensi(props) {
             if(cat.id == cate.id){
                 cat.selected = true
                 categoryList.push(cat.id)
-                
-                
+
+
             }
         }
     }
     const [categories, setcategory] = useState(catar);
     const [categoryListFix, setCategories] = useState(categoryList);
-    
-    
+
+
     const categoryClicked = (e) => {
 
         setcategory(
@@ -51,9 +51,9 @@ export default function UbahPreferensi(props) {
 
                         var index = categoryListFix.indexOf(cat.id);
                         categoryListFix.indexOf(cat.id) === -1 ? categoryListFix.push(cat.id) : categoryListFix.splice(index, 1);;
-                        
+
                         return { ...cat, selected: !cat.selected }
-                    
+
 
                 } else {
                     categoryListFix.filter(a => a.id !== cat.id)
@@ -70,7 +70,7 @@ export default function UbahPreferensi(props) {
     })
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        Inertia.post(`/UpdatePreferensi/${props.user.id}`, {
+        Inertia.post(`/update_preferensi/${props.user.id}`, {
             category: data.category
 
         },

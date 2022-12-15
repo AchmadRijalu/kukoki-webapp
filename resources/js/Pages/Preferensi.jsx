@@ -28,7 +28,7 @@ export default function Preferensi(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        Inertia.post(route('registerAccount.store'), data)
+        Inertia.post(route('register_account.store'), data)
 
     }
 
