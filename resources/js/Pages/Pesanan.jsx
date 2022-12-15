@@ -2,7 +2,8 @@ import React from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
-export default function Pesanan(){
+import RencanaCard from "@/Components/RencanaCard";
+export default function Pesanan(props){
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
             <div className="bg-blue-bg bg-cover bg-no-repeat">
@@ -29,99 +30,42 @@ export default function Pesanan(){
                         </div>
                         <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
                             {/* One Card */}
-                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <div className="flex justify-between flex-row w-full">
-                                    <p className="text-blue font-bold">3 Oktober 2022</p>
-                                    <p className="text-darkblue font-bold items-start text-sm">Dalam Perjalanan</p>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <div class="grid grid-rows-2 grid-cols-2 gap-2">
-                                        <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
-                                    </div>
-                                    <div className="ml-4 flex flex-col w-full h-full">
-                                        <p className="items-start text-sm">Grilled Salmon</p>
-                                        <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                        <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                        <p className="items-start text-sm">Unagi Ramen</p>
-                                    </div>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <img src="img/icon/location.svg" alt="" className="w-8"/>
-                                    <div className="ml-6">
-                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
-                                    </div>
-                                </div>
-                                {/* <div className="flex justify-center flex-row w-full mt-6">
+                            {props.riwayat.map((item, index) => {
+                                return (
+                                    <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
+                                        <div className="flex justify-between flex-row w-full">
+                                            <p className="text-blue font-bold">3 Oktober 2022</p>
+                                            <p className="text-darkblue font-bold items-start text-sm">Dalam
+                                                Perjalanan</p>
+                                        </div>
+                                        <div className="flex justify-start flex-row w-full mt-6">
+                                            <div className="grid grid-rows-2 grid-cols-2 gap-2">
+                                                <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
+                                                <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
+                                                <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
+                                                <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
+                                            </div>
+                                            <div className="ml-4 flex flex-col w-full h-full">
+                                                <p className="items-start text-sm">Grilled Salmon</p>
+                                                <p className="items-start text-sm">Nabe Veggie Udon</p>
+                                                <p className="items-start text-sm">Pesto Pasta Chicken</p>
+                                                <p className="items-start text-sm">Unagi Ramen</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex justify-start flex-row w-full mt-6">
+                                            <img src="img/icon/location.svg" alt="" className="w-8"/>
+                                            <div className="ml-6">
+                                                <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep,
+                                                    Kota SBY, Jawa Timur 60219</p>
+                                            </div>
+                                        </div>
+                                        {/* <div className="flex justify-center flex-row w-full mt-6">
                                     <p className="text-sm align-middle m-1 font-bold">Rp</p>
                                     <p className="text-xl font-bold">160.000</p>
                                 </div> */}
-                            </div>
-
-                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <div className="flex justify-between flex-row w-full">
-                                    <p className="text-blue font-bold">3 Oktober 2022</p>
-                                    <p className="text-darkblue font-bold items-start text-sm">Menunggu Kurir</p>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <div class="grid grid-rows-2 grid-cols-2 gap-2">
-                                        <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
                                     </div>
-                                    <div className="ml-4 flex flex-col w-full h-full">
-                                        <p className="items-start text-sm">Grilled Salmon</p>
-                                        <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                        <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                        <p className="items-start text-sm">Unagi Ramen</p>
-                                    </div>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <img src="img/icon/location.svg" alt="" className="w-8"/>
-                                    <div className="ml-6">
-                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
-                                    </div>
-                                </div>
-                                {/* <div className="flex justify-center flex-row w-full mt-6">
-                                    <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                    <p className="text-xl font-bold">160.000</p>
-                                </div> */}
-                            </div>
-
-                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <div className="flex justify-between flex-row w-full">
-                                    <p className="text-blue font-bold">3 Oktober 2022</p>
-                                    <p className="text-darkblue font-bold items-start text-sm">Selesai</p>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <div class="grid grid-rows-2 grid-cols-2 gap-2">
-                                        <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
-                                    </div>
-                                    <div className="ml-4 flex flex-col w-full h-full">
-                                        <p className="items-start text-sm">Grilled Salmon</p>
-                                        <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                        <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                        <p className="items-start text-sm">Unagi Ramen</p>
-                                    </div>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <img src="img/icon/location.svg" alt="" className="w-8"/>
-                                    <div className="ml-6">
-                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
-                                    </div>
-                                </div>
-                                {/* <div className="flex justify-center flex-row w-full mt-6">
-                                    <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                    <p className="text-xl font-bold">160.000</p>
-                                </div> */}
-                            </div>
-
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -136,101 +80,43 @@ export default function Pesanan(){
                         </div>
 
                         <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
-
-                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <a href="/detail_pesanan" className="">
-                                    <div className="flex justify-between flex-row w-full">
-                                        <p className="text-blue font-bold">3 Oktober 2022</p>
-                                        <p className="text-darkblue font-bold items-start text-sm">Lihat Rincian</p>
-                                    </div>
-                                    <div className="flex justify-start flex-row w-full mt-6">
-                                        <div class="grid grid-rows-2 grid-cols-2 gap-2">
-                                            <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                            <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                            <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                            <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
-                                        </div>
-                                        <div className="ml-4 flex flex-col w-full h-full">
-                                            <p className="items-start text-sm">Grilled Salmon</p>
-                                            <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                            <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                            <p className="items-start text-sm">Unagi Ramen</p>
-                                        </div>
-                                    </div>
-                                    {/* <div className="flex justify-start flex-row w-full mt-6">
+                            {props.riwayat.map((item, index) => {
+                                return (
+                                    <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
+                                        <a href="/detail_pesanan" className="">
+                                            <div className="flex justify-between flex-row w-full">
+                                                <p className="text-blue font-bold">3 Oktober 2022</p>
+                                                <p className="text-darkblue font-bold items-start text-sm">Lihat
+                                                    Rincian</p>
+                                            </div>
+                                            <div className="flex justify-start flex-row w-full mt-6">
+                                                <div className="grid grid-rows-2 grid-cols-2 gap-2">
+                                                    <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
+                                                    <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
+                                                    <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
+                                                    <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
+                                                </div>
+                                                <div className="ml-4 flex flex-col w-full h-full">
+                                                    <p className="items-start text-sm">Grilled Salmon</p>
+                                                    <p className="items-start text-sm">Nabe Veggie Udon</p>
+                                                    <p className="items-start text-sm">Pesto Pasta Chicken</p>
+                                                    <p className="items-start text-sm">Unagi Ramen</p>
+                                                </div>
+                                            </div>
+                                            {/* <div className="flex justify-start flex-row w-full mt-6">
                                     <img src="img/icon/location.svg" alt="" className="w-8"/>
                                     <div className="ml-6">
                                         <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
                                     </div>
                                 </div> */}
-                                    <div className="flex justify-center flex-row w-full mt-6">
-                                        <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                        <p className="text-xl font-bold">160.000</p>
+                                            <div className="flex justify-center flex-row w-full mt-6">
+                                                <p className="text-sm align-middle m-1 font-bold">Rp</p>
+                                                <p className="text-xl font-bold">160.000</p>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-
-                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <div className="flex justify-between flex-row w-full">
-                                    <p className="text-blue font-bold">3 Oktober 2022</p>
-                                    <p className="text-darkblue font-bold items-start text-sm">Lihat Rincian</p>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <div class="grid grid-rows-2 grid-cols-2 gap-2">
-                                        <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
-                                    </div>
-                                    <div className="ml-4 flex flex-col w-full h-full">
-                                        <p className="items-start text-sm">Grilled Salmon</p>
-                                        <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                        <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                        <p className="items-start text-sm">Unagi Ramen</p>
-                                    </div>
-                                </div>
-                                {/* <div className="flex justify-start flex-row w-full mt-6">
-                                    <img src="img/icon/location.svg" alt="" className="w-8"/>
-                                    <div className="ml-6">
-                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
-                                    </div>
-                                </div> */}
-                                <div className="flex justify-center flex-row w-full mt-6">
-                                    <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                    <p className="text-xl font-bold">160.000</p>
-                                </div>
-                            </div>
-
-                            <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                <div className="flex justify-between flex-row w-full">
-                                    <p className="text-blue font-bold">3 Oktober 2022</p>
-                                    <p className="text-darkblue font-bold items-start text-sm">Lihat Rincian</p>
-                                </div>
-                                <div className="flex justify-start flex-row w-full mt-6">
-                                    <div class="grid grid-rows-2 grid-cols-2 gap-2">
-                                        <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                        <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
-                                    </div>
-                                    <div className="ml-4 flex flex-col w-full h-full">
-                                        <p className="items-start text-sm">Grilled Salmon</p>
-                                        <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                        <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                        <p className="items-start text-sm">Unagi Ramen</p>
-                                    </div>
-                                </div>
-                                {/* <div className="flex justify-start flex-row w-full mt-6">
-                                    <img src="img/icon/location.svg" alt="" className="w-8"/>
-                                    <div className="ml-6">
-                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
-                                    </div>
-                                </div> */}
-                                <div className="flex justify-center flex-row w-full mt-6">
-                                    <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                    <p className="text-xl font-bold">160.000</p>
-                                </div>
-                            </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
