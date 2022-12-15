@@ -58,7 +58,7 @@ export default function Rencana(props) {
     function filterMeals() {
         let checkerArray = getDates(range);
         const filteredList = mealsInCart.filter((item) => {
-            let normalizedDate = new Date(item.date);
+            let normalizedDate = new Date(item.delivery.date);
 
             if (
                 normalizedDate?.getDate() ===
@@ -180,6 +180,7 @@ export default function Rencana(props) {
                                             <RencanaCard
                                                 key={item.id}
                                                 item={item}
+                                                date={item.delivery.date}
                                                 deleteItem={deleteItem}
                                             />
                                         );
@@ -197,6 +198,7 @@ export default function Rencana(props) {
                                                 <RencanaCard
                                                     key={item.id}
                                                     item={item}
+                                                    date={item.date}
                                                     deleteItem={deleteItem}
                                                 />
                                             );

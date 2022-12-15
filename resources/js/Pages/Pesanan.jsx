@@ -30,7 +30,7 @@ export default function Pesanan(props){
                         </div>
                         <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
                             {/* One Card */}
-                            {props.riwayat.map((item, index) => {
+                            {props.pengiriman.map((item, index) => {
                                 return (
                                     <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
                                         <div className="flex justify-between flex-row w-full">

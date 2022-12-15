@@ -62,7 +62,6 @@ export default function MenuShow(props) {
                             <p className="font-semibold text-darkblue">Tanggal Pengiriman</p>
                             <div className='relative flex justify-end items-center mt-1'>
                                 <input type="date" onChange={(e) => setDate(e.target.value)} className='w-full border border-gray-400 rounded-md text-gray-500'/>
-                                <img src="/img/icon/calendar.svg" alt="Tanggal" className='absolute mr-4 w-5'/>
                             </div>
                         </div>
                         <div className='pt-4'>

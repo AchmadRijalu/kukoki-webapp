@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
@@ -17,11 +18,10 @@ class PesananController extends Controller
      */
     public function index()
     {
-        $pengiriman = OrderDetail::query()->with('meal')->where('user_id', Auth::id())->get()->groupBy('date');
-        return $pengiriman;
-        $riwayat = Order::query()->with(['orderDetails.meal'])->get();
+        $pengiriman = Delivery::query()->with('orderDetails.meal')->where('user_id', Auth::id())->get();
+        $riwayat = Order::query()->with(['orderDetails.meal'])->where('user_id', Auth::id())->get();
 
-        return Inertia::render('Pesanan', compact('riwayat'));
+        return Inertia::render('Pesanan', compact('pengiriman','riwayat'));
     }
 
     /**

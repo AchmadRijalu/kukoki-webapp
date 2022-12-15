@@ -111,6 +111,7 @@ export default function Checkout(props) {
                                                 return (
                                                     <RencanaCard
                                                         key={item.id}
+                                                        date={item.date}
                                                         item={item}
                                                     />
                                                 );
