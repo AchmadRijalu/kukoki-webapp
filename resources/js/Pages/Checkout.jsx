@@ -63,12 +63,9 @@ export default function Checkout(props) {
                         <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                             <div className="flex flex-col lg:items-center">
                                 <h1 className="text-blue self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
-                                    Pilih Metode Pembayaran
+                                    Keranjang
                                 </h1>
 
-                                <h4 className="self-center lg:self-center align-center text-blue text-l font-bold">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </h4>
                                 <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
                                     {props.cart.map((item, index) => {
                                         return (
@@ -99,12 +96,9 @@ export default function Checkout(props) {
                         <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                             <div className="flex flex-col lg:items-center">
                                 <h1 className="text-blue self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
-                                    Pilih Metode Pembayaran
+                                    Keranjang
                                 </h1>
 
-                                <h4 className="self-center lg:self-center align-center text-blue text-l font-bold">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </h4>
                                 <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
                                     <div className="flex flex-col justify-start items-center mt-4">
                                         <div className="shadow-md px-5 pt-5 pb-2 rounded-xl w-full">

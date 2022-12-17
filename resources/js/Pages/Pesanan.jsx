@@ -9,7 +9,7 @@ export default function Pesanan(props){
     for (const item of props.riwayat) {
         let total = 0
         for (const item2 of item.order_details) {
-            total += item2.meal.price * item2.portion
+            total += item2.meal.price * (item2.portion / 2)
         }
         item['total'] = total;
     }
@@ -25,9 +25,9 @@ export default function Pesanan(props){
                         <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                             Pesanan Saya
                         </h1>
-                        <h3 className="text-darkblue md:text-1xl sm:text-1xl mini:text-1xl text-l font-bold text-center">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </h3>
+                        <h4 className="text-darkblue text-l font-semibold text-center mx-auto max-w-3xl">
+                            Lihat status dari pesanan serta riwayat transaksi anda!
+                        </h4>
                     </div>
                 </div>
                 {/* Pengiriman Selanjutnya */}

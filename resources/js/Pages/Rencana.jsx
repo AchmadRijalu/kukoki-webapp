@@ -94,13 +94,11 @@ export default function Rencana(props) {
                 </div>
                 <div className="w-full h-max mt-8 mb-14 px-5">
                     <div className="flex flex-col  mini:justify-center mini:items-center ">
-                        <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                        <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                             Rencana Meal Kit
                         </h1>
-
-                        <h4 className="text-blue text-l font-bold flex text-center">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry.
+                        <h4 className="text-darkblue text-l font-semibold text-center mx-auto max-w-3xl">
+                            Lihat dan atur meal kit yang telah dipesan ataupun yang akan anda pesan!
                         </h4>
                     </div>
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">

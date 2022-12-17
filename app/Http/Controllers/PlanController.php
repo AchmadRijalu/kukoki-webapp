@@ -138,6 +138,10 @@ class PlanController extends Controller
     {
         $cart = Cart::query()->with('meal')->where('user_id', Auth::id())->get();
 
+        if (count($cart) == 0) {
+            return Redirect::route('rencana.index');
+        }
+
         return Inertia::render('Checkout', compact('cart'));
     }
 

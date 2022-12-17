@@ -17,7 +17,7 @@ export default function Pesanan(){
                     </div>
                     <div className="flex flex-row">
                         <h3 className="text-blue md:text-1xl sm:text-1xl mini:text-1xl text-l font-bold text-center">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Berikan opini anda mengenai meal kit pesanan anda!
                         </h3>
                     </div>
                     <div className="flex flex-row mt-8 lg:w-5/6 bg-white rounded-md p-6 border-none drop-shadow-md justify-between">
