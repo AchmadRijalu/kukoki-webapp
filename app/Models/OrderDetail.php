@@ -14,12 +14,17 @@ class OrderDetail extends Model
         'user_id',
         'meal_id',
         'order_id',
-        'date',
+        'delivery_id',
         'portion',
     ];
 
     public function meal()
     {
         return $this->belongsTo(Meal::class);
+    }
+
+    public function delivery()
+    {
+        return $this->belongsTo(Delivery::class);
     }
 }

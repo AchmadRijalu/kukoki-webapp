@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Delivery;
 use App\Models\Meal;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -22,7 +23,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $ordered = OrderDetail::query()->with('meal')->where('user_id', Auth::id())->get();
+        $ordered = OrderDetail::query()->with(['meal', 'delivery'])->where('user_id', Auth::id())->get();
         $cart = Cart::query()->with('meal')->where('user_id', Auth::id())->get();
 
         return Inertia::render('Rencana', compact('cart', 'ordered'));
@@ -101,15 +102,29 @@ class PlanController extends Controller
         $order = Order::query()->create([
             'user_id' => Auth::id(),
             'date' => Carbon::now(),
-            'address' => 'Addrrerere',
         ]);
 
         foreach ($cart as $meal) {
+            if (Delivery::query()->where('user_id', Auth::id())
+                ->where('date', $meal->date)
+                ->exists()) {
+                $delivery = Delivery::query()->where('user_id', Auth::id())
+                    ->where('date', $meal->date)
+                    ->first();
+            } else {
+                $delivery = Delivery::query()->create([
+                    'user_id' => Auth::id(),
+                    'date' => $meal->date,
+                    'status' => 'Dalam Perjalanan',
+                    'address' => 'Addrrerere',
+                ]);
+            }
+
             OrderDetail::query()->create([
                 'user_id' => Auth::id(),
                 'meal_id' => $meal->meal_id,
                 'order_id' => $order->id,
-                'date' => $meal->date,
+                'delivery_id' => $delivery->id,
                 'portion' => $meal->portion,
             ]);
         }
@@ -122,6 +137,10 @@ class PlanController extends Controller
     public function checkout()
     {
         $cart = Cart::query()->with('meal')->where('user_id', Auth::id())->get();
+
+        if (count($cart) == 0) {
+            return Redirect::route('rencana.index');
+        }
 
         return Inertia::render('Checkout', compact('cart'));
     }

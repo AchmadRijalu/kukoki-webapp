@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class PesananController extends Controller
 {
@@ -13,7 +18,10 @@ class PesananController extends Controller
      */
     public function index()
     {
-        //
+        $pengiriman = Delivery::query()->with('orderDetails.meal')->where('user_id', Auth::id())->get();
+        $riwayat = Order::query()->with(['orderDetails.meal'])->where('user_id', Auth::id())->get();
+
+        return Inertia::render('Pesanan', compact('pengiriman','riwayat'));
     }
 
     /**

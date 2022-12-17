@@ -9,7 +9,7 @@ export default function RencanaCard(props) {
     }
 
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-    let date = new Date(props.item.date)
+    let date = new Date(props.date)
 
     return (
         <div className="bg-white border rounded-lg flex items-center py-4 px-6 w-full mb-3">
