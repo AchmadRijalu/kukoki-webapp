@@ -4,12 +4,22 @@ import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import RencanaCard from "@/Components/RencanaCard";
 export default function Pesanan(props){
+    const formatter = new Intl.NumberFormat('de-DE');
+
+    for (const item of props.riwayat) {
+        let total = 0
+        for (const item2 of item.order_details) {
+            total += item2.meal.price * item2.portion
+        }
+        item['total'] = total;
+    }
+
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
             <div className="bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
-            <div className="h-max mt-8 mb-12 lg:mx-36 sm:mx-8 md:mx-8 md:p-0 mini:p-3">
+            <div className="h-max mt-8 mb-12 lg:mx-52 sm:mx-8 md:mx-8 md:p-0 mini:p-3">
                 <div className="flex flex-row justify-center items-center">
                     <div className="flex flex-col justify-center items-center">
                         <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
@@ -32,7 +42,7 @@ export default function Pesanan(props){
                             {/* One Card */}
                             {props.pengiriman.map((item, index) => {
                                 return (
-                                    <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
+                                    <Link href='' className="bg-white rounded-md p-6 border-none shadow-lg hover:scale-[102%] transition">
                                         <div className="flex justify-between flex-row w-full">
                                             <p className="text-blue font-bold">3 Oktober 2022</p>
                                             <p className="text-darkblue font-bold items-start text-sm">Dalam
@@ -40,16 +50,14 @@ export default function Pesanan(props){
                                         </div>
                                         <div className="flex justify-start flex-row w-full mt-6">
                                             <div className="grid grid-rows-2 grid-cols-2 gap-2">
-                                                <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                                <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                                <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                                <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
+                                                {item.order_details.map((item2, index) => (
+                                                    <img src={"img/menu/" + item2.meal.img_path} alt="" className="w-10"/>
+                                                ))}
                                             </div>
                                             <div className="ml-4 flex flex-col w-full h-full">
-                                                <p className="items-start text-sm">Grilled Salmon</p>
-                                                <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                                <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                                <p className="items-start text-sm">Unagi Ramen</p>
+                                                {item.order_details.map((item2, index) => (
+                                                    <p className="items-start text-sm">{item2.meal.name}</p>
+                                                ))}
                                             </div>
                                         </div>
                                         <div className="flex justify-start flex-row w-full mt-6">
@@ -63,7 +71,7 @@ export default function Pesanan(props){
                                     <p className="text-sm align-middle m-1 font-bold">Rp</p>
                                     <p className="text-xl font-bold">160.000</p>
                                 </div> */}
-                                    </div>
+                                    </Link>
                                 );
                             })}
                         </div>
@@ -82,25 +90,20 @@ export default function Pesanan(props){
                         <div className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
                             {props.riwayat.map((item, index) => {
                                 return (
-                                    <div className="bg-white rounded-md p-6 border-none drop-shadow-md">
-                                        <a href="/detail_pesanan" className="">
+                                    <Link href='' className="bg-white rounded-md p-6 border-none shadow-lg hover:scale-[102%] transition">
                                             <div className="flex justify-between flex-row w-full">
                                                 <p className="text-blue font-bold">3 Oktober 2022</p>
-                                                <p className="text-darkblue font-bold items-start text-sm">Lihat
-                                                    Rincian</p>
+                                                {/*<p className="text-darkblue font-bold items-start text-sm">3 Oktober 2022</p>*/}
                                             </div>
-                                            <div className="flex justify-start flex-row w-full mt-6">
-                                                <div className="grid grid-rows-2 grid-cols-2 gap-2">
-                                                    <img src="img/recipe/recipe-1.png" alt="" className="w-10"/>
-                                                    <img src="img/recipe/recipe-2.png" alt="" className="w-10"/>
-                                                    <img src="img/recipe/recipe-3.png" alt="" className="w-10"/>
-                                                    <img src="img/recipe/recipe-4.png" alt="" className="w-10"/>
+                                            <div className="flex justify-start flex-row w-full mt-2">
+                                                <div className="flex flex-col w-full h-full">
+                                                    {item.order_details.map((item2, index) => (
+                                                        <p className="items-start text-sm">{item2.meal.name}</p>
+                                                    ))}
                                                 </div>
-                                                <div className="ml-4 flex flex-col w-full h-full">
-                                                    <p className="items-start text-sm">Grilled Salmon</p>
-                                                    <p className="items-start text-sm">Nabe Veggie Udon</p>
-                                                    <p className="items-start text-sm">Pesto Pasta Chicken</p>
-                                                    <p className="items-start text-sm">Unagi Ramen</p>
+                                                <div className="flex justify-center flex-row items-end">
+                                                    <p className="text-sm align-middle m-1 font-bold">Rp</p>
+                                                    <p className="text-3xl font-bold">{formatter.format(item.total)}</p>
                                                 </div>
                                             </div>
                                             {/* <div className="flex justify-start flex-row w-full mt-6">
@@ -109,12 +112,7 @@ export default function Pesanan(props){
                                         <p className="text-sm">CitraLand CBD Boulevard, Made, Kec. Sambikerep, Kota SBY, Jawa Timur 60219</p>
                                     </div>
                                 </div> */}
-                                            <div className="flex justify-center flex-row w-full mt-6">
-                                                <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                                <p className="text-xl font-bold">160.000</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    </Link>
                                 );
                             })}
                         </div>
