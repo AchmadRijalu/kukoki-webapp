@@ -148,9 +148,10 @@ class PlanController extends Controller
     public function checkoutPost(Request $request)
     {
         // Set your Merchant Server Key
-        Config::$serverKey = 'SB-Mid-server-KfV0RcPrjlTs3hf9D1jVRIgU';
+//        Config::$serverKey = 'SB-Mid-server-KfV0RcPrjlTs3hf9D1jVRIgU';
+        Config::$serverKey = 'Mid-server-2-z9knUS_IenYXEzrqEGjYKV';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        Config::$isProduction = false;
+        Config::$isProduction = true;
         // Set sanitization on (default)
         Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true

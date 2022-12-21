@@ -12,9 +12,11 @@ export default function Checkout(props) {
     console.log(props)
     useEffect(() => {
         //change this to the script source you want to load, for example this is snap.js sandbox env
-        const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js';
+        // const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js';
+        const midtransScriptUrl = 'https://app.midtrans.com/snap/snap.js';
         //change this according to your client-key
-        const myMidtransClientKey = 'SB-Mid-client-RMX1WuwX6hEjyTRn';
+        // const myMidtransClientKey = 'SB-Mid-client-RMX1WuwX6hEjyTRn';
+        const myMidtransClientKey = 'Mid-client-8Vj-1PdyBvzrwCJJ';
 
         let scriptTag = document.createElement('script');
         scriptTag.src = midtransScriptUrl;
