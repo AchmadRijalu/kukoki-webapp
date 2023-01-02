@@ -10,6 +10,7 @@ import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import {Link} from "@inertiajs/inertia-react";
+import {Inertia} from "@inertiajs/inertia";
 
 export default function Rencana(props) {
     let options;
@@ -83,7 +84,7 @@ export default function Rencana(props) {
     }
 
     function deleteItem(id) {
-        setMeals(mealsInCart.filter((item) => item.id !== id));
+        Inertia.delete(route("menu.remove_from_plan", id));
     }
 
     return (

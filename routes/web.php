@@ -57,8 +57,8 @@ Route::post('/update_preferensi/{id}', [ProfileController::class, 'UpdatePrefere
 //Menu Route
 Route::get('/menu/{id}/recipe', [MenuController::class, 'showRecipe'])->middleware('auth')->name('menu.show.recipe');
 Route::post('/menu/{id}/add_to_plan', [MenuController::class, 'addToPlan'])->middleware('auth')->name('menu.add_to_plan');
-Route::resource('menu', MenuController::class)->only(['addToPlan'])->middleware('auth');
-Route::resource('menu', MenuController::class)->except(['addToPlan']);
+Route::delete('/remove_from_plan/{id}', [MenuController::class, 'removeFromPlan'])->middleware('auth')->name('menu.remove_from_plan');
+Route::resource('menu', MenuController::class)->except(['addToPlan', 'removeFromPlan']);
 
 //Rencana Route
 Route::resource("rencana", PlanController::class)->middleware("auth");

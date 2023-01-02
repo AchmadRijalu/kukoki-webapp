@@ -37,9 +37,13 @@ export default function RencanaCard(props) {
                 </div>
                 <h1 className="font-semibold text-darkblue mt-2 text-lg lg:text-md">Rp{format(props.item.meal.price)}</h1>
             </div>
-            <img className="w-11 lg:w-9 ml-auto cursor-pointer" src="img/icon/delete.png" onClick={() => {
-                props.deleteItem(props.item.id)
+            {props.deleteItem ? (
+                <img className="w-11 lg:w-9 ml-auto cursor-pointer" src="img/icon/delete.png" onClick={() => {
+                    props.deleteItem(props.item.id)
                 }}/>
+            ) : (
+                ''
+            )}
         </div>
     );
 }

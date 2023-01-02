@@ -84,6 +84,13 @@ class MenuController extends Controller
         return Redirect::route('rencana.index');
     }
 
+    public function removeFromPlan($id)
+    {
+        Cart::query()->find($id)->delete();
+
+        return Redirect::back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
