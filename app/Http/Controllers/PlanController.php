@@ -7,6 +7,7 @@ use App\Models\Delivery;
 use App\Models\Meal;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -157,16 +158,21 @@ class PlanController extends Controller
         // Set 3DS transaction for credit card to true
         Config::$is3ds = true;
 
+        $user = User::query()->findOrFail(Auth::id());
+        $nameArray = explode(" ", $user->full_name);
+        $lastName = array_pop($nameArray);
+        $firstName = implode(" ", $nameArray);
+
         $params = array(
             'transaction_details' => array(
                 'order_id' => rand(),
                 'gross_amount' => $request->total,
             ),
             'customer_details' => array(
-                'first_name' => 'budi',
-                'last_name' => 'pratama',
-                'email' => 'budi.pra@example.com',
-                'phone' => '08111222333',
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'email' => $user->email,
+                'phone' => $user->phone,
             ),
         );
 
