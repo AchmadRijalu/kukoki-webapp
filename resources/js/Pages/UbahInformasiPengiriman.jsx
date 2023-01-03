@@ -44,10 +44,10 @@ export default function UbahInformasiPengiriman(props) {
                     <div className="bg-blue-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
-                    <div className="w-full h-max mt-8 mb-12">
+                    <div className="w-full h-max mt-8 mb-12 p-10">
 
                         <div className="  flex flex-col justify-center items-center">
-                            <h1 className="text-blue text-4xl font-bold mb-4">
+                            <h1 className="text-blue text-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                                 Informasi Pengiriman
                             </h1>
 

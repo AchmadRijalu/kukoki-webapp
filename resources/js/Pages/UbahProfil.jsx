@@ -50,12 +50,13 @@ export default function UbahProfil(props) {
     const { auth } = usePage().props
 
 
-    const { data, setData, post, put, errors } = useForm({
+    const { data, setData, post, put,  } = useForm({
         full_name: auth.user.full_name || "",
         email: auth.user.email || "",
         profile_picture: `/` + auth.user.profile_picture
 
     })
+    const { errors } = usePage().props;
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
@@ -81,10 +82,10 @@ export default function UbahProfil(props) {
                         <HeaderNoBg />
                     </div>
                     <div className="w-full h-full  flex flex-col items-center">
-                        <h1 className="text-blue mt-4 text-4xl font-bold mb-4">
+                        <h1 className="text-blue mt-4 md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                             Profil
                         </h1>
-                        <div className="md:w-1/2 mini:w-3/4 bg-white rounded-md mb-8 p-6 mt-6 border-none drop-shadow-md">
+                        <div className="md:w-1/2 mini:w-3/4 bg-white rounded-md mb-8 p-6 mt-4 border-none drop-shadow-md">
                             <form onSubmit={onSubmitHandler}>
                                 <div className="w-full gap-4 flex md:flex-row mini:flex-col mini:text-center md:text-left  ">
 
@@ -94,8 +95,9 @@ export default function UbahProfil(props) {
 
                                         </div>
                                         <input type="text" name="nama" onChange={e => setData('full_name', e.target.value)} value={data.full_name}
-                                            className=" border-1 focus:outline-none border-none focus:border-none focus:ring-0 mb-14 font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                            className=" border-1 focus:outline-none border-none focus:border-none focus:ring-0 mb-6 font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
                                         />
+                                        
 
                                         <label htmlFor="email" className="text-black font-medium ml-4 ">Email</label>
                                         <div className="mb-2">
@@ -104,6 +106,7 @@ export default function UbahProfil(props) {
                                         <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email}
                                             className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
                                         />
+                                        
                                     </div>
                                     <div className="md:w-1/2 mini:w-full h-full">
                                         <label htmlFor="nama" className="text-black font-medium ml-4 mb-44">Foto Profil</label>
@@ -127,16 +130,25 @@ export default function UbahProfil(props) {
 
 
 
-                                        {/* {progress && (
-                                            <progress value={progress.percentage} max="100">
-                                                {progress.percentage}%
-                                            </progress>
-                                        )} */}
 
 
                                     </div>
 
                                 </div>
+                                {props.errors.full_name && (
+                                            <div className="text-red-400 font-semibold mt-4 text-center">
+                                                <h1>
+                                                    {props.errors.full_name}
+                                                </h1>
+                                            </div>
+                                        )}
+                                {props.errors.email && (
+                                            <div className="text-red-400 font-semibold mt-4 text-center">
+                                                <h1>
+                                                    {props.errors.email}
+                                                </h1>
+                                            </div>
+                                        )}
                                 <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
 
                                     <Link href="/ubah_password" className="bg-red-600 w-full items-center h-14 outline-none rounded-xl text-center flex flex-col justify-center font-bold text-white  hover:bg-red-800  transition delay-50 text-md " method="get" data={{ id: auth.user.id }}>Reset Password</Link>

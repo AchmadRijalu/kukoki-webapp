@@ -82,7 +82,7 @@ export default function UbahPreferensi(props) {
             <div className="bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
-            <div className="w-full h-max mt-4 mb-12">
+            <div className="w-full h-max mt-4 mb-12 p-6">
                 <div className="  flex flex-col justify-center items-center">
                     <h4 className="text-blue text-2xl font-bold mb-4">
                         Preferensi
@@ -103,7 +103,7 @@ export default function UbahPreferensi(props) {
                         </h6>
                     </div>
 
-                    <div className=" h-full  grid md:grid-cols-4 mini:grid-cols-2 md:gap-8 mini:gap-4 content-center ">
+                    <div className=" h-full  grid md:grid-cols-4 mini:grid-cols-2 md:gap-8 mini:gap-6 content-center ">
 
                         {categories.map((category, i) =>
                             <>
@@ -116,7 +116,7 @@ export default function UbahPreferensi(props) {
                             </>
                         )}
                     </div>
-                    <form className=" w-1/4 mt-10  rounded-2x flex flex-row justify-center" onSubmit={onSubmitHandler}>
+                    <form className=" md:w-1/4 mini:w-3/4 mt-10  rounded-2x flex flex-row justify-center" onSubmit={onSubmitHandler}>
 
                         <input type="hidden" onChange={e => setData('category', categoryList.length)} value={categoryList} />
                         <div className="w-full ">

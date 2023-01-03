@@ -22,9 +22,9 @@ return new class extends Migration
             $table->unsignedBigInteger('meal_id');   
             $table->unsignedBigInteger('tool_id'); 
 
-            $table->foreign('meal_id')->references('id')->on('meals');
+            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade')->onUpdate('cascade');
         
-            $table->foreign('tool_id')->references('id')->on('tools');
+            $table->foreign('tool_id')->references('id')->on('tools')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

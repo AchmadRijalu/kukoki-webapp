@@ -22,9 +22,9 @@ return new class extends Migration
             $table->integer('portion');
             $table->timestamps();
 
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('meal_id')->references('id')->on('meals');
-            $table->foreign('delivery_id')->references('id')->on('deliveries');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('delivery_id')->references('id')->on('deliveries')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

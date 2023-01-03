@@ -22,9 +22,9 @@ return new class extends Migration
            
             
  
-            $table->foreign('meal_id')->references('id')->on('meals');
+            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade')->onUpdate('cascade');
         
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

@@ -21,9 +21,9 @@ return new class extends Migration
            
             
  
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         
-            $table->foreign('meal_id')->references('id')->on('meals');
+            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade')->onUpdate('cascade');
             
             $table->longText('comment');
 

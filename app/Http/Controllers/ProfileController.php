@@ -82,6 +82,10 @@ class ProfileController extends Controller
     {
         if($request->profile_picture === null){
             $userprofile = User::findorFail($user);
+            $this->validate($request, [
+                'full_name'     => 'required',
+                'email'  => 'required'
+            ]);
             $userprofile->update(
                 [
                     'full_name' => $request->full_name,
@@ -94,6 +98,8 @@ class ProfileController extends Controller
 
             $filename = time().'.'.$request->profile_picture->getClientOriginalName();
             $this->validate($request, [
+                'full_name'     => 'required',
+                'email'  => 'required',
                    'profile_picture' => "mimes:jpeg,png|max:10000"
                ]);
 
@@ -111,6 +117,7 @@ class ProfileController extends Controller
             ]);
 
         }
+        
         return Redirect::route('profil.index');
     }
 

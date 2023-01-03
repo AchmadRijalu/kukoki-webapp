@@ -32,7 +32,7 @@ export default function UbahPassword(props) {
                 <HeaderNoBg />
             </div>
             <div className="w-full h-full  flex flex-col items-center">
-                <h1 className="text-blue mt-4 text-4xl font-bold mb-4">
+                <h1 className="text-blue mt-4 md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                     Ubah Password
                 </h1>
                 <div className="md:w-1/3 mini:w-3/4 bg-white rounded-md mb-8 p-6 mt-6 border-none drop-shadow-md">

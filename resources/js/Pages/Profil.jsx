@@ -47,7 +47,7 @@ export default function Profil(props) {
                             <div className="md:w-1/3 mini:w-1/2 h-60  lg:flex lg:justify-center sm:grid sm:justify-center mini:grid mini:justify-center ">
                                 <div className=" lg:w-68 lg:h-68 md:w-52 md:h-52  sm:w-52 sm:h-52 mini:w-48 mini:h-48 bg-darkblue rounded-full p-2 mini:relative md:mt-0 mini:mt-5 md:top-20 md:mr-20 ">
                                     <img src={auth.user.profile_picture != null? auth.user.profile_picture:"img/profile/anon.png"} alt="" className=" w-full h-full rounded-full object-cover" />
-                                    <div className="bg-white w-20 h-20 mini:absolute lg:top-56 lg:left-24 md:top-40 md:left-16 sm:top-40 sm:left-16 mini:top-40 mini:left-12 rounded-full p-2">
+                                    <div className="bg-white w-20 h-20 mini:absolute lg:top-56 lg:left-24 md:top-40 md:left-16 sm:top-40 sm:left-16 mini:top-40 mini:left-14 rounded-full p-2">
                                         <button className="bg-darkblue w-full h-full hover:bg-blue transition rounded-full cursor-pointer flex flex-row justify-center  items-center"
                                            onClick={(e) => handleGetIdProfil(auth.user.id)}
 
@@ -82,12 +82,12 @@ export default function Profil(props) {
 
                 </div>
                 <div className="w-full h-44 flex flex-row ">
-                    <div className="md:w-1/2 h-full ">
+                    <div className="md:w-1/3 h-full ">
 
                     </div>
-                    <div className="md:w-4/6  h-full mini:w-full  md:flex md:flex-col md:ml-7 mini:flex mini:flex-col  ">
+                    <div className="md:w-4/6  md:p-0 mini:p-2  h-full mini:w-full  md:flex md:flex-col md:ml-7 mini:flex mini:flex-col  ">
 
-                        <div className="mini:flex mini:flex-row   md:hidden  text-center mini:justify-center mini:items-center md:mt-0 mini:mt-4">
+                        <div className="mini:flex mini:flex-row   md:hidden  text-center mini:justify-center mini:items-center md:mt-0 mini:mt-8">
                             <h1 className="text-black font-bold text-2xl mr-3">
                                 {auth.user.full_name}
                             </h1>
@@ -101,36 +101,36 @@ export default function Profil(props) {
                         <h1 className="text-black font-bold text-xl mb-4 md:hidden mini:block text-center">
                             {auth.user.email}
                         </h1>
-                        <div className="flex flex-row  w-full text-2xl text-darkblue font-semibold mt-2">
-                            <div className="md:w-1/4 bg-white mini:w-1/3 md:text-left mini:text-center">
+                        <div className="flex flex-row space-x-2  w-full text-2xl text-darkblue font-semibold md:mt-2 mini:mt-4">
+                            <div className="md:w-1/5  mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
-                                    50
+                                    0
                                 </h3>
                             </div>
-                            <div className="md:w-1/4 bg-white mini:w-1/3 md:text-left mini:text-center">
+                            <div className="md:w-1/5 bg-white mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
-                                    41
+                                    0
                                 </h3>
                             </div>
-                            <div className="md:w-1/4 bg-white mini:w-1/3  md:text-left mini:text-centers">
-                                <h3>
-                                    31 Desember 2022
+                            <div className="md:w-1/2  bg-white mini:w-1/3 md:p-0 mini:pr-4  md:text-left mini:text-center">
+                                <h3 className="text-ellipsis">
+                                    10 Januari 2023
                                 </h3>
                             </div>
 
                         </div>
-                        <div className="flex flex-row  text-md text-black font-semibold">
-                            <div className="md:w-1/4 bg-white mini:w-1/3 md:text-left mini:text-center">
+                        <div className="flex flex-row space-x-2  text-md text-black md:font-semibold md:mt-0 mini:mt-4 mini:font-bold">
+                            <div className="md:w-1/5 bg-white mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
                                     Pesanan Selesai
                                 </h3>
                             </div>
-                            <div className="md:w-1/4 bg-white mini:w-1/3 md:text-left mini:text-center">
+                            <div className="md:w-1/5 bg-white mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
                                     Streak
                                 </h3>
                             </div>
-                            <div className="md:w-1/4 bg-white mini:w-1/3 md:text-left mini:text-center">
+                            <div className="md:w-1/2 bg-white mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
                                     Pengiriman Selanjutnya
                                 </h3>
@@ -138,12 +138,12 @@ export default function Profil(props) {
                         </div>
                     </div>
                 </div>
-                <div className="w-full flex flex-col mb-10 md:mt-0 mini:mt-24">
+                <div className="w-full flex flex-col mb-10 md:mt-0 mini:mt-40 ">
                     <div className="flex md:flex-row mini:flex-col w-full">
                         <div className="md:w-1/2 mini:w-full md:mb-0 mini:mb-8 min-h-max  flex flex-col items-center mr-4 font-medium ">
 
-                            <div className="w-1/2 min-h-full justify-between flex flex-col items-center space-y-4  ">
-                                <h1 className="text-darkblue font-semibold text-2xl text-center">
+                            <div className="w-1/2 min-h-full   justify-between flex flex-col items-center space-y-4 mini:mb-5 md:mb-0 ">
+                                <h1 className="text-darkblue font-semibold text-2xl text-center mini:mb-6 md:mb-0">
                                     Lokasi Pengiriman
                                 </h1>
                                 <div className="flex flex-row items-center w-1/2 mr-6">
@@ -158,7 +158,7 @@ export default function Profil(props) {
                                         {auth.user.phone}
                                     </h3>
                                 </div>
-                                <div className="flex flex-row items-center   w-1/2 mr-6">
+                                <div className="flex flex-row items-center w-1/2 mr-6">
                                     <img src="img/icon-temp/addressIcon.svg" alt="Your Profile" className="w-7 mr-3" />
                                     <h3>
                                         {auth.user.address}
@@ -166,7 +166,7 @@ export default function Profil(props) {
                                 </div>
                                 <button
                                     onClick={(e) => handleGetIdPengiriman(auth.user.id)}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 w-3/6 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2 lg text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Ubah
                                 </button>
@@ -174,11 +174,11 @@ export default function Profil(props) {
 
                         </div>
                         <div className="md:w-1/2 mini:w-full  min-h-max flex flex-col md:items-start mini:items-center justify-between ">
-                            <div className="w-1/2 h-full flex flex-col md:items-start mini:items-center  space-y-9 ml-3 ">
-                                <h1 className="text-darkblue font-semibold text-2xl">
+                            <div className="w-1/2 h-full flex flex-col md:items-start mini:items-center  space-y-9 ml-3  ">
+                                <h1 className="text-darkblue font-semibold text-2xl mini:text-center">
                                     Preferensi Saya
                                 </h1>
-                                <div className="w-max   grid md:grid-cols-2 md:justify-start md:space-y-0 mini:justify-center sm:grid-cols-2   mb-5">
+                                <div className="w-max grid md:grid-cols-2 md:justify-start md:space-y-0 mini:justify-center sm:grid-cols-2   mb-5">
                                     {props.category.map((category, i) =>
                                         <>
 
@@ -191,7 +191,7 @@ export default function Profil(props) {
                                 <button
                                     // onClick={(e) => handleGetIdPengiriman(auth.user.id)}
                                     onClick={(e) => handleGetIdPreferensi(auth.user.id)}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 w-3/6 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2  text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Ubah
                                 </button>

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('meal_id');   
             $table->unsignedBigInteger('category_id'); 
             
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         
-            $table->foreign('meal_id')->references('id')->on('meals');
+            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
