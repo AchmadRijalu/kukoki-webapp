@@ -18,12 +18,13 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('meal_id');
             $table->foreignId('order_id');
-            $table->date('date');
+            $table->foreignId('delivery_id');
             $table->integer('portion');
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('meal_id')->references('id')->on('meals');
+            $table->foreign('delivery_id')->references('id')->on('deliveries');
         });
     }
 

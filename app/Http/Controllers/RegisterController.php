@@ -6,7 +6,9 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CategoryPreferences;
+use Illuminate\Contracts\Session\Session;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
@@ -24,21 +26,48 @@ class RegisterController extends Controller
     public function informasipengiriman(Request $request){
 
 
+        $this->validate($request, [
+            'password' => [
+                'required',
+                'min:6',
+                'max:12',
+            ],
+            'name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users'
+        ]);
+
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        
-        return Inertia::render('InformasiPengiriman', compact('name', 'email', 'password'));
+
+        $request->session()->put('page1', [$name, $email,$password]);
+
+
+        // return Inertia::render('InformasiPengirimanGet', compact('name', 'email', 'password'));
+        return Redirect::route('register_informasi_pengiriman.index',);
+    }
+
+    public function RegisterInformasiPengiriman(){
+
+        return Inertia::render('InformasiPengiriman',);
     }
 
     public function preferensi(Request $request){
-        
-        // dd($request->all());
+
+        $this->validate($request, [
+            'provinsi' => [
+                'required',
+            ],
+            'kota' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'alamatlengkap' => 'required',
+            'nomortelepon' => 'required|numeric|min:10'
+        ]);
+
+
         $categories = Category::query()->get();
-        $allData = $request->all();
-        $name = $request->name;
-        $email = $request->email;
-        $password = $request->password;
+
         $provinsi = $request->provinsi;
         $kota = $request->kota;
         $kecamatan = $request->kecamatan;
@@ -46,7 +75,20 @@ class RegisterController extends Controller
         $alamatlengkap = $request->alamatlengkap;
         $nomortelepon = $request->nomortelepon;
         $title = "Pilih Preferensi";
-        return Inertia::render('Preferensi', compact('categories', 'title', 'name', 'email', 'password', 'provinsi', 'kota', 'kecamatan', 'kelurahan', 'alamatlengkap', 'nomortelepon'));
+
+
+        $request->session()->put('page2', [$provinsi, $kota ,$kecamatan,$kelurahan, $alamatlengkap,  $nomortelepon, $categories ]);
+        return Redirect::route('register_preferensi.index',);
+
+    }
+
+    public function RegisterPreferensi(){
+        $value = session()->pull('page2');
+
+        $valueCategories = $value[6];
+        session()->put('page2', $value);
+
+        return Inertia::render('Preferensi', ['categories' => $valueCategories]);
     }
 
     /**
@@ -68,17 +110,29 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //
-        $name = $request->name;
-        $email = $request->email;
-        $password = $request->password;
-        $kota = $request->kota;
-        $kecamatan = $request->kecamatan;
-        $kelurahan = $request->kelurahan;
-        $alamatlengkap = $request->alamatlengkap;
-        $nomortelepon = $request->nomortelepon;
-        $provinsi = $request->provinsi;
+        $this->validate($request, [
+
+            'category' => 'required'
+        ],
+        [
+            'category.required'    => 'Please choose your preferences',
+
+        ]);
+
+        $value = session()->pull('page1');
+        $value2 = session()->pull('page2');
+        $name = $value[0];
+        $email = $value[1];
+        $password = $value[2];
+        $provinsi = $value2[0];
+        $kota = $value2[1];
+        $kecamatan = $value2[2];
+        $kelurahan = $value2[3];
+        $alamatlengkap = $value2[4];
+        $nomortelepon = $value2[5];
+
         $category = $request->category;
-        
+
         $user = User::create([
             'full_name' => $name,
             'email'     => $email,
@@ -99,15 +153,15 @@ class RegisterController extends Controller
             CategoryPreferences::create([
             'user_id' => $this->lastCreatedUserId,
             'category_id'     => $cat,
-            
+
             ]);
         }
         // dd($this->lastCreatedUserId);
 
-        
+
         // $latestUser = App\User::latest()->first();
         return redirect('/login')->with('status', 'Register Berhasil!');
-        
+
     }
 
     /**

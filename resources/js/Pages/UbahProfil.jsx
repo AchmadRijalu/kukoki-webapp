@@ -43,7 +43,6 @@ export default function UbahProfil(props) {
 
         // I've kept this example simple by using the first image instead of multiple
         setSelectedImage(e.target.files[0])
-        console.log(selectedImage)
 
     }
 
@@ -61,7 +60,7 @@ export default function UbahProfil(props) {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
-        Inertia.post(`/UpdateProfil/${auth.user.id}`, {
+        Inertia.post(`/update_profil/${auth.user.id}`, {
             full_name: data.full_name,
             email: data.email,
             profile_picture: selectedImage
@@ -72,6 +71,7 @@ export default function UbahProfil(props) {
             }
         );
     }
+
 
     return (
         <div>
@@ -139,7 +139,7 @@ export default function UbahProfil(props) {
                                 </div>
                                 <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
 
-                                    <Link href="/UbahPassword" className="bg-red-600 w-full items-center h-14 outline-none rounded-xl text-center flex flex-col justify-center font-bold text-white  hover:bg-red-800  transition delay-50 text-md " method="get" data={{ id: auth.user.id }}>Reset Password</Link>
+                                    <Link href="/ubah_password" className="bg-red-600 w-full items-center h-14 outline-none rounded-xl text-center flex flex-col justify-center font-bold text-white  hover:bg-red-800  transition delay-50 text-md " method="get" data={{ id: auth.user.id }}>Reset Password</Link>
 
                                 </div>
                                 <div className="w-full mt-4  rounded-2x flex flex-row justify-center">
@@ -156,7 +156,7 @@ export default function UbahProfil(props) {
 
                         </div>
 
-                        
+
                     </div>
                     <Footer />
                 </div>

@@ -28,7 +28,6 @@ export default function Preferensi(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(data);
         Inertia.post(route('register_account.store'), data)
 
     }
@@ -44,16 +43,7 @@ export default function Preferensi(props) {
         { id: props.categories[7].id, name: props.categories[7].name, image: props.categories[7].image, selected: false },
     ]);
 
-    Array.prototype.remove = function() {
-        var what, a = arguments, L = a.length, ax;
-        while (L && this.length) {
-            what = a[--L];
-            while ((ax = this.indexOf(what)) !== -1) {
-                this.splice(ax, 1);
-            }
-        }
-        return this;
-    };
+
 
     const categoryClicked = (e) => {
 
@@ -64,11 +54,7 @@ export default function Preferensi(props) {
 
 
                     var index = categoryList.indexOf(cat.id);
-                    console.log(index);
-                    categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id): categoryList.splice(index, 1);;
-
-                    console.log(categoryList)
-
+                    categoryList.indexOf(cat.id) === -1 ? categoryList.push(cat.id) : categoryList.splice(index, 1);;
                     return { ...cat, selected: !cat.selected }
 
 
@@ -122,6 +108,13 @@ export default function Preferensi(props) {
                             </>
                         )}
                     </div>
+                    {props.errors.category && (
+                        <div className="text-red-400 font-semibold mt-4 text-center">
+                            <h1>
+                                {props.errors.category}
+                            </h1>
+                        </div>
+                    )}
                     <form className=" w-1/4 mt-10  rounded-2x flex flex-row justify-center" onSubmit={onSubmitHandler}>
 
                         <input type="hidden" onChange={e => setData('category', categoryList.length)} value={categoryList} />

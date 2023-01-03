@@ -16,7 +16,7 @@ export default function UbahPassword(props) {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
-        Inertia.post(`/UpdatePassword/${auth.user.id}`, {
+        Inertia.post(`/update_password/${auth.user.id}`, {
             full_name: auth.user.full_name,
             email: auth.user.email,
             password: data.password,
@@ -59,7 +59,7 @@ export default function UbahPassword(props) {
 
                             </div>
 
-                    
+
                         </div>
                         {props.errors.password && (
                                 <div className="text-red-400 font-semibold mt-4 text-center">

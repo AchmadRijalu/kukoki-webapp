@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Delivery extends Model
 {
     use HasFactory;
 
-    protected $table = "orders";
-    protected $primaryKey = "id";
+    protected $table = "deliveries";
     protected $fillable = [
         'user_id',
         'date',
+        'status',
+        'address',
     ];
 
     public function orderDetails()
