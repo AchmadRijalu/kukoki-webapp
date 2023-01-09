@@ -19,7 +19,7 @@ class AdminOrderController extends Controller
      */
     public function index()
     {
-        $deliveries = Delivery::query()->with('orderDetails.meal')->where('user_id', Auth::id())->get();
+        $deliveries = Delivery::query()->with('orderDetails.meal')->get();
 
         return Inertia::render('Admin/Orders', compact('deliveries'));
     }

@@ -38,7 +38,7 @@ export default function Orders(props) {
                         <th className="font-bold text-left pl-12">Tanggal</th>
                         <th className="font-bold text-left pl-12">Alamat</th>
                         <th className="font-bold text-left pl-12">Pesanan</th>
-                        <th className="font-bold text-left pl-12">Satus</th>
+                        <th className="font-bold text-left pl-12">Status</th>
                     </tr>
                     </thead>
                     <tbody className="w-full">
