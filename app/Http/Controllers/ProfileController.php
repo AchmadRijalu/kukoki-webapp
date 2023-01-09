@@ -42,9 +42,8 @@ class ProfileController extends Controller
 
     public function UpdatePreferensi( Request $request, $id){
         $categoryuser = User::find($id);
+        $categoryuser = $categoryuser->first()->categories()->sync($request->category);
         return $categoryuser;
-        dd($categoryuser);
-        $categoryuser->first()->categories()->sync($request->category);;
         return Redirect::route('profil.index');
     }
 
