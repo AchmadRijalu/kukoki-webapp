@@ -41,6 +41,7 @@ class ProfileController extends Controller
     }
 
     public function UpdatePreferensi( Request $request, $id){
+        dd($request->category);
         $categoryuser = User::findorFail($id);
         $categoryuser->first()->categories()->sync($request->category);;
         return Redirect::route('profil.index');
