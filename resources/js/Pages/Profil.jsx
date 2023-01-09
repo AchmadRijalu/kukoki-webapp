@@ -85,7 +85,7 @@ export default function Profil(props) {
                     <div className="md:w-1/3 h-full ">
 
                     </div>
-                    <div className="md:w-4/6  md:p-0 mini:p-2  h-full mini:w-full  md:flex md:flex-col md:ml-7 mini:flex mini:flex-col  ">
+                    <div className="md:w-4/6  md:p-0 mini:p-2   h-full mini:w-full  md:flex md:flex-col md:ml-7 mini:flex mini:flex-col  ">
 
                         <div className="mini:flex mini:flex-row   md:hidden  text-center mini:justify-center mini:items-center md:mt-0 mini:mt-8">
                             <h1 className="text-black font-bold text-2xl mr-3">
@@ -120,17 +120,17 @@ export default function Profil(props) {
 
                         </div>
                         <div className="flex flex-row space-x-2  text-md text-black md:font-semibold md:mt-0 mini:mt-4 mini:font-bold">
-                            <div className="md:w-1/5 bg-white mini:w-1/3 md:text-left mini:text-center">
+                            <div className="md:w-1/5 bg-white flex flex-col justify-center mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
                                     Pesanan Selesai
                                 </h3>
                             </div>
-                            <div className="md:w-1/5 bg-white mini:w-1/3 md:text-left mini:text-center">
+                            <div className="md:w-1/5  bg-white flex flex-col justify-center mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
                                     Streak
                                 </h3>
                             </div>
-                            <div className="md:w-1/2 bg-white mini:w-1/3 md:text-left mini:text-center">
+                            <div className="md:w-1/2 bg-white mini:w-1/3 flex flex-col justify-center md:text-left mini:text-center">
                                 <h3>
                                     Pengiriman Selanjutnya
                                 </h3>
@@ -173,12 +173,12 @@ export default function Profil(props) {
                             </div>
 
                         </div>
-                        <div className="md:w-1/2 mini:w-full  min-h-max flex flex-col md:items-start mini:items-center justify-between ">
-                            <div className="w-1/2 h-full flex flex-col md:items-start mini:items-center  space-y-9 ml-3  ">
+                        <div className="md:w-1/2 mini:w-full   min-h-max flex flex-col md:items-start mini:items-center justify-between ">
+                            <div className="min-w-max  h-full flex flex-col md:items-start mini:items-center  space-y-9 ml-3  ">
                                 <h1 className="text-darkblue font-semibold text-2xl mini:text-center">
                                     Preferensi Saya
                                 </h1>
-                                <div className="w-max grid md:grid-cols-2 md:justify-start md:space-y-0 mini:justify-center sm:grid-cols-2   mb-5">
+                                <div className="w-full  grid md:grid-cols-2  md:justify-between md:space-y-0 mini:justify-center sm:grid-cols-2 mb-5 lg:mr-0 md:mr-2">
                                     {props.category.map((category, i) =>
                                         <>
 
@@ -189,7 +189,7 @@ export default function Profil(props) {
                                 </div>
 
                                 <button
-                                    // onClick={(e) => handleGetIdPengiriman(auth.user.id)}
+                                    
                                     onClick={(e) => handleGetIdPreferensi(auth.user.id)}
                                     className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2  text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
