@@ -78,7 +78,7 @@ export default function LoginTry(props) {
                                             </h6>
                                         </div>
                                         <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
-                                            <button className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-blue  transition delay-50 text-md " type="submit">
+                                            <button className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md " type="submit">
                                                 Masuk
                                             </button>
                                         </div>
