@@ -31,13 +31,21 @@ class UserSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
-        // DB::table('users')->insert([
-        //     'username' => 'User',
-        //     'email' => 'user@gmail.com',
-        //     'password' => Hash::make('user123'),
-        //     'role' => 'user',
-        //     'created_at' => \Carbon\Carbon::now(),
-        //     'email_verified_at' => \Carbon\Carbon::now()
-        // ]);
+
+        DB::table('users')->insert([
+            'full_name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('12345678'),
+            'phone' => '081231149830',
+            'city' => 'Surabaya',
+            'ward' => 'Kecamatan',
+            'district' => 'Ketintang',
+            'province' => 'Jawa Timur',
+            'address' => 'Jl Gayungsari Timur',
+            'profile_picture' => 'null',
+            'created_at' => \Carbon\Carbon::now(),
+            'email_verified_at' => \Carbon\Carbon::now(),
+            'admin' => true
+        ]);
     }
 }

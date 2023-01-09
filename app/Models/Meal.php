@@ -10,9 +10,14 @@ class Meal extends Model
     use HasFactory;
 
     protected $table = "meals";
-
-
     protected $primaryKey = "id";
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'duration',
+        'img_path'
+    ];
 
 
     public function ingredients()

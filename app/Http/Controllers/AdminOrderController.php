@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
-class LoginController extends Controller
+class AdminOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +19,9 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
-        return Inertia::render('Login', ['title' => 'Login']);
+        $deliveries = Delivery::query()->with('orderDetails.meal')->where('user_id', Auth::id())->get();
 
+        return Inertia::render('Admin/Orders', compact('deliveries'));
     }
 
     /**
@@ -40,29 +43,6 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request, [
-            'email'     => 'required|email',
-            'password'  => 'required'
-        ]);
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-
-            //regenerate session
-            $request->session()->regenerate();
-
-            //redirect route dashboard
-            if (Auth::user()->admin) {
-                return redirect()->to('/admin');
-            } else {
-                return redirect()->intended('/menu');
-
-            }
-        }
-
-        return back()->withErrors([
-            'email' => 'Email/Password tidak benar, silahkan coba lagi.',
-        ]);
     }
 
     /**
@@ -96,7 +76,11 @@ class LoginController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Delivery::query()->find($id)->update([
+            'status' => $request->status
+        ]);
+
+        return Redirect::back();
     }
 
     /**
@@ -108,21 +92,5 @@ class LoginController extends Controller
     public function destroy($id)
     {
         //
-        auth()->logout();
-
-        return redirect('/login');
-    }
-
-    public function logout(Request $request)
-    {
-        /** @var \App\Models\User $user */
-        $user = Auth::user();
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-
-        return redirect('/');
     }
 }

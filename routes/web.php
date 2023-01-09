@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\MenuController;
@@ -65,3 +68,13 @@ Route::resource("rencana", PlanController::class)->middleware("auth");
 Route::get('/checkout', [PlanController::class, 'checkout'])->middleware('auth')->name('rencana.checkout');
 Route::post('/checkout', [PlanController::class, 'checkoutPost'])->middleware('auth')->name('rencana.checkout.post');
 Route::post('/pembayaran_berhasil', [PlanController::class, 'pembayaranberhasil'])->middleware('auth')->name('rencana.pembayaran.berhasil');
+
+//Admin Route
+Route::middleware('admin')->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource("menu", AdminMenuController::class, ['except' => ['update']])->middleware("auth");
+        Route::post('/menu/{id}/update', [AdminMenuController::class, 'update'])->middleware('auth')->name('menu.update');
+        Route::resource("orders", AdminOrderController::class)->middleware("auth");
+    });
+    Route::resource("admin", AdminController::class)->middleware("auth");
+});

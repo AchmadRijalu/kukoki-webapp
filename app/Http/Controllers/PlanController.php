@@ -116,8 +116,8 @@ class PlanController extends Controller
                 $delivery = Delivery::query()->create([
                     'user_id' => Auth::id(),
                     'date' => $meal->date,
-                    'status' => 'Dalam Perjalanan',
-                    'address' => 'Addrrerere',
+                    'status' => 'Sedang Diproses',
+                    'address' => Auth::user()->address,
                 ]);
             }
 
