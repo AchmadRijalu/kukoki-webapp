@@ -4,13 +4,10 @@ import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 export default function Pesanan(){
     const [stars, setStars] = useState(0);
+
     // const { data, setData, post, processing, errors } = useForm({
     //     provinsi: props.user.province || "",
     //     kota: props.user.city || "",
-    //     kecamatan: props.user.ward || "",
-    //     kelurahan: props.user.district || "",
-    //     alamatlengkap: props.user.address || "",
-    //     nomortelepon: props.user.phone || "",
     // })
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">

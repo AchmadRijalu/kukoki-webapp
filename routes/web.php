@@ -83,4 +83,4 @@ Route::middleware('admin')->group(function () {
 Route::get('/ulasan', function()
 {return Inertia::render('Ulasan');}
 );
-Route::post('/submit_ulasan', [RegisterController::class, 'informasipengiriman'])->middleware('guest');
+Route::post('/submit_ulasan', [RegisterController::class, 'informasipengiriman'])->middleware('auth');
