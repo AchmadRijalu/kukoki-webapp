@@ -4,7 +4,14 @@ import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 export default function Pesanan(){
     const [stars, setStars] = useState(0);
-    
+    // const { data, setData, post, processing, errors } = useForm({
+    //     provinsi: props.user.province || "",
+    //     kota: props.user.city || "",
+    //     kecamatan: props.user.ward || "",
+    //     kelurahan: props.user.district || "",
+    //     alamatlengkap: props.user.address || "",
+    //     nomortelepon: props.user.phone || "",
+    // })
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
             <div className="bg-blue-bg bg-cover bg-no-repeat">
@@ -31,11 +38,13 @@ export default function Pesanan(){
                             <p className="text-2xl ml-8 text-blue font-bold">V</p>
                         </div>
                     </div>
+                    {/* <form onSubmit={onSubmitHandler}> */}
                     <div className="flex flex-col mt-8 sm:w-full md:w-full lg:w-5/6 bg-white rounded-md p-4 border-none drop-shadow-md justify-between">
                         <div className="flex flex-row mt-2 justify-between items-center lg:mx-2">
                             <div className="flex w-5/6">
                                 <p className="text-xl text-darkblue font-bold">Nilai Makanan</p>
                             </div>
+                            
                             <div className="mt-2 md:mt-0">
                             <svg width="100" height="24" viewBox="0 0 152 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0)" onClick={(e) => setStars(1)}>
@@ -63,7 +72,7 @@ export default function Pesanan(){
                                     />
                                 </g>
                                 <g clipPath="url(#clip4)" onclick={(e) => setStars(5)}>
-                                    <path d="M135.146 16.911L131.052 12.9355L136.734 12.1081L137.256 12.032L137.488 11.558L139.998 6.42798L139.998 6.42798L140 6.42443L140.004 6.4329L142.544 11.5529L142.777 12.0225L143.296 12.0981L148.978 12.9255L144.883 16.901L144.502 17.2708L144.595 17.7934L145.595 23.4234L145.595 23.4234L145.597 23.4356L145.605 23.4463L145.56 24.4285L145.556 23.4474L145.564 23.4326L140.464 20.7626L140 20.5197L139.536 20.7626L134.436 23.4326L134.434 23.4334L135.434 17.8034L135.527 17.2808L135.146 16.911Z" stroke={stars >= 5 ? '#FFDF00' : '#A9A9A9'} strokeWidth="2" fill={stars >= 5 ? '#FFDF00' : '#A9A9A9'} />
+                                    <path d="M135.146 16.911L131.051 12.9355L136.734 12.1081L137.256 12.032L137.488 11.558L139.998 6.42798L139.998 6.42798L140 6.42443L140.004 6.4329L142.544 11.5529L142.777 12.0225L143.296 12.0981L148.978 12.9255L144.883 16.901L144.502 17.2708L144.595 17.7934L145.595 23.4234L145.595 23.4234L145.597 23.4356L145.605 23.4463L145.56 24.4285L145.556 23.4474L145.564 23.4326L140.464 20.7626L140 20.5197L139.536 20.7626L134.436 23.4326L134.434 23.4334L135.434 17.8034L135.527 17.2808L135.146 16.911Z" fill={stars >= 5 ? '#FFDF00' : '#A9A9A9'} />
                                 </g>
                             </svg>
                         </div>
@@ -71,10 +80,11 @@ export default function Pesanan(){
                         <div className="flex flex-row mt-2">
                             <textarea id="message" rows="12" class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
                         </div>
-                        <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2">
+                        <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
                         </button>
                     </div>
+                    {/* </form> */}
                 </div>
             </div>
             <Footer/>
