@@ -78,3 +78,8 @@ Route::middleware('admin')->group(function () {
     });
     Route::resource("admin", AdminController::class)->middleware("auth");
 });
+
+//Ulasan Route
+Route::get('/ulasan', function()
+{return Inertia::render('Ulasan');}
+);
