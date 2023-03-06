@@ -12,7 +12,7 @@ export default function MenuCard({meal}) {
             <div className="max-w-xs rounded overflow-hidden shadow-lg hover:scale-[102%] transition mx-auto">
                 <img className="w-full" src={'/img/menu/' + meal.img_path} alt={meal.name} />
                 <div className="px-4 py-4">
-                    <div className="font-bold text-xl mb-2 text-darkblue">{meal.name}</div>
+                    <div className="font-bold text-xl mb-2 text-darkgreen">{meal.name}</div>
                     <p className="text-gray-700 text-xs menu-card-description">{meal.description}</p>
                 </div>
                 <div className="px-4 pb-4 flex flex-row gap-4">
@@ -28,7 +28,7 @@ export default function MenuCard({meal}) {
                         <p className='text-xs'>{meal.duration} min</p>
                     </div>
                 </div>
-                <div className="py-2 bg-blue flex justify-center">
+                <div className="py-2 bg-green flex justify-center">
                     <h6 className='font-bold text-white'>{'Rp' + formatter.format(meal.price)}/2 porsi</h6>
                 </div>
             </div>

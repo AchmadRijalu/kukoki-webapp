@@ -90,21 +90,21 @@ export default function Rencana(props) {
     return (
         <div>
             <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-                <div className="bg-blue-bg bg-cover bg-no-repeat">
+                <div className="bg-green-bg bg-cover bg-no-repeat">
                     <HeaderNoBg />
                 </div>
                 <div className="w-full h-max mt-8 mb-14 px-5">
                     <div className="flex flex-col  mini:justify-center mini:items-center ">
-                        <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
+                        <h1 className="text-green md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                             Rencana Meal Kit
                         </h1>
-                        <h4 className="text-darkblue text-l font-semibold text-center mx-auto max-w-3xl">
+                        <h4 className="text-darkgreen text-l font-semibold text-center mx-auto max-w-3xl">
                             Lihat dan atur meal kit yang telah dipesan ataupun yang akan anda pesan!
                         </h4>
                     </div>
                     <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                         <div className="flex flex-col items-center">
-                            <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center mb-5">Telah Dipesan</h2>
+                            <h2 className="text-green md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center mb-5">Telah Dipesan</h2>
                             <div className="calendarWrap mb-5">
                                 <div className="outer-input">
                                     <input
@@ -172,7 +172,7 @@ export default function Rencana(props) {
 
                             <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
                                 {filterMeals()?.length === 0 ? (
-                                    <h1 className='text-center text-xl font-semibold text-darkblue mt-10'>Belum ada pesanan!</h1>
+                                    <h1 className='text-center text-xl font-semibold text-darkgreen mt-10'>Belum ada pesanan!</h1>
                                 ) : (
                                     filterMeals()?.map((item, index) => {
                                         return (
@@ -189,7 +189,7 @@ export default function Rencana(props) {
                         </div>
                         <div>
                             <div className="flex flex-col justify-center w-full mx-auto px-6">
-                                <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center">Keranjang</h2>
+                                <h2 className="text-green md:text-2xl sm:text-3xl mini:text-3xl font-bold text-center">Keranjang</h2>
                                 <div className="flex flex-col justify-start items-center mt-4">
                                     <div className="shadow-md p-5 rounded-xl w-full">
                                         {props.cart.map((item, index) => {
@@ -205,18 +205,18 @@ export default function Rencana(props) {
                                         <hr className="mt-5"></hr>
                                         <div className="rounded mt-2">
                                             <div className="mx-2 mt-2 flex">
-                                                <h1 className="text-lg lg:text-md mr-auto font-bold text-blue">Total</h1>
-                                                <h1 className="text-lg lg:text-md font-bold text-blue">{'Rp' + formatter.format(total)}</h1>
+                                                <h1 className="text-lg lg:text-md mr-auto font-bold text-green">Total</h1>
+                                                <h1 className="text-lg lg:text-md font-bold text-green">{'Rp' + formatter.format(total)}</h1>
                                             </div>
                                         </div>
                                         {/*<h1 className="text-sm lg:text-xs font-semibold text-rencanasend mt-3">*/}
                                         {/*    Dikirimkan pada Tanggal*/}
                                         {/*</h1>*/}
-                                        {/*<h1 className="text-xl font-semibold font-bold text-blue mt-1">*/}
+                                        {/*<h1 className="text-xl font-semibold font-bold text-green mt-1">*/}
                                         {/*    31 Desember 2022*/}
                                         {/*</h1>*/}
                                     </div>
-                                    <Link href={route('rencana.checkout')} className="bg-blue p-5 mt-5 rounded-md cursor-pointer hover:bg-bluehover transition font-bold w-full">
+                                    <Link href={route('rencana.checkout')} className="bg-green p-5 mt-5 rounded-md cursor-pointer hover:bg-greenhover transition font-bold w-full">
                                         <h1 className="text-white text-center">Pesan</h1>
                                     </Link>
                                 </div>

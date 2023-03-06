@@ -19,14 +19,14 @@ export default function AdminLayout({ props, children }) {
             {/* Sidebar starts */}
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
             <div
-                className="w-64 relative bg-blue shadow h-screen flex-col justify-between sm:flex">
+                className="w-64 relative bg-green shadow h-screen flex-col justify-between sm:flex">
                 <div className='flex flex-col justify-between h-full'>
                     <div>
                         <div className="h-16 w-full flex items-center px-8">
                             <img className='pt-10' src="/img/logo/logo.svg" alt="Kukoki"/>
                         </div>
                         <ul className="mt-12">
-                            <li className="flex w-full justify-between text-white hover:text-gray-200 transition hover:bg-blue cursor-pointer items-center py-3 px-8">
+                            <li className="flex w-full justify-between text-white hover:text-gray-200 transition hover:bg-green cursor-pointer items-center py-3 px-8">
                                 <Link href={route('admin.orders.index')} className="flex items-center w-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid"
                                          width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
@@ -40,7 +40,7 @@ export default function AdminLayout({ props, children }) {
                                     <span className="text-sm  ml-2">Orders</span>
                                 </Link>
                             </li>
-                            <li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center py-3 px-8">
+                            <li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center py-3 px-8">
                                 <Link href={route('admin.menu.index')} className="flex items-center w-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid"
                                          width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
@@ -54,7 +54,7 @@ export default function AdminLayout({ props, children }) {
                                     <span className="text-sm  ml-2">Menu</span>
                                 </Link>
                             </li>
-                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center px-8 py-3">*/}
+                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center px-8 py-3">*/}
                             {/*    <div className="flex items-center">*/}
                             {/*        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-puzzle"*/}
                             {/*             width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"*/}
@@ -66,7 +66,7 @@ export default function AdminLayout({ props, children }) {
                             {/*        <span className="text-sm  ml-2">Products</span>*/}
                             {/*    </div>*/}
                             {/*</li>*/}
-                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center px-8 py-3">*/}
+                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center px-8 py-3">*/}
                             {/*    <div className="flex items-center">*/}
                             {/*        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass"*/}
                             {/*             width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"*/}
@@ -78,7 +78,7 @@ export default function AdminLayout({ props, children }) {
                             {/*        <span className="text-sm  ml-2">Performance</span>*/}
                             {/*    </div>*/}
                             {/*</li>*/}
-                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center px-8 py-3">*/}
+                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center px-8 py-3">*/}
                             {/*    <div className="flex items-center">*/}
                             {/*        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-code"*/}
                             {/*             width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"*/}
@@ -91,7 +91,7 @@ export default function AdminLayout({ props, children }) {
                             {/*        <span className="text-sm  ml-2">Deliverables</span>*/}
                             {/*    </div>*/}
                             {/*</li>*/}
-                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center  px-8 py-3">*/}
+                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center  px-8 py-3">*/}
                             {/*    <div className="flex items-center">*/}
                             {/*        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-puzzle"*/}
                             {/*             width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"*/}
@@ -103,7 +103,7 @@ export default function AdminLayout({ props, children }) {
                             {/*        <span className="text-sm  ml-2">Invoices</span>*/}
                             {/*    </div>*/}
                             {/*</li>*/}
-                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center px-8 py-3">*/}
+                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center px-8 py-3">*/}
                             {/*    <div className="flex items-center">*/}
                             {/*        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-stack"*/}
                             {/*             width={18} height={18} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"*/}
@@ -116,7 +116,7 @@ export default function AdminLayout({ props, children }) {
                             {/*        <span className="text-sm  ml-2">Inventory</span>*/}
                             {/*    </div>*/}
                             {/*</li>*/}
-                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-blue cursor-pointer items-center px-8 py-3">*/}
+                            {/*<li className="flex w-full justify-between text-white hover:text-gray-200 hover:bg-green cursor-pointer items-center px-8 py-3">*/}
                             {/*    <div className="flex items-center">*/}
                             {/*        <svg xmlns="http://www.w3.org/2000/svg"*/}
                             {/*             className="icon icon-tabler icon-tabler-settings" width={18} height={18}*/}
@@ -140,14 +140,14 @@ export default function AdminLayout({ props, children }) {
                         <div className='flex justify-between w-full'>
                             <p className="text-white text-sm font-medium">{props.auth.user.full_name}</p>
                             <form onSubmit={logoutHandler} >
-                                <button className="bg-blue" type="submit">
+                                <button className="bg-green" type="submit">
                                     <img src="/img/icon-temp/logout.png" alt="" className="w-6 cursor-pointer" />
                                 </button>
                             </form>
                         </div>
                     </div>
                 </div>
-                {/*<div className="px-8 bg-blue">*/}
+                {/*<div className="px-8 bg-green">*/}
                 {/*    <ul className="w-full flex items-center justify-between ">*/}
                 {/*        <li className="cursor-pointer text-white pt-5 pb-3">*/}
                 {/*            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bell"*/}

@@ -28,10 +28,10 @@ input.inputBox {
     font-weight: 600;
     padding: 15px;
     padding-right: 55px;
-    color: #006CAA;
+    color: #009229;
     border-radius: 8px;
-    border: 3px solid #1C9FE2;
-    background: url("img/icon/calendar_blue.svg") no-repeat 95% 47%;
+    border: 3px solid #00C036;
+    background: url("img/icon/calendar_green.svg") no-repeat 95% 47%;
     background-size: 19px;
 }
 

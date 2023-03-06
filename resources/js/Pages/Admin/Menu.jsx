@@ -93,7 +93,7 @@ export default function Menu(props) {
                     </tbody>
                 </table>
                 <Link href={route('admin.menu.create')} className="w-full mt-8  rounded-2x flex flex-row justify-center">
-                    <button className="bg-blue w-full items-center h-12 outline-none rounded-xl font-bold text-white hover:bg-bluehover transition delay-50 text-sm" type="submit">
+                    <button className="bg-green w-full items-center h-12 outline-none rounded-xl font-bold text-white hover:bg-greenhover transition delay-50 text-sm" type="submit">
                         Tambah Menu
                     </button>
                 </Link>

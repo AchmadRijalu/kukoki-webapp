@@ -43,37 +43,37 @@ export default function Menu(props) {
                         <div className="mb-6">
                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 ">Nama</label>
                             <input type="text" id="name" name="name" onChange={handleChange} required={true}
-                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 placeholder-gray-400"
+                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green focus:border-green block w-full p-2.5 placeholder-gray-400"
                                     />
                         </div>
                         <div className="mb-6">
                             <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 ">Deskripsi</label>
                             <input type="text" id="description" name="description" onChange={handleChange} required={true}
-                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 placeholder-gray-400"
+                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green focus:border-green block w-full p-2.5 placeholder-gray-400"
                                     />
                         </div>
                         <div className="mb-6">
                             <label htmlFor="duration" className="block mb-2 text-sm font-medium text-gray-900 ">Durasi</label>
                             <input type="number" id="duration" name="duration" onChange={handleChange} required={true}
-                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 placeholder-gray-400"
+                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green focus:border-green block w-full p-2.5 placeholder-gray-400"
                                     />
                         </div>
                         <div className="mb-6">
                             <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 ">Harga</label>
                             <input type="number" id="price" name="price" onChange={handleChange} required={true}
-                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 placeholder-gray-400"
+                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green focus:border-green block w-full p-2.5 placeholder-gray-400"
                                     />
                         </div>
                         <div className="mb-6">
                             <label htmlFor="file" className="block mb-2 text-sm font-medium text-gray-900 ">Gambar</label>
                             <input type="file" id="file" name="file" onChange={handleChange} required={true}
-                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 placeholder-gray-400"
+                                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green focus:border-green block w-full p-2.5 placeholder-gray-400"
                             />
                         </div>
                     </div>
                     <div className='w-full mt-4 rounded-2x flex flex-row justify-center'>
                         <button type="submit"
-                                className="bg-blue w-full items-center h-12 outline-none rounded-xl font-bold text-white hover:bg-bluehover transition delay-50 text-sm">Submit
+                                className="bg-green w-full items-center h-12 outline-none rounded-xl font-bold text-white hover:bg-greenhover transition delay-50 text-sm">Submit
                         </button>
                     </div>
                 </form>

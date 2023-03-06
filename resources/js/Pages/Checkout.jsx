@@ -58,13 +58,13 @@ export default function Checkout(props) {
         return (
             <div>
                 <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-                    <div className="bg-blue-bg bg-cover bg-no-repeat">
+                    <div className="bg-green-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
                     <div className="w-full h-max mt-8 mb-14 px-8">
                         <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                             <div className="flex flex-col lg:items-center">
-                                <h1 className="text-blue self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                                <h1 className="text-green self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                                     Keranjang
                                 </h1>
 
@@ -91,13 +91,13 @@ export default function Checkout(props) {
         return (
             <div>
                 <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-                    <div className="bg-blue-bg bg-cover bg-no-repeat">
+                    <div className="bg-green-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
                     <div className="w-full h-max mt-8 mb-14 px-8">
                         <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                             <div className="flex flex-col lg:items-center">
-                                <h1 className="text-blue self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                                <h1 className="text-green self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                                     Keranjang
                                 </h1>
 

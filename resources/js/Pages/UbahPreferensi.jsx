@@ -79,18 +79,18 @@ export default function UbahPreferensi(props) {
     }
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
             <div className="w-full h-max mt-4 mb-12 p-6">
                 <div className="  flex flex-col justify-center items-center">
-                    <h4 className="text-blue text-2xl font-bold mb-4">
+                    <h4 className="text-green text-2xl font-bold mb-4">
                         Preferensi
                     </h4>
-                    <h1 className="text-blue text-3xl font-bold">
+                    <h1 className="text-green text-3xl font-bold">
                         Resep Seperti Apa Yang
                     </h1>
-                    <h2 className="text-blue text-3xl font-bold">
+                    <h2 className="text-green text-3xl font-bold">
                         Anda Sukai?
                     </h2>
 
@@ -121,7 +121,7 @@ export default function UbahPreferensi(props) {
                         <input type="hidden" onChange={e => setData('category', categoryList.length)} value={categoryList} />
                         <div className="w-full ">
                             <button
-                                className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md "
+                                className="bg-green w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-greenhover  transition delay-50 text-md "
                             >
                                 Simpan
                             </button>

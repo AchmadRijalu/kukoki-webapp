@@ -15,7 +15,7 @@ export default function RencanaCard(props) {
         <div className="bg-white border rounded-lg flex items-center py-4 px-6 w-full mb-3">
             <img className="w-28 lg:w-24 rounded-lg mr-4 lg:mr-5" src={`img/menu/${props.item.meal.img_path}`} />
             <div className="flex flex-col">
-                <h1 className="text-xl lg:text-xl font-bold text-blue">
+                <h1 className="text-xl lg:text-xl font-bold text-green">
                     {props.item.meal.name}
                 </h1>
                 <div className='flex text-xs font-normal text-rencanatext mt-1 mb-1'>
@@ -35,7 +35,7 @@ export default function RencanaCard(props) {
                         <span className="text-md">{props.item.meal.duration} min</span>
                     </div>
                 </div>
-                <h1 className="font-semibold text-darkblue mt-2 text-lg lg:text-md">Rp{format(props.item.meal.price)}</h1>
+                <h1 className="font-semibold text-darkgreen mt-2 text-lg lg:text-md">Rp{format(props.item.meal.price)}</h1>
             </div>
             {props.deleteItem ? (
                 <img className="w-11 lg:w-9 ml-auto cursor-pointer" src="img/icon/delete.png" onClick={() => {

@@ -41,13 +41,13 @@ export default function UbahInformasiPengiriman(props) {
         <div>
             <>
                 <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-                    <div className="bg-blue-bg bg-cover bg-no-repeat">
+                    <div className="bg-green-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
                     <div className="w-full h-max mt-8 mb-12 p-10">
 
                         <div className="  flex flex-col justify-center items-center">
-                            <h1 className="text-blue text-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                            <h1 className="text-green text-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                                 Informasi Pengiriman
                             </h1>
 
@@ -62,7 +62,7 @@ export default function UbahInformasiPengiriman(props) {
 
                                                 </div>
                                                 <input type="text" name="provinsi" onChange={e => setData('provinsi', e.target.value)} value={data.provinsi}
-                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                                 />
 
                                                 <label htmlFor="kota" className="text-black font-medium ml-4 ">Kota</label>
@@ -70,7 +70,7 @@ export default function UbahInformasiPengiriman(props) {
 
                                                 </div>
                                                 <input type="text" name="kota" onChange={e => setData('kota', e.target.value)} value={data.kota}
-                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                                 />
 
                                                 <label htmlFor="kecamatan" className="text-black font-medium ml-4 ">Kecamatan</label>
@@ -78,7 +78,7 @@ export default function UbahInformasiPengiriman(props) {
 
                                                 </div>
                                                 <input type="text" name="kecamatan" onChange={e => setData('kecamatan', e.target.value)} value={data.kecamatan}
-                                                    className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                                    className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                                 />
                                             </div>
                                             {/* baris kedua */}
@@ -88,14 +88,14 @@ export default function UbahInformasiPengiriman(props) {
 
                                                 </div>
                                                 <input type="text" name="kelurahan" onChange={e => setData('kelurahan', e.target.value)} value={data.kelurahan}
-                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                                 />
                                                 <label htmlFor="email" className="text-black font-medium ml-4 mb-44">Alamat Lengkap</label>
                                                 <div className="mb-2">
 
                                                 </div>
                                                 <input type="text" name="alamatlengkap" onChange={e => setData('alamatlengkap', e.target.value)} value={data.alamatlengkap}
-                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                                 />
 
                                                 <label htmlFor="nomortelepon" className="text-black font-medium ml-4 mb-44">Nomor Telepon</label>
@@ -103,14 +103,14 @@ export default function UbahInformasiPengiriman(props) {
 
                                                 </div>
                                                 <input type="number" name="nomortelepon" onChange={e => setData('nomortelepon', e.target.value)} value={data.nomortelepon}
-                                                    className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                                    className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                                 />
                                             </div>
                                         </div>
 
                                         <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
                                             <button type="submit"
-                                                className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md "
+                                                className="bg-green w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-greenhover  transition delay-50 text-md "
                                             >
 
                                                 Simpan

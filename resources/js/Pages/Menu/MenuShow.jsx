@@ -39,7 +39,7 @@ export default function MenuShow(props) {
 							lg:text-5xl
 							text-xl
 							font-bold
-							text-blue
+							text-green
 							mt-2
 						"
                             >
@@ -50,16 +50,16 @@ export default function MenuShow(props) {
                             <p className="text-base lg:leading-tight leading-normal text-gray-600">{props.meal.description}</p>
                         </div>
                         <div className='pt-4'>
-                            <p className="font-semibold text-darkblue">Jumlah Porsi</p>
+                            <p className="font-semibold text-darkgreen">Jumlah Porsi</p>
                             <div className='flex flex-row w-full items-center justify-between mt-1'>
                                 <span onClick={() => setPorsi(2)}
-                                      className={'w-full h-full text-center text-3xl font-bold py-4 border border-gray-400 cursor-pointer rounded-l-md ' + (porsi === 2 ? 'bg-blue text-white' : 'text-blue')}>2</span>
+                                      className={'w-full h-full text-center text-3xl font-bold py-4 border border-gray-400 cursor-pointer rounded-l-md ' + (porsi === 2 ? 'bg-green text-white' : 'text-green')}>2</span>
                                 <span onClick={() => setPorsi(4)}
-                                      className={'w-full h-full text-center text-3xl font-bold py-4 border border-gray-400 cursor-pointer rounded-r-md ' + (porsi === 4 ? 'bg-blue text-white' : 'text-blue')}>4</span>
+                                      className={'w-full h-full text-center text-3xl font-bold py-4 border border-gray-400 cursor-pointer rounded-r-md ' + (porsi === 4 ? 'bg-green text-white' : 'text-green')}>4</span>
                             </div>
                         </div>
                         <div className='pt-4'>
-                            <p className="font-semibold text-darkblue">Tanggal Pengiriman</p>
+                            <p className="font-semibold text-darkgreen">Tanggal Pengiriman</p>
                             <div className='relative flex justify-end items-center mt-1'>
                                 <input type="date" onChange={(e) => setDate(e.target.value)} className='w-full border border-gray-400 rounded-md text-gray-500'/>
                             </div>
@@ -68,7 +68,7 @@ export default function MenuShow(props) {
                             <button onClick={handleAddToPlan}
                                 className={
                     'mt-4 text-base flex items-center justify-center leading-none font-bold w-full py-5 rounded-md '
-                                    + (date === '' ? 'bg-gray-200 text-gray-400 cursor-default' : 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue hover:bg-bluehover bg-blue text-white')
+                                    + (date === '' ? 'bg-gray-200 text-gray-400 cursor-default' : 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green hover:bg-greenhover bg-green text-white')
                                 }
                             >
                                 Tambahkan ke Rencana
@@ -78,7 +78,7 @@ export default function MenuShow(props) {
                 </div>
                 <div className='flex flex-row justify-center gap-10 mt-10'>
                     <div className='w-1/2'>
-                        <h4 className='text-darkblue font-bold text-2xl'>Bahan</h4>
+                        <h4 className='text-darkgreen font-bold text-2xl'>Bahan</h4>
                         <ul className='list-disc pl-6 mt-1'>
                             {props.meal.ingredients.map((ingredient, i) =>
                                 <li>{ingredient.pivot.amount} {ingredient.unit} {ingredient.name}</li>
@@ -86,7 +86,7 @@ export default function MenuShow(props) {
                         </ul>
                     </div>
                     <div className='w-1/2'>
-                        <h4 className='text-darkblue font-bold text-2xl'>Alat yang dibutuhkan</h4>
+                        <h4 className='text-darkgreen font-bold text-2xl'>Alat yang dibutuhkan</h4>
                         <ul className='list-disc pl-6 mt-1'>
                             {props.meal.tools.map((tool, i) =>
                                 <li>{tool.pivot.amount} {tool.name}</li>
@@ -95,7 +95,7 @@ export default function MenuShow(props) {
                     </div>
                 </div>
                 {/*<div className='mt-10'>*/}
-                {/*    <h4 className='text-darkblue font-bold text-2xl'>Ulasan Pembeli</h4>*/}
+                {/*    <h4 className='text-darkgreen font-bold text-2xl'>Ulasan Pembeli</h4>*/}
                 {/*    <div className="grid grid-cols-3 gap-10">*/}
                 {/*        {props.meals.map((meal, i) =>*/}
                 {/*            <MenuReviewCard></MenuReviewCard>*/}
@@ -103,7 +103,7 @@ export default function MenuShow(props) {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className='mt-10'>
-                    <h4 className='text-darkblue font-bold text-2xl'>Menu Lain dalam Kategori </h4>
+                    <h4 className='text-darkgreen font-bold text-2xl'>Menu Lain dalam Kategori </h4>
                     <div className="grid grid-cols-3 gap-10">
                         {props.meals.map((meal, i) =>
                             <MenuCard meal={meal} key={i}></MenuCard>

@@ -25,16 +25,16 @@ export default function Register(props) {
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
             <div className="w-full h-max mt-8 mb-14">
 
                 <div className="  flex flex-col  mini:justify-center mini:items-center ">
-                    <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                    <h1 className="text-green md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                         Daftar ke Kukoki
                     </h1>
-                    <h4 className="text-blue text-l font-bold text-center">
+                    <h4 className="text-green text-l font-bold text-center">
                         Bergabung bersama kami dengan mendaftarkan diri anda sekarang.
                     </h4>
 
@@ -52,7 +52,7 @@ export default function Register(props) {
                                     </div>
 
 
-                                    <input type="text" name="name" onChange={e => setData('name', e.target.value)} value={data.name} className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    <input type="text" name="name" onChange={e => setData('name', e.target.value)} value={data.name} className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke" />
 
 
                                     <label htmlFor="email" className="text-black font-medium ml-4 mb-44">
@@ -63,7 +63,7 @@ export default function Register(props) {
                                     </div>
 
 
-                                    <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email} className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email} className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke" />
 
 
                                     <label htmlFor="password" className="text-black font-medium ml-4 mb-44">Password</label>
@@ -72,7 +72,7 @@ export default function Register(props) {
                                     </div>
 
 
-                                    <input type="password" name="password" onChange={e => setData('password', e.target.value)} value={data.password} className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    <input type="password" name="password" onChange={e => setData('password', e.target.value)} value={data.password} className=" border-1  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke" />
                                     {props.errors.name && (
                                         <div className="text-red-400 font-semibold mt-4 text-center">
                                             <h1>
@@ -101,7 +101,7 @@ export default function Register(props) {
                                         </h6>
                                     </div>
                                     <div className="w-full mt-8  rounded-2x flex flex-row justify-center">
-                                        <button className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md" type="submit">
+                                        <button className="bg-green w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-greenhover  transition delay-50 text-md" type="submit">
                                             Daftar
                                         </button>
                                     </div>

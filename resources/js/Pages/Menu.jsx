@@ -16,7 +16,7 @@ export default function Menu() {
 
     return (
         <div className="w-full min-h-screen bg-white flex flex-col ">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
                 <div className="w-full mt-4  bg-gray-400 h-52">
 
@@ -28,7 +28,7 @@ export default function Menu() {
                     </h1>
                 <br />
                     <form onSubmit={logoutHandler} >
-                    <button className="bg-blue" type="submit">
+                    <button className="bg-green" type="submit">
                         Logout
                     </button>
                     </form>

@@ -19,7 +19,7 @@ export default function MenuShow(props) {
 							lg:text-5xl
 							text-xl
 							font-bold
-							text-blue
+							text-green
 							text-center
 							mt-2
 						"
@@ -41,7 +41,7 @@ export default function MenuShow(props) {
                                 normal distribution of letters.</p>
                         </div>
                         <div className='pt-4'>
-                            <h4 className='text-darkblue font-bold text-2xl'>Bahan</h4>
+                            <h4 className='text-darkgreen font-bold text-2xl'>Bahan</h4>
                             <ul className='list-disc pl-6 mt-1'>
                                 <li>aaa</li>
                                 <li>aaa</li>
@@ -51,7 +51,7 @@ export default function MenuShow(props) {
                             </ul>
                         </div>
                         <div className='pt-4'>
-                            <h4 className='text-darkblue font-bold text-2xl'>Alat yang dibutuhkan</h4>
+                            <h4 className='text-darkgreen font-bold text-2xl'>Alat yang dibutuhkan</h4>
                             <ul className='list-disc pl-6 mt-1'>
                                 <li>aaa</li>
                                 <li>aaa</li>
@@ -63,7 +63,7 @@ export default function MenuShow(props) {
                     </div>
                 </div>
                 <div className='justify-center gap-10 mt-10'>
-                    <h4 className='text-darkblue font-bold text-2xl'>Prosedur Pembuatan</h4>
+                    <h4 className='text-darkgreen font-bold text-2xl'>Prosedur Pembuatan</h4>
                     <ol className='list-decimal pl-6 mt-1 max-w-5xl break-words'>
                         <li className='font-semibold mt-2'>
                             <h6 className='text-lg'>

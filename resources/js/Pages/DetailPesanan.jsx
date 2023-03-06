@@ -5,12 +5,12 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 export default function Pesanan(){
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
             <div className="h-max mt-8 mb-12 lg:mx-64 md:mx-8 sm:mx-8 md:p-0 mini:p-3">
                 <div className="flex flex-row justify-center items-center mb-8">
-                    <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
+                    <h1 className="text-green md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                         Detail Pesanan
                     </h1>
                 </div>
@@ -18,7 +18,7 @@ export default function Pesanan(){
 
                     <div className="flex flex-auto flex-col lg:col-span-6">
                         <div className="flex flex-row">
-                            <h1 className="text-darkblue md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
+                            <h1 className="text-darkgreen md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
                                 Informasi Produk
                             </h1>
                         </div>
@@ -29,7 +29,7 @@ export default function Pesanan(){
                             </div>
                             <div className="flex-1 ml-6 flex-col">
                                 <div className="flex flex-row">
-                                    <h1 className="text-blue md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
+                                    <h1 className="text-green md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
                                         Pesto Pasta Chicken
                                     </h1>
                                 </div>
@@ -45,7 +45,7 @@ export default function Pesanan(){
                                     <img src="img/icon/right-arrow.svg" alt="" className="w-8 ml-12"/>
                                 </div>
                                 <div className="flex flex-row mt-2">
-                                    <h1 className="text-blue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
+                                    <h1 className="text-green md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
                                         Rp60.000
                                     </h1>
                                 </div>
@@ -57,7 +57,7 @@ export default function Pesanan(){
                             </div>
                             <div className="flex-1 ml-6 flex-col">
                                 <div className="flex flex-row">
-                                    <h1 className="text-blue md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
+                                    <h1 className="text-green md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
                                         Pesto Pasta Chicken
                                     </h1>
                                 </div>
@@ -73,7 +73,7 @@ export default function Pesanan(){
                                     <img src="img/icon/right-arrow.svg" alt="" className="w-8 ml-12"/>
                                 </div>
                                 <div className="flex flex-row mt-2">
-                                    <h1 className="text-blue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
+                                    <h1 className="text-green md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
                                         Rp60.000
                                     </h1>
                                 </div>
@@ -81,7 +81,7 @@ export default function Pesanan(){
                         </div>
                         {/* Card End */}
                         <div className="flex flex-row mt-8">
-                            <h1 className="text-darkblue md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
+                            <h1 className="text-darkgreen md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
                                 Informasi Pengiriman
                             </h1>
                         </div>
@@ -113,14 +113,14 @@ export default function Pesanan(){
                                 </h1>
                             </div>
                             <div className="flex flex-row">
-                                <h1 className="text-darkblue md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
+                                <h1 className="text-darkgreen md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
                                     Selesai
                                 </h1>
                             </div>
                         </div>
                         <div className="flex flex-col mt-4 w-full bg-white rounded-md p-6 border-none drop-shadow-md">
                             <div className="flex flex-row">
-                                <h1 className="text-darkblue md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
+                                <h1 className="text-darkgreen md:text-2xl sm:text-2xl mini:text-2xl font-semibold text-start">
                                     Rincian Pembayaran
                                 </h1>
                             </div>
@@ -134,7 +134,7 @@ export default function Pesanan(){
                                     <p>Rp20.000</p>
                                 </div>
                                 
-                                <div className="flex flex-row justify-between mt-4 text-darkblue text-xl font-semibold">
+                                <div className="flex flex-row justify-between mt-4 text-darkgreen text-xl font-semibold">
                                     <p>Total</p>
                                     <p>Rp20.000</p>
                                 </div>
@@ -145,7 +145,7 @@ export default function Pesanan(){
                                 </h1>
                             </div>
                             <div className="flex flex-row mt-2">
-                                <h1 className="text-darkblue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
+                                <h1 className="text-darkgreen md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
                                     31 Desember 2022
                                 </h1>
                             </div>
@@ -155,12 +155,12 @@ export default function Pesanan(){
                                 </h1>
                             </div>
                             <div className="flex flex-row mt-2">
-                                <h1 className="text-darkblue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
+                                <h1 className="text-darkgreen md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
                                     BCA Virtual Account
                                 </h1>
                             </div>
                         </div>
-                        <button class="bg-blue font-semibold text-white py-4 px-4 rounded-md mt-4">
+                        <button class="bg-green font-semibold text-white py-4 px-4 rounded-md mt-4">
                             Beri Ulasan
                         </button>
                     </div>

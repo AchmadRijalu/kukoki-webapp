@@ -7,19 +7,19 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 export default function PembayaranBerhasil() {
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
             <div className="w-full h-max mt-12 mb-14">
                 <div className="flex flex-col  mini:justify-center mini:items-center p-5">
-                    <h1 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                    <h1 className="text-green md:text-2xl sm:text-3xl mini:text-3xl font-bold mb-4">
                         Pembayaran Berhasil
                     </h1>
                     <img className="mt-6" src="img/icon/success.svg" />
                     <h2 className="text-xl mt-8 font-medium">
                         2 Oktober 2022, 16:40
                     </h2>
-                    <div className="flex flex-col items-center mt-4 text-darkblue">
+                    <div className="flex flex-col items-center mt-4 text-darkgreen">
                         <h3 className="text-xl font-bold">Total</h3>
                         <div className="font-bold">
                             <span className="text-xl">Rp</span>
@@ -37,7 +37,7 @@ export default function PembayaranBerhasil() {
                             0821*****4821
                         </h1>
                     </div>
-                    <div className="bg-blue p-5 sm:px-10 mt-6 rounded-md cursor-pointer sm:w-fit w-full">
+                    <div className="bg-green p-5 sm:px-10 mt-6 rounded-md cursor-pointer sm:w-fit w-full">
                         <h1 className="text-white text-center">
                             Lanjutkan Pembayaran
                         </h1>

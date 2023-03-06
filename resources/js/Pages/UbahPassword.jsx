@@ -28,11 +28,11 @@ export default function UbahPassword(props) {
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
             <div className="w-full h-full  flex flex-col items-center">
-                <h1 className="text-blue mt-4 md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
+                <h1 className="text-green mt-4 md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                     Ubah Password
                 </h1>
                 <div className="md:w-1/3 mini:w-3/4 bg-white rounded-md mb-8 p-6 mt-6 border-none drop-shadow-md">
@@ -45,7 +45,7 @@ export default function UbahPassword(props) {
 
                                 </div>
                                 <input type="password" name="nama" onChange={e => setData('password', e.target.value)}
-                                    className=" border-1 focus:outline-none border-none focus:border-none focus:ring-0 mb-14 font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                    className=" border-1 focus:outline-none border-none focus:border-none focus:ring-0 mb-14 font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                 />
 
                                 <label htmlFor="email" className="text-black font-medium ml-4 ">Confirm Password</label>
@@ -53,7 +53,7 @@ export default function UbahPassword(props) {
 
                                 </div>
                                 <input type="password" name="confirm_password" onChange={e => setData('confirm_password', e.target.value)}
-                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
+                                    className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-green text-black bg-smoke"
                                 />
 
 
@@ -78,7 +78,7 @@ export default function UbahPassword(props) {
 
                         <div className="w-full mt-4  rounded-2x flex flex-row justify-center">
                             <button type="submit"
-                                className="bg-blue w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-bluehover  transition delay-50 text-md "
+                                className="bg-green w-full items-center h-14 outline-none rounded-xl font-bold text-white  hover:bg-greenhover  transition delay-50 text-md "
                             >
 
                                 Simpan

@@ -18,16 +18,16 @@ export default function Pesanan(props) {
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-green-bg bg-cover bg-no-repeat">
                 <HeaderNoBg/>
             </div>
             <div className="h-max mt-8 mb-12 lg:mx-52 sm:mx-8 md:mx-8 md:p-0 mini:p-3">
                 <div className="flex flex-row justify-center items-center">
                     <div className="flex flex-col justify-center items-center">
-                        <h1 className="text-blue md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
+                        <h1 className="text-green md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4 text-center">
                             Pesanan Saya
                         </h1>
-                        <h4 className="text-darkblue text-l font-semibold text-center mx-auto max-w-3xl">
+                        <h4 className="text-darkgreen text-l font-semibold text-center mx-auto max-w-3xl">
                             Lihat status dari pesanan serta riwayat transaksi anda!
                         </h4>
                     </div>
@@ -36,7 +36,7 @@ export default function Pesanan(props) {
                 <div className="flex flex-row mt-12">
                     <div className="flex flex-col h-full w-full">
                         <div className="flex flex-row">
-                            <h2 className="text-blue md:text-2xl sm:text-3xl mini:text-3xl font-bold mb-8">
+                            <h2 className="text-green md:text-2xl sm:text-3xl mini:text-3xl font-bold mb-8">
                                 Pengiriman Selanjutnya
                             </h2>
                         </div>
@@ -51,8 +51,8 @@ export default function Pesanan(props) {
                                                 // className="bg-white rounded-md p-6 border-none shadow-lg hover:scale-[102%] transition">
                                                 className="bg-white rounded-md p-6 border-none shadow-lg">
                                                 <div className="flex justify-between flex-row w-full">
-                                                    <p className="text-blue font-bold">{new Date(item.date).toLocaleDateString("id-ID", options)}</p>
-                                                    <p className="text-darkblue font-bold items-start text-sm">Dalam
+                                                    <p className="text-green font-bold">{new Date(item.date).toLocaleDateString("id-ID", options)}</p>
+                                                    <p className="text-darkgreen font-bold items-start text-sm">Dalam
                                                         Perjalanan</p>
                                                 </div>
                                                 <div className="flex justify-start flex-row w-full mt-6">
@@ -86,7 +86,7 @@ export default function Pesanan(props) {
                                 </div>
                             </>
                         ) : (
-                            <h4 className='text-center mx-auto font-bold text-darkblue'>Belum ada pengiriman!</h4>
+                            <h4 className='text-center mx-auto font-bold text-darkgreen'>Belum ada pengiriman!</h4>
                         )
                         }
                     </div>
@@ -96,7 +96,7 @@ export default function Pesanan(props) {
                 <div className="flex flex-row my-24">
                     <div className="flex flex-col h-full w-full">
                         <div className="flex flex-row">
-                            <h2 className="text-blue md:text-2xl sm:text-2xl mini:text-2xl font-bold mb-8">
+                            <h2 className="text-green md:text-2xl sm:text-2xl mini:text-2xl font-bold mb-8">
                                 Riwayat Transaksi
                             </h2>
                         </div>
@@ -110,8 +110,8 @@ export default function Pesanan(props) {
                                             <div href=''
                                                  className="bg-white rounded-md p-6 border-none shadow-lg">
                                                 <div className="flex justify-between flex-row w-full">
-                                                    <p className="text-blue font-bold">{new Date(item.date).toLocaleDateString("id-ID", options)}</p>
-                                                    {/*<p className="text-darkblue font-bold items-start text-sm">3 Oktober 2022</p>*/}
+                                                    <p className="text-green font-bold">{new Date(item.date).toLocaleDateString("id-ID", options)}</p>
+                                                    {/*<p className="text-darkgreen font-bold items-start text-sm">3 Oktober 2022</p>*/}
                                                 </div>
                                                 <div className="flex justify-start flex-row w-full mt-2">
                                                     <div className="flex flex-col w-full h-full">
@@ -136,7 +136,7 @@ export default function Pesanan(props) {
                                 </div>
                             </>
                         ) : (
-                            <h4 className='text-center mx-auto font-bold text-darkblue'>Belum ada transaksi!</h4>
+                            <h4 className='text-center mx-auto font-bold text-darkgreen'>Belum ada transaksi!</h4>
                         )
                         }
                     </div>

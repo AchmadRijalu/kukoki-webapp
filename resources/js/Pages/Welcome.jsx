@@ -14,7 +14,7 @@ export default function Welcome(props) {
         <>
             <Head title="Home" />
             <div className="min-h-screen">
-                <div className="bg-blue-bg bg-cover bg-no-repeat">
+                <div className="bg-green-bg bg-cover bg-no-repeat">
                     <HeaderNoBg />
                     <div className="md:grid grid-cols-2 px-8 lg:px-12 text-white">
                         <div className="flex items-center">
@@ -27,7 +27,7 @@ export default function Welcome(props) {
                                 <div className="flex justify-center md:justify-start mb-5 md:mb-0" onClick={(e) => handleLoginPage}>
                                     <Link
                                         href= {route("menu.index")}
-                                        className="text-darkblue bg-white py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-gray-200 transition"
+                                        className="text-darkgreen bg-white py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-gray-200 transition"
                                     >
                                         Pesan Sekarang
                                     </Link>
@@ -42,15 +42,15 @@ export default function Welcome(props) {
                             />
                         </div>
                     </div>
-                    <div className="h-1 bg-brown"></div>
+                    <div className="h-1 bg-blue"></div>
                 </div>
 
                 <div className="flex justify-center">
                     <div className="flex items-center flex-col px-8">
-                        <h1 className="text-center font-bold text-4xl lg:text-5xl text-blue my-5">
+                        <h1 className="text-center font-bold text-4xl lg:text-5xl text-green my-5">
                             Temukan Meal Kit Favoritmu
                         </h1>
-                        <h2 className="text-center font-semibold text-lg lg:text-xl text-darkblue mb-5">
+                        <h2 className="text-center font-semibold text-lg lg:text-xl text-darkgreen mb-5">
                             Semua meal kit dilengkapi dengan bahan-bahan segar langsung dari petani lokal!
                         </h2>
                         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 my-5">
@@ -60,14 +60,14 @@ export default function Welcome(props) {
                         </div>
                         <Link
                             href="/menu"
-                            className="text-white my-5 bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                            className="text-white my-5 bg-green py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkgreen transition"
                         >
                             Lihat Semua
                         </Link>
                     </div>
                 </div>
 
-                <div className="bg-blue-bg bg-cover bg-no-repeat flex justify-center text-white py-5">
+                <div className="bg-green-bg bg-cover bg-no-repeat flex justify-center text-white py-5">
                     <div>
                         <h1 className="text-center font-bold text-4xl lg:text-5xl my-5">
                             Bagaimana Cara Pesan
@@ -121,14 +121,14 @@ export default function Welcome(props) {
                 </div>
 
                 <div className="md:grid grid-cols-2">
-                    <div className="bg-darkblue">
+                    <div className="bg-darkgreen">
                         <div className="flex justify-center">
                             <img src="img/home/gratis_ongkir.svg" alt="" />
                         </div>
                     </div>
                     <div className="py-16 px-8 md:px-10 flex items-center justify-center md:justify-start">
                         <div>
-                            <h1 className="text-center md:text-left font-bold text-4xl lg:text-5xl text-blue">
+                            <h1 className="text-center md:text-left font-bold text-4xl lg:text-5xl text-green">
                                 Gratis Ongkir
                             </h1>
                             <p className="text-center md:text-left text-lg lg:text-xl my-3">
@@ -138,7 +138,7 @@ export default function Welcome(props) {
                             <div className="flex justify-center md:justify-start">
                                 <Link
                                     href={route("menu.index")}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-green py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkgreen transition"
                                 >
                                     Pesan Sekarang
                                 </Link>
@@ -150,7 +150,7 @@ export default function Welcome(props) {
                 <div className="hidden md:grid grid-cols-2">
                     <div className="px-10 flex items-center">
                         <div>
-                            <h1 className="font-bold text-4xl lg:text-5xl text-blue">
+                            <h1 className="font-bold text-4xl lg:text-5xl text-green">
                                 Meal Kit Sesuai <br />
                                 Preferensi Anda
                             </h1>
@@ -160,27 +160,27 @@ export default function Welcome(props) {
                             </p>
                             <Link
                                 href="/profil"
-                                className="text-white bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                className="text-white bg-green py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkgreen transition"
                             >
                                 Atur Preferensi
                             </Link>
                         </div>
                     </div>
-                    <div className="bg-darkblue">
+                    <div className="bg-darkgreen">
                         <div className="flex justify-center">
                             <img src="img/home/mealkit_preferensi.svg" alt="" />
                         </div>
                     </div>
                 </div>
                 <div className="md:hidden">
-                    <div className="bg-darkblue">
+                    <div className="bg-darkgreen">
                         <div className="flex justify-center">
                             <img src="img/home/mealkit_preferensi.svg" alt="" />
                         </div>
                     </div>
                     <div className="py-16 px-8 flex items-center">
                         <div>
-                            <h1 className="text-center font-bold text-4xl lg:text-5xl text-blue">
+                            <h1 className="text-center font-bold text-4xl lg:text-5xl text-green">
                                 Meal Kit Sesuai <br />
                                 Preferensi Anda
                             </h1>
@@ -191,7 +191,7 @@ export default function Welcome(props) {
                             <div className="flex justify-center">
                                 <Link
                                     href=""
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-green py-2 lg:py-3 px-5 lg:px-10 font-semibold rounded-md hover:bg-darkgreen transition"
                                 >
                                     Atur Preferensi
                                 </Link>

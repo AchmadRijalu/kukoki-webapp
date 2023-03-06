@@ -15,11 +15,11 @@ module.exports = {
                 sans: ["Quicksand", ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                blue: "#1C9FE2",
-                bluehover: "#208BC0",
-                darkblue: "#006CAA",
-                lightblue: "#D2F5FF",
-                brown: "#703900",
+                green: "#00C036",
+                greenhover: "#547C51",
+                darkgreen: "#009229",
+                lightgreen: "#DBF9D8",
+                blue: "#114A75",
                 smoke: "#F9F9F9",
                 test: "#FFFFFF",
                 dagingsayur: "#FCEAB2",
@@ -37,7 +37,7 @@ module.exports = {
 
             },
             backgroundImage: {
-                "blue-bg": "url('/img/blue_background.svg')",
+                "green-bg": "url('/img/green_background.svg')",
             },
             width: {
                 '68': '17rem',

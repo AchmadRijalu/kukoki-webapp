@@ -38,17 +38,17 @@ export default function Profil(props) {
         <>
             <Head title="Profil" />
             <div className="w-full min-h-screen bg-white flex flex-col justify-between">
-                <div className="bg-blue-bg bg-cover bg-no-repeat">
+                <div className="bg-green-bg bg-cover bg-no-repeat">
                     <HeaderNoBg />
                     <div className="w-full flex flex-col justify-end ">
 
                         {/*items-end to resize the component to end */}
                         <div className="flex flex-row w-full justify-center items-end">
                             <div className="md:w-1/3 mini:w-1/2 h-60  lg:flex lg:justify-center sm:grid sm:justify-center mini:grid mini:justify-center ">
-                                <div className=" lg:w-68 lg:h-68 md:w-52 md:h-52  sm:w-52 sm:h-52 mini:w-48 mini:h-48 bg-darkblue rounded-full p-2 mini:relative md:mt-0 mini:mt-5 md:top-20 md:mr-20 ">
+                                <div className=" lg:w-68 lg:h-68 md:w-52 md:h-52  sm:w-52 sm:h-52 mini:w-48 mini:h-48 bg-darkgreen rounded-full p-2 mini:relative md:mt-0 mini:mt-5 md:top-20 md:mr-20 ">
                                     <img src={auth.user.profile_picture != null? auth.user.profile_picture:"img/profile/anon.png"} alt="" className=" w-full h-full rounded-full object-cover" />
                                     <div className="bg-white w-20 h-20 mini:absolute lg:top-56 lg:left-24 md:top-40 md:left-16 sm:top-40 sm:left-16 mini:top-40 mini:left-14 rounded-full p-2">
-                                        <button className="bg-darkblue w-full h-full hover:bg-blue transition rounded-full cursor-pointer flex flex-row justify-center  items-center"
+                                        <button className="bg-darkgreen w-full h-full hover:bg-green transition rounded-full cursor-pointer flex flex-row justify-center  items-center"
                                            onClick={(e) => handleGetIdProfil(auth.user.id)}
 
                                         >
@@ -65,7 +65,7 @@ export default function Profil(props) {
                                             {auth.user.full_name}
                                         </h1>
                                         <form onSubmit={logoutHandler} >
-                                            <button className="bg-blue" type="submit">
+                                            <button className="bg-green" type="submit">
                                                 <img src="img/icon-temp/logout.png" alt="" className="w-12 h-12 cursor-pointer" />
                                             </button>
                                         </form>
@@ -101,7 +101,7 @@ export default function Profil(props) {
                         <h1 className="text-black font-bold text-xl mb-4 md:hidden mini:block text-center">
                             {auth.user.email}
                         </h1>
-                        <div className="flex flex-row space-x-2  w-full text-2xl text-darkblue font-semibold md:mt-2 mini:mt-4">
+                        <div className="flex flex-row space-x-2  w-full text-2xl text-darkgreen font-semibold md:mt-2 mini:mt-4">
                             <div className="md:w-1/5  mini:w-1/3 md:text-left mini:text-center">
                                 <h3>
                                     0
@@ -143,7 +143,7 @@ export default function Profil(props) {
                         <div className="md:w-1/2 mini:w-full md:mb-0 mini:mb-8 min-h-max  flex flex-col items-center mr-4 font-medium ">
 
                             <div className="w-1/2 min-h-full   justify-between flex flex-col items-center space-y-4 mini:mb-5 md:mb-0 ">
-                                <h1 className="text-darkblue font-semibold text-2xl text-center mini:mb-6 md:mb-0">
+                                <h1 className="text-darkgreen font-semibold text-2xl text-center mini:mb-6 md:mb-0">
                                     Lokasi Pengiriman
                                 </h1>
                                 <div className="flex flex-row items-center w-1/2 mr-6">
@@ -166,7 +166,7 @@ export default function Profil(props) {
                                 </div>
                                 <button
                                     onClick={(e) => handleGetIdPengiriman(auth.user.id)}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2 lg text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-green py-2 lg:py-3 px-5 mini:w-full lg:w-1/2 lg text-center lg:px-10 font-semibold rounded-md hover:bg-darkgreen transition"
                                 >
                                     Ubah
                                 </button>
@@ -175,7 +175,7 @@ export default function Profil(props) {
                         </div>
                         <div className="md:w-1/2 mini:w-full   min-h-max flex flex-col md:items-start mini:items-center justify-between ">
                             <div className="min-w-max  h-full flex flex-col md:items-start mini:items-center  space-y-9 ml-3  ">
-                                <h1 className="text-darkblue font-semibold text-2xl mini:text-center">
+                                <h1 className="text-darkgreen font-semibold text-2xl mini:text-center">
                                     Preferensi Saya
                                 </h1>
                                 <div className="w-full  grid md:grid-cols-2  md:justify-between md:space-y-0 mini:justify-center sm:grid-cols-2 mb-5 lg:mr-0 md:mr-2">
@@ -191,7 +191,7 @@ export default function Profil(props) {
                                 <button
                                     
                                     onClick={(e) => handleGetIdPreferensi(auth.user.id)}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2  text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-green py-2 lg:py-3 px-5 mini:w-full lg:w-1/2  text-center lg:px-10 font-semibold rounded-md hover:bg-darkgreen transition"
                                 >
                                     Ubah
                                 </button>
