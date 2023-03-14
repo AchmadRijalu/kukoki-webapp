@@ -14,6 +14,13 @@ export default function Pesanan(){
         review_score: 0
     })
 
+    //TODO: Add a submit handler to controller endpoint
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        //TODO: Add POST to the tables
+    }
+
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
             <div className="bg-blue-bg bg-cover bg-no-repeat">
@@ -40,7 +47,7 @@ export default function Pesanan(){
                             <p className="text-2xl ml-8 text-blue font-bold">V</p>
                         </div>
                     </div>
-                    {/* <form onSubmit={onSubmitHandler}> */}
+                    <form onSubmit={onSubmitHandler}>
                     <div className="flex flex-col mt-8 sm:w-full md:w-full lg:w-5/6 bg-white rounded-md p-4 border-none drop-shadow-md justify-between">
                         <div className="flex flex-row mt-2 justify-between items-center lg:mx-2">
                             <div className="flex w-5/6">
@@ -79,7 +86,7 @@ export default function Pesanan(){
                             Bagikan Ulasan
                         </button>
                     </div>
-                    {/* </form> */}
+                    </form>
                 </div>
             </div>
             <Footer/>
