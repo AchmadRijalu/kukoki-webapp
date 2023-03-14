@@ -11,7 +11,7 @@ export default function Pesanan(){
     //TODO: Add a review onSubmit Form inside the useForm function
     const { data, setData, post, processing, errors } = useForm({
         review: '',
-        review_score: 0
+        review_score: stars
     })
 
     //TODO: Add a submit handler to controller endpoint
@@ -47,8 +47,8 @@ export default function Pesanan(){
                             <p className="text-2xl ml-8 text-blue font-bold">V</p>
                         </div>
                     </div>
-                    <form onSubmit={onSubmitHandler}>
                     <div className="flex flex-col mt-8 sm:w-full md:w-full lg:w-5/6 bg-white rounded-md p-4 border-none drop-shadow-md justify-between">
+                        <form onSubmit={submitHandler}>
                         <div className="flex flex-row mt-2 justify-between items-center lg:mx-2">
                             <div className="flex w-5/6">
                                 <p className="text-xl text-darkblue font-bold">Nilai Makanan</p>
@@ -85,8 +85,9 @@ export default function Pesanan(){
                         <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
                         </button>
+                        </form>
                     </div>
-                    </form>
+                    
                 </div>
             </div>
             <Footer/>
