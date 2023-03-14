@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, Head } from "@inertiajs/inertia-react";
+import { Link, Head, usePage } from "@inertiajs/inertia-react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import { useForm} from '@inertiajs/inertia-react';
 
-export default function Pesanan(){
+export default function Pesanan(props){
 
 
     //TODO: Add a review onSubmit Form inside the useForm function
@@ -25,6 +25,9 @@ export default function Pesanan(){
         
         
     }
+
+    //TODO: Add AUTH as props
+    const {auth} = usePage().props;
 
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
