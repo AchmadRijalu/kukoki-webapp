@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Link, Head } from "@inertiajs/inertia-react";
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
+import { useForm} from '@inertiajs/inertia-react';
 
 export default function Pesanan(){
 
     const [stars, setStars] = useState(0);
 
     //TODO: Add a review onSubmit Form inside the useForm function
-    // const { data, setData, post, processing, errors } = useForm({
-       
-    // })
+    const { data, setData, post, processing, errors } = useForm({
+        review: '',
+        review_score: 0
+    })
 
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -71,7 +73,7 @@ export default function Pesanan(){
                             </div>
                         </div>
                         <div className="flex flex-row mt-2">
-                            <textarea id="message" rows="12" class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
+                            <textarea id="review" name="review" rows="12" onChange={e => setData('review', e.target.value)} value={data.review} class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
                         </div>
                         <button class="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
