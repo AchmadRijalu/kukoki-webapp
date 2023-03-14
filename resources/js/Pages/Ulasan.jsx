@@ -6,19 +6,24 @@ import { useForm} from '@inertiajs/inertia-react';
 
 export default function Pesanan(){
 
-    const [stars, setStars] = useState(0);
 
     //TODO: Add a review onSubmit Form inside the useForm function
     const { data, setData, post, processing, errors } = useForm({
         review: '',
-        review_score: stars
+        review_score: 0
     })
+    
+    const stars = data.review_score
 
     //TODO: Add a submit handler to controller endpoint
     const submitHandler = (e) => {
         e.preventDefault();
 
+
+        console.log(data)
         //TODO: Add POST to the tables
+        
+        
     }
 
     return(
@@ -56,23 +61,23 @@ export default function Pesanan(){
                             
                             <div className="mt-2 md:mt-0 flex-row">
                                 <div className="flex space-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=>setStars(1)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 1)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 1 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=>setStars(2)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 2)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 2 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=>setStars(3)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 3)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 3 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=>setStars(4)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 4)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 4 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=>setStars(5)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 5)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 5 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
