@@ -70,9 +70,7 @@ export default function Pesanan(props) {
                                                 <div className="flex justify-start flex-row w-full mt-6">
                                                     <img src="img/icon/location.svg" alt="" className="w-8"/>
                                                     <div className="ml-6">
-                                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec.
-                                                            Sambikerep,
-                                                            Kota SBY, Jawa Timur 60219</p>
+                                                        <p className="text-sm">{item.address}</p>
                                                     </div>
                                                 </div>
                                                 {/* <div className="flex justify-center flex-row w-full mt-6">
