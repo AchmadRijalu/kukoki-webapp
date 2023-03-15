@@ -81,5 +81,6 @@ Route::middleware('admin')->group(function () {
 });
 
 
-Route::get('/ulasan/{id}', [ReviewController::class, 'show'])->name('ulasan.show');
-Route::post('/ulasan/{id}', [ReviewController::class, 'store'])->middleware('auth')->name('ulasan.post');
+// Route::get('/ulasan/{id}', [ReviewController::class, 'show'])->name('ulasan.show');
+Route::get('/ulasan/{id}', [ReviewController::class, 'create'])->middleware('auth')->name('ulasan.create');
+Route::post('/ulasan/{id}', [ReviewController::class, 'store'])->middleware('auth')->name('ulasan.store');

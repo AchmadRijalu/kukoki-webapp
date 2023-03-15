@@ -6,6 +6,7 @@ use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class ReviewController extends Controller
 {
@@ -26,7 +27,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Ulasan');
     }
 
     /**
@@ -35,7 +36,7 @@ class ReviewController extends Controller
      * @param  \App\Http\Requests\StoreReviewRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreReviewRequest $request, $id)
+    public function store(StoreReviewRequest $request)
     {
         //TODO: Add Reviews in Here
         $this->validate($request, [
@@ -52,7 +53,7 @@ class ReviewController extends Controller
             'rating' => $request->rating
         ]);
 
-        return Redirect::route('ulasan.show', $id);
+        return Redirect::route('ulasan.show');
     }
 
     /**
