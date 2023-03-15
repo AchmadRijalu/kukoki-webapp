@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
+// Models 
+use App\Models\Meal;
+use App\Models\Review;
 class ReviewController extends Controller
 {
     /**
@@ -25,9 +29,11 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return Inertia::render('Ulasan');
+        $meal = Meal::query()->find($id);
+
+        return Inertia::render('Ulasan', compact('ordered'));
     }
 
     /**
@@ -53,7 +59,7 @@ class ReviewController extends Controller
             'rating' => $request->rating
         ]);
 
-        return Redirect::route('ulasan.show');
+        return Redirect::route('ulasan.store');
     }
 
     /**

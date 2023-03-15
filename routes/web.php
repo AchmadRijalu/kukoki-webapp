@@ -11,7 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\PlanController;
-use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\ReviewController;
 use App\Models\Meal;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +81,6 @@ Route::middleware('admin')->group(function () {
 });
 
 
-// Route::get('/ulasan/{id}', [ReviewController::class, 'show'])->name('ulasan.show');
+// Review Route
 Route::get('/ulasan/{id}', [ReviewController::class, 'create'])->middleware('auth')->name('ulasan.create');
 Route::post('/ulasan/{id}', [ReviewController::class, 'store'])->middleware('auth')->name('ulasan.store');

@@ -91,7 +91,7 @@ export default function Pesanan(props){
                             <textarea id="review" name="review" rows="12" onChange={e => setData('review', e.target.value)} value={data.review} class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
                         </div>
                         //TODO: Add routing
-                        <Link href={route('ulasan.create')} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
+                        <Link href={route('ulasan.store')} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
                         </Link>
                         </form>
