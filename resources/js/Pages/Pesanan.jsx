@@ -7,7 +7,7 @@ import RencanaCard from "@/Components/RencanaCard";
 export default function Pesanan(props) {
     const formatter = new Intl.NumberFormat('de-DE');
     const options = {year: 'numeric', month: 'long', day: 'numeric'};
-
+    console.log(props);
     for (const item of props.riwayat) {
         let total = 0
         for (const item2 of item.order_details) {
@@ -52,8 +52,7 @@ export default function Pesanan(props) {
                                                 className="bg-white rounded-md p-6 border-none shadow-lg">
                                                 <div className="flex justify-between flex-row w-full">
                                                     <p className="text-blue font-bold">{new Date(item.date).toLocaleDateString("id-ID", options)}</p>
-                                                    <p className="text-darkblue font-bold items-start text-sm">Dalam
-                                                        Perjalanan</p>
+                                                    <p className="text-darkblue font-bold items-start text-sm">{item.status}</p>
                                                 </div>
                                                 <div className="flex justify-start flex-row w-full mt-6">
                                                     <div className="grid grid-rows-2 grid-cols-2 gap-2">
