@@ -34,7 +34,7 @@ class UlasanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO: Add ulasan baru disini
     }
 
     /**
