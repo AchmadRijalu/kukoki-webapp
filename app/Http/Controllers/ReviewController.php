@@ -38,7 +38,19 @@ class ReviewController extends Controller
     public function store(StoreReviewRequest $request, $id)
     {
         //TODO: Add Reviews in Here
+        $this->validate($request, [
+            'user_id' => 'required',
+            'meal_id' => 'required',
+            'comment' => 'required',
+            'rating' => 'required'
+        ]);
 
+        $review = Review::create([
+            'user_id' => $request->user_id,
+            'meal_id' => $request->meal_id,
+            'comment' => $request->comment,
+            'rating' => $request->rating
+        ]);
 
         return Redirect::route('ulasan.show', $id);
     }
