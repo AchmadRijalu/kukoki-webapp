@@ -90,9 +90,10 @@ export default function Pesanan(props){
                         <div className="flex flex-row mt-2">
                             <textarea id="review" name="review" rows="12" onChange={e => setData('review', e.target.value)} value={data.review} class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
                         </div>
-                        <button className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
+                        //TODO: Add routing
+                        <Link href={route('')} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
-                        </button>
+                        </Link>
                         </form>
                     </div>
                     
