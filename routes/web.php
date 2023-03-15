@@ -80,9 +80,6 @@ Route::middleware('admin')->group(function () {
     Route::resource("admin", AdminController::class)->middleware("auth");
 });
 
-//Ulasan Route
-Route::get('/ulasan', function (){
-    return Inertia::render('Ulasan');
-});
-Route::get('/ulasan/{id}', [UlasanController::class, 'create']);
-Route::post('/submit_ulasan', [RegisterController::class, 'informasipengiriman'])->middleware('auth');
+
+Route::get('/ulasan/{id}', [ReviewController::class, 'show'])->name('ulasan.show');
+Route::post('/ulasan/{id}', [ReviewController::class, 'store'])->middleware('auth')->name('ulasan.post');

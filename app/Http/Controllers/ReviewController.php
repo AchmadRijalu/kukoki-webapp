@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class ReviewController extends Controller
 {
@@ -34,9 +35,12 @@ class ReviewController extends Controller
      * @param  \App\Http\Requests\StoreReviewRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreReviewRequest $request)
+    public function store(StoreReviewRequest $request, $id)
     {
         //TODO: Add Reviews in Here
+
+
+        return Redirect::route('ulasan.show', $id);
     }
 
     /**
