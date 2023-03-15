@@ -73,6 +73,9 @@ export default function Pesanan(props) {
                                                         <p className="text-sm">{item.address}</p>
                                                     </div>
                                                 </div>
+                                                <div className="flex justify-center flex-row w-full mt-6">
+                                                    {item.status == "Selesai" && <button className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2">Berikan Ulasan</button>}
+                                                </div>
                                                 {/* <div className="flex justify-center flex-row w-full mt-6">
                                     <p className="text-sm align-middle m-1 font-bold">Rp</p>
                                     <p className="text-xl font-bold">160.000</p>
