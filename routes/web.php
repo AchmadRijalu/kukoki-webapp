@@ -82,5 +82,5 @@ Route::middleware('admin')->group(function () {
 
 
 // Review Route
-Route::get('/ulasan/{id}', [ReviewController::class, 'create'])->middleware('auth')->name('ulasan.create');
-Route::post('/ulasan/{id}', [ReviewController::class, 'store'])->middleware('auth')->name('ulasan.store');
+Route::get('/ulasan/{menu_id}', [ReviewController::class, 'create'])->middleware('auth')->name('ulasan.create');
+Route::post('/ulasan/{menu_id}', [ReviewController::class, 'store'])->middleware('auth')->name('ulasan.store');

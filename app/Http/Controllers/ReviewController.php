@@ -12,6 +12,7 @@ use Inertia\Inertia;
 // Models 
 use App\Models\Meal;
 use App\Models\Review;
+use App\Models\User;
 class ReviewController extends Controller
 {
     /**
@@ -32,8 +33,8 @@ class ReviewController extends Controller
     public function create($id)
     {
         $meal = Meal::query()->find($id);
-
-        return Inertia::render('Ulasan', compact('ordered'));
+        $user = User::where('id', Auth::id())->first();
+        return Inertia::render('Ulasan', compact('meal', 'user'));
     }
 
     /**

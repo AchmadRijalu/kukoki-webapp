@@ -9,19 +9,21 @@ export default function Pesanan(props){
 
     //TODO: Add a review onSubmit Form inside the useForm function
     const { data, setData, post, processing, errors } = useForm({
-        review: '',
-        review_score: 0
+        user_id: props.user.id,
+        meal_id: props.meal.id,
+        comment: '',
+        rating: 0
     })
     
-    const stars = data.review_score
-
+    const stars = data.rating
+    console.log(props);
     //TODO: Add a submit handler to controller endpoint
     const submitHandler = (e) => {
         e.preventDefault();
 
 
         console.log(data)
-        //TODO: Add POST to the tables
+        Inertia.post(route('ulasan.store', data))
         
         
     }
@@ -48,8 +50,8 @@ export default function Pesanan(props){
                     </div>
                     <div className="flex flex-row mt-8 lg:w-5/6 bg-white rounded-md p-6 border-none drop-shadow-md justify-between">
                         <div className="flex flex-row items-center">
-                            <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
-                            <p className="text-2xl ml-8 text-darkblue font-bold">Pesto Pasta Chicken</p>
+                            <img src={props.meal.img_path} alt="" className="w-24"/>
+                            <p className="text-2xl ml-8 text-darkblue font-bold">{props.meal.name}</p>
                         </div>
                         <div className="flex flex-row items-center">
                             <p className="text-2xl ml-8 text-blue font-bold">V</p>
@@ -64,23 +66,23 @@ export default function Pesanan(props){
                             
                             <div className="mt-2 md:mt-0 flex-row">
                                 <div className="flex space-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 1)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('rating', 1)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 1 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 2)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('rating', 2)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 2 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 3)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('rating', 3)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 3 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 4)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('rating', 4)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 4 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('review_score', 5)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" onClick={(e)=> setData('rating', 5)}>
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
                                     fill={stars >= 5 ? '#FFDF00' : '#A9A9A9'}/>
                                 </svg>
@@ -90,10 +92,10 @@ export default function Pesanan(props){
                         <div className="flex flex-row mt-2">
                             <textarea id="review" name="review" rows="12" onChange={e => setData('review', e.target.value)} value={data.review} class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
                         </div>
-                        //TODO: Add routing
-                        <Link href={route('ulasan.store')} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
+                        {/* TODO: Add ulasan store */}
+                        {/* <Link href={route('ulasan.store', n)} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
-                        </Link>
+                        </Link> */}
                         </form>
                     </div>
                     
