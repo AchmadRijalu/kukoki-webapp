@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, Head, usePage } from "@inertiajs/inertia-react";
+import { Inertia } from '@inertiajs/inertia'
 import Footer from "@/Components/Footer";
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import { useForm} from '@inertiajs/inertia-react';
@@ -23,7 +24,7 @@ export default function Pesanan(props){
 
 
         console.log(data)
-        Inertia.post(route('ulasan.store', data))
+        Inertia.post(route('ulasan.store', props.meal.id), data)
         
         
     }
@@ -90,12 +91,12 @@ export default function Pesanan(props){
                             </div>
                         </div>
                         <div className="flex flex-row mt-2">
-                            <textarea id="review" name="review" rows="12" onChange={e => setData('review', e.target.value)} value={data.review} class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
+                            <textarea id="comment" name="comment" rows="12" onChange={e => setData('comment', e.target.value)} value={data.comment} class="mt-2 lg:mx-2 block w-full text-sm text-black bg-smoke rounded-lg placeholder-black border-none" placeholder="Bagaimana makanannya?"></textarea>
                         </div>
                         {/* TODO: Add ulasan store */}
-                        {/* <Link href={route('ulasan.store', n)} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
+                        <button className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2" type="submit">
                             Bagikan Ulasan
-                        </Link> */}
+                        </button>
                         </form>
                     </div>
                     

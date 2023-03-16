@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
 use Illuminate\Support\Facades\Auth;
@@ -37,13 +37,7 @@ class ReviewController extends Controller
         return Inertia::render('Ulasan', compact('meal', 'user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreReviewRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreReviewRequest $request)
+    public function store(Request $request, $id)
     {
         //TODO: Add Reviews in Here
         $this->validate($request, [
@@ -55,12 +49,12 @@ class ReviewController extends Controller
 
         $review = Review::create([
             'user_id' => $request->user_id,
-            'meal_id' => $request->meal_id,
+            'meal_id' => $id,
             'comment' => $request->comment,
             'rating' => $request->rating
         ]);
 
-        return Redirect::route('ulasan.store');
+        return Redirect::route('ulasan.store', $request->meal_id);
     }
 
     /**
