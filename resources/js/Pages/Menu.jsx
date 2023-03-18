@@ -16,7 +16,7 @@ export default function Menu() {
 
     return (
         <div className="w-full min-h-screen bg-white flex flex-col ">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
                 <div className="w-full mt-4  bg-gray-400 h-52">
 
@@ -32,7 +32,7 @@ export default function Menu() {
                         Logout
                     </button>
                     </form>
-                   
+
 
                 </div>
             </div>

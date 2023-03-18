@@ -4,7 +4,7 @@ import route from "vendor/tightenco/ziggy/src/js";
 
 export default function Header() {
     return (
-        <nav className="bg-blue-bg bg-cover bg-no-repeat text-white flex items-center justify-between py-3 px-8">
+        <nav className="bg-blue bg-blue-bg bg-cover bg-no-repeat text-white flex items-center justify-between py-3 px-8">
             <div>
                 <img src="img/logo/logo.svg" alt="" className="w-32" />
             </div>

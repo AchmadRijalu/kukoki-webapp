@@ -78,7 +78,7 @@ export default function UbahProfil(props) {
         <div>
             <>
                 <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-                    <div className="bg-blue-bg bg-cover bg-no-repeat">
+                    <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
                     <div className="w-full h-full  flex flex-col items-center">
@@ -97,7 +97,7 @@ export default function UbahProfil(props) {
                                         <input type="text" name="nama" onChange={e => setData('full_name', e.target.value)} value={data.full_name}
                                             className=" border-1 focus:outline-none border-none focus:border-none focus:ring-0 mb-6 font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
                                         />
-                                        
+
 
                                         <label htmlFor="email" className="text-black font-medium ml-4 ">Email</label>
                                         <div className="mb-2">
@@ -106,7 +106,7 @@ export default function UbahProfil(props) {
                                         <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email}
                                             className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke"
                                         />
-                                        
+
                                     </div>
                                     <div className="md:w-1/2 mini:w-full h-full">
                                         <label htmlFor="nama" className="text-black font-medium ml-4 mb-44">Foto Profil</label>

@@ -28,7 +28,7 @@ export default function LoginTry(props) {
     return (
         <>
             <div className="bg-white w-full min-h-screen flex flex-col justify-between ">
-                <div className="bg-blue-bg bg-cover bg-no-repeat">
+                <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                     <HeaderNoBg />
                 </div>
 

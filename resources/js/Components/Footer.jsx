@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
     return (
-        <div className="bg-blue-bg bg-cover bg-no-repeat text-white py-3 px-8">
+        <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat text-white py-3 px-8">
             <img src="/img/logo/logo.svg" className="w-32 md:w-40 mt-2" alt="" />
             <div className="md:grid grid-cols-3 gap-5 lg:gap-20 mt-5 md:px-0">
                 <div className="mb-3 flex justify-center">

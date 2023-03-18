@@ -5,7 +5,7 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 export default function Pesanan(){
     return(
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg />
             </div>
             <div className="h-max mt-8 mb-12 lg:mx-64 md:mx-8 sm:mx-8 md:p-0 mini:p-3">
@@ -133,7 +133,7 @@ export default function Pesanan(){
                                     <p>Ongkos Kirim</p>
                                     <p>Rp20.000</p>
                                 </div>
-                                
+
                                 <div className="flex flex-row justify-between mt-4 text-darkblue text-xl font-semibold">
                                     <p>Total</p>
                                     <p>Rp20.000</p>

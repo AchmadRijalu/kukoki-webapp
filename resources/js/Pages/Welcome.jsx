@@ -14,7 +14,7 @@ export default function Welcome(props) {
         <>
             <Head title="Home" />
             <div className="min-h-screen">
-                <div className="bg-blue-bg bg-cover bg-no-repeat">
+                <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                     <HeaderNoBg />
                     <div className="md:grid grid-cols-2 px-8 lg:px-12 text-white">
                         <div className="flex items-center">
@@ -67,7 +67,7 @@ export default function Welcome(props) {
                     </div>
                 </div>
 
-                <div className="bg-blue-bg bg-cover bg-no-repeat flex justify-center text-white py-5">
+                <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat flex justify-center text-white py-5">
                     <div>
                         <h1 className="text-center font-bold text-4xl lg:text-5xl my-5">
                             Bagaimana Cara Pesan

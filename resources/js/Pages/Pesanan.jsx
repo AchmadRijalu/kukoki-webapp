@@ -18,7 +18,7 @@ export default function Pesanan(props) {
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
-            <div className="bg-blue-bg bg-cover bg-no-repeat">
+            <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                 <HeaderNoBg/>
             </div>
             <div className="h-max mt-8 mb-12 lg:mx-52 sm:mx-8 md:mx-8 md:p-0 mini:p-3">
