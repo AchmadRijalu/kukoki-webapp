@@ -7,7 +7,7 @@ import RencanaCard from "@/Components/RencanaCard";
 export default function Pesanan(props) {
     const formatter = new Intl.NumberFormat('de-DE');
     const options = {year: 'numeric', month: 'long', day: 'numeric'};
-
+    console.log(props);
     for (const item of props.riwayat) {
         let total = 0
         for (const item2 of item.order_details) {
@@ -52,8 +52,7 @@ export default function Pesanan(props) {
                                                 className="bg-white rounded-md p-6 border-none shadow-lg">
                                                 <div className="flex justify-between flex-row w-full">
                                                     <p className="text-blue font-bold">{new Date(item.date).toLocaleDateString("id-ID", options)}</p>
-                                                    <p className="text-darkblue font-bold items-start text-sm">Dalam
-                                                        Perjalanan</p>
+                                                    <p className="text-darkblue font-bold items-start text-sm">{item.status}</p>
                                                 </div>
                                                 <div className="flex justify-start flex-row w-full mt-6">
                                                     <div className="grid grid-rows-2 grid-cols-2 gap-2">
@@ -71,15 +70,14 @@ export default function Pesanan(props) {
                                                 <div className="flex justify-start flex-row w-full mt-6">
                                                     <img src="img/icon/location.svg" alt="" className="w-8"/>
                                                     <div className="ml-6">
-                                                        <p className="text-sm">CitraLand CBD Boulevard, Made, Kec.
-                                                            Sambikerep,
-                                                            Kota SBY, Jawa Timur 60219</p>
+                                                        <p className="text-sm">{item.address}</p>
                                                     </div>
                                                 </div>
-                                                {/* <div className="flex justify-center flex-row w-full mt-6">
-                                    <p className="text-sm align-middle m-1 font-bold">Rp</p>
-                                    <p className="text-xl font-bold">160.000</p>
-                                </div> */}
+                                                <div className="flex justify-center flex-row w-full mt-6">
+                                                    {item.order_details.map((item2, index) => (item.status == "Selesai" && <Link href={route('ulasan.create', item2.meal_id)} className="bg-blue font-semibold text-white py-3 px-4 rounded-md mt-4 mx-2">Berikan Ulasan</Link>))}
+                                                
+                                                </div>
+                                                
                                             </div>
                                         );
                                     })}

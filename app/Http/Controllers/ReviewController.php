@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
+// Models 
+use App\Models\Meal;
+use App\Models\Review;
+use App\Models\User;
 class ReviewController extends Controller
 {
     /**
@@ -23,20 +30,31 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $meal = Meal::query()->find($id);
+        $user = User::where('id', Auth::id())->first();
+        return Inertia::render('Ulasan', compact('meal', 'user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreReviewRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreReviewRequest $request)
+    public function store(Request $request, $id)
     {
-        //
+        //TODO: Add Reviews in Here
+        $this->validate($request, [
+            'user_id' => 'required',
+            'meal_id' => 'required',
+            'comment' => 'required',
+            'rating' => 'required'
+        ]);
+
+        $review = Review::create([
+            'user_id' => $request->user_id,
+            'meal_id' => $id,
+            'comment' => $request->comment,
+            'rating' => $request->rating
+        ]);
+
+        return Redirect::route('ulasan.store', $request->meal_id);
     }
 
     /**

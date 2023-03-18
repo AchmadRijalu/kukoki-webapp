@@ -23,61 +23,38 @@ export default function Pesanan(){
                             </h1>
                         </div>
                         {/* Card */}
-                        <div className="flex flex-row mt-8 bg-white rounded-md p-6 border-none drop-shadow-md">
-                            <div className="flex-4 flex-col">
-                                <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
-                            </div>
-                            <div className="flex-1 ml-6 flex-col">
-                                <div className="flex flex-row">
-                                    <h1 className="text-blue md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
-                                        Pesto Pasta Chicken
-                                    </h1>
+                        <div className="flex flex-col mt-8 bg-white rounded-md p-6 border-none drop-shadow-md">
+                            <div className="flex flex-row">
+                                <div className="flex-4 flex-col">
+                                    <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
                                 </div>
-                                <div className="flex flex-row justify-between mt-2">
-                                    <div className="flex flex-row items-center">
-                                        <img src="img/icon/people.svg" alt="" className="w-8"/>
-                                        <p className="text-sm ml-2">4 orang</p>
+                                <div className="flex-1 ml-6 flex-col">
+                                    <div className="flex flex-row">
+                                        <h1 className="text-blue md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
+                                            Pesto Pasta Chicken
+                                        </h1>
                                     </div>
-                                    <div className="flex flex-row items-center">
-                                        <img src="img/icon/chef_hat.svg" alt="" className="w-8"/>
-                                        <p className="text-sm ml-2">30 min</p>
+                                    <div className="flex flex-row justify-between mt-2">
+                                        <div className="flex flex-row items-center">
+                                            <img src="img/icon/people.svg" alt="" className="w-8"/>
+                                            <p className="text-sm ml-2">4 orang</p>
+                                        </div>
+                                        <div className="flex flex-row items-center">
+                                            <img src="img/icon/chef_hat.svg" alt="" className="w-8"/>
+                                            <p className="text-sm ml-2">30 min</p>
+                                        </div>
+                                        <img src="img/icon/right-arrow.svg" alt="" className="w-8 ml-12"/>
                                     </div>
-                                    <img src="img/icon/right-arrow.svg" alt="" className="w-8 ml-12"/>
-                                </div>
-                                <div className="flex flex-row mt-2">
-                                    <h1 className="text-blue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
-                                        Rp60.000
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-row mt-8 bg-white rounded-md p-6 border-none drop-shadow-md">
-                            <div className="flex-4 flex-col">
-                                <img src="img/recipe/recipe-2.png" alt="" className="w-24"/>
-                            </div>
-                            <div className="flex-1 ml-6 flex-col">
-                                <div className="flex flex-row">
-                                    <h1 className="text-blue md:text-2xl sm:text-2xl mini:text-2xl font-bold text-start">
-                                        Pesto Pasta Chicken
-                                    </h1>
-                                </div>
-                                <div className="flex flex-row justify-between mt-2">
-                                    <div className="flex flex-row items-center">
-                                        <img src="img/icon/people.svg" alt="" className="w-8"/>
-                                        <p className="text-sm ml-2">4 orang</p>
+                                    <div className="flex flex-row mt-2">
+                                        <h1 className="text-blue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
+                                            Rp60.000
+                                        </h1>
                                     </div>
-                                    <div className="flex flex-row items-center">
-                                        <img src="img/icon/chef_hat.svg" alt="" className="w-8"/>
-                                        <p className="text-sm ml-2">30 min</p>
-                                    </div>
-                                    <img src="img/icon/right-arrow.svg" alt="" className="w-8 ml-12"/>
-                                </div>
-                                <div className="flex flex-row mt-2">
-                                    <h1 className="text-blue md:text-xl sm:text-xl mini:text-xl font-semibold text-start">
-                                        Rp60.000
-                                    </h1>
                                 </div>
                             </div>
+                            <button class="bg-blue font-semibold text-white py-4 px-4 rounded-md mt-4">
+                                Beri Ulasan
+                            </button>
                         </div>
                         {/* Card End */}
                         <div className="flex flex-row mt-8">
@@ -160,9 +137,6 @@ export default function Pesanan(){
                                 </h1>
                             </div>
                         </div>
-                        <button class="bg-blue font-semibold text-white py-4 px-4 rounded-md mt-4">
-                            Beri Ulasan
-                        </button>
                     </div>
                 </div>
             </div>

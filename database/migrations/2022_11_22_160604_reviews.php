@@ -27,6 +27,8 @@ return new class extends Migration
             
             $table->longText('comment');
 
+            $table->integer('rating');
+            
             $table->timestamps();
         });
     }
