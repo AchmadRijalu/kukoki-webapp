@@ -103,6 +103,8 @@ export default function MenuShow(props) {
                 {/*        )}*/}
                 {/*    </div>*/}
                 {/*</div>*/}
+                {/* TODO: Div for Reviews */}
+                <div></div>
                 <div className='mt-10'>
                     <h4 className='text-darkblue font-bold text-2xl'>Menu Lain dalam Kategori </h4>
                     <div className="grid grid-cols-3 gap-10">
