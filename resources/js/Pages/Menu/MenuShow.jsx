@@ -12,6 +12,7 @@ export default function MenuShow(props) {
     const [porsi, setPorsi] = useState(2);
     const [date, setDate] = useState('');
 
+    console.log(props);
     function handleAddToPlan() {
         if (date !== '') {
             let values ={
