@@ -4,7 +4,7 @@ import {Head, Link} from '@inertiajs/inertia-react';
 import HeaderNoBg from "@/Components/HeaderNoBg";
 import Footer from "@/Components/Footer";
 
-export default function MenuReviewCard({meal}) {
+export default function MenuReviewCard({review}) {
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
             <div className="px-6 py-4">
