@@ -5,6 +5,7 @@ import HeaderNoBg from "@/Components/HeaderNoBg";
 import Footer from "@/Components/Footer";
 
 export default function MenuReviewCard({review}) {
+    const dateFormatter = new Intl.DateTimeFormat('en-US')
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
             <div className="px-6 py-4">
@@ -39,7 +40,7 @@ export default function MenuReviewCard({review}) {
                         </div>
                     </div>
                 </div>
-                <p className="mb-2">{review.created_at}</p>
+                <p className="mb-2">{String(Date(review.created_at)).substring(3,16)}</p>
                 <p className="text-gray-700 text-base">{review.comment}
                 </p>
             </div>
