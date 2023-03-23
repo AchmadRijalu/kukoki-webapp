@@ -55,7 +55,7 @@ class MenuController extends Controller
     {
         $meal = Meal::query()->with(['tools', 'ingredients'])->find($id);
         $meals = Meal::query()->get()->take(3);
-        $reviews = Review::where('meal_id', $id)->get();
+        $reviews = Review::with('user')->where('meal_id', $id)->get();
         
         return Inertia::render('Menu/MenuShow', compact('meal', 'meals', 'reviews'));
     }

@@ -11,7 +11,7 @@ export default function MenuReviewCard({review}) {
             <div className="px-6 py-4">
                 <div className='flex flex-row justify-between'>
                     <div>
-                        <h4 className="font-bold text-xl mb-2">Cahyanto Arie</h4>
+                        <h4 className="font-bold text-xl mb-2">{review.user.full_name}</h4>
                     </div>
                     <div>
                         <div className="mt-2 md:mt-0 flex-row">
