@@ -13,7 +13,7 @@ export default function Pesanan(props){
         user_id: props.user.id,
         meal_id: props.meal.id,
         comment: '',
-        rating: 0
+        rating: 1
     })
     
     const stars = data.rating
