@@ -21,7 +21,7 @@ export default function Menu(props) {
                 <h5 className='text-darkblue text-2xl font-semibold mt-8'>
                     Untuk Anda
                 </h5>
-                <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-2 sm:gap-10 gap-2 mt-5 justify-center items-center">
+                <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-2 sm:gap-10 gap-2 mt-5 justify-center items-center items-stretch">
                     {props.meals.map((meal, i) =>
                         <MenuCard meal={meal} key={i}></MenuCard>
                     )}

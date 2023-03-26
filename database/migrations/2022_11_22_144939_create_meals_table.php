@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('price');
             $table->integer('duration');
             $table->string('img_path');
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
     }
