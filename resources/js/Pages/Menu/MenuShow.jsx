@@ -12,6 +12,7 @@ export default function MenuShow(props) {
     const [porsi, setPorsi] = useState(2);
     const [date, setDate] = useState('');
 
+    console.log(props);
     function handleAddToPlan() {
         if (date !== '') {
             let values ={
@@ -102,6 +103,17 @@ export default function MenuShow(props) {
                 {/*        )}*/}
                 {/*    </div>*/}
                 {/*</div>*/}
+
+                {/* TODO: Div for Reviews */}
+                <div className='mt-10'>
+                    <h4 className='text-darkblue font-bold text-2xl'>Ulasan Pembeli</h4>
+                    <div className="grid grid-cols-3 gap-10">
+                        {props.reviews.map((review, i) =>
+                            <MenuReviewCard review={review} key={i}></MenuReviewCard>
+                        )}
+                    </div>
+                </div>
+
                 <div className='mt-10'>
                     <h4 className='text-darkblue font-bold text-2xl'>Menu Lain dalam Kategori </h4>
                     <div className="grid grid-cols-3 gap-10">

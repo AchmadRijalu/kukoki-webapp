@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Meal;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -54,8 +55,9 @@ class MenuController extends Controller
     {
         $meal = Meal::query()->with(['tools', 'ingredients'])->find($id);
         $meals = Meal::query()->get()->take(3);
-
-        return Inertia::render('Menu/MenuShow', compact('meal', 'meals'));
+        $reviews = Review::with('user')->where('meal_id', $id)->get();
+        
+        return Inertia::render('Menu/MenuShow', compact('meal', 'meals', 'reviews'));
     }
 
     public function showRecipe($id)
