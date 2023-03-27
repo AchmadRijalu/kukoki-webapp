@@ -39,7 +39,7 @@ export default function MenuCard({meal}) {
         ) : (
             <div>
                 <div className="max-w-xs rounded overflow-hidden shadow-lg hover:scale-[102%] transition mx-auto flex flex-col h-full">
-                    <img className="w-full blur-lg grayscale" src={'/img/menu/' + meal.img_path} alt={meal.name} />
+                    <img className="w-full blur-sm grayscale" src={'/img/menu/' + meal.img_path} alt={meal.name} />
                     <div className='flex flex-col justify-between h-full'>
                         <div className="px-4 py-4">
                             <div className="font-bold text-xl mb-2 text-darkblue grayscale">{meal.name}</div>
