@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('meal_ingredients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('amount', 8, 2);
+            $table->string('amount');
 
-            $table->unsignedBigInteger('ingredient_id');   
-            $table->unsignedBigInteger('meal_id');     
-           
-            
- 
+            $table->unsignedBigInteger('ingredient_id');
+            $table->unsignedBigInteger('meal_id');
+
+
+
             $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade')->onUpdate('cascade');
-        
+
             $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
