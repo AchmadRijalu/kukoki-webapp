@@ -103,7 +103,7 @@ export default function UbahPreferensi(props) {
                         </h6>
                     </div>
 
-                    <div className=" h-full  grid md:grid-cols-4 mini:grid-cols-2 md:gap-8 mini:gap-6 content-center ">
+                    <div className=" h-full  grid lg:grid-cols-4 md:grid-cols-3 mini:grid-cols-2 md:gap-8 mini:gap-6 content-center ">
 
                         {categories.map((category, i) =>
                             <>

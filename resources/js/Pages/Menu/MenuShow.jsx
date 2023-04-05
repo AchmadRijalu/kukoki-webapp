@@ -26,13 +26,13 @@ export default function MenuShow(props) {
 
     return (
         <MainLayout>
-            <div className='xl:px-60'>
-                <div className='flex flex-row justify-center gap-10'>
-                    <div className='w-1/2'>
+            <div className='md:px-10 xl:px-60'>
+                <div className='flex flex-col md:flex-row justify-center gap-10'>
+                    <div className='md:w-1/2'>
                         <img className="object-cover rounded-2xl h-full" alt="img of a girl posing"
                              src={'/img/menu/' + props.meal.img_path}/>
                     </div>
-                    <div className='w-1/2'>
+                    <div className='md:w-1/2'>
                         <div>
                             <p className="text-sm leading-none text-gray-600">Snel Koken</p>
                             <h1
@@ -116,7 +116,7 @@ export default function MenuShow(props) {
 
                 <div className='mt-10'>
                     <h4 className='text-darkblue font-bold text-2xl'>Menu Lain dalam Kategori </h4>
-                    <div className="grid grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {props.meals.map((meal, i) =>
                             <MenuCard meal={meal} key={i}></MenuCard>
                         )}

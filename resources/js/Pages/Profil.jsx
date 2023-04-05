@@ -166,7 +166,7 @@ export default function Profil(props) {
                                 </div>
                                 <button
                                     onClick={(e) => handleGetIdPengiriman(auth.user.id)}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2 lg text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full md:w-44 lg text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Ubah
                                 </button>
@@ -174,11 +174,11 @@ export default function Profil(props) {
 
                         </div>
                         <div className="md:w-1/2 mini:w-full   min-h-max flex flex-col md:items-start mini:items-center justify-between ">
-                            <div className="min-w-max  h-full flex flex-col md:items-start mini:items-center  space-y-9 ml-3  ">
+                            <div className="min-w-max  h-full flex flex-col md:items-start mini:items-center  space-y-9">
                                 <h1 className="text-darkblue font-semibold text-2xl mini:text-center">
                                     Preferensi Saya
                                 </h1>
-                                <div className="w-full  grid md:grid-cols-2  md:justify-between md:space-y-0 mini:justify-center sm:grid-cols-2 mb-5 lg:mr-0 md:mr-2">
+                                <div className="w-full grid md:grid-cols-2 md:justify-between md:space-y-0 mini:justify-center sm:grid-cols-2 mb-5">
                                     {props.category.map((category, i) =>
                                         <>
 
@@ -191,7 +191,7 @@ export default function Profil(props) {
                                 <button
 
                                     onClick={(e) => handleGetIdPreferensi(auth.user.id)}
-                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full lg:w-1/2  text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
+                                    className="text-white bg-blue py-2 lg:py-3 px-5 mini:w-full md:w-44 text-center lg:px-10 font-semibold rounded-md hover:bg-darkblue transition"
                                 >
                                     Ubah
                                 </button>

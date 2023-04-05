@@ -44,7 +44,7 @@ export default function Pesanan(props) {
                         {props.pengiriman.length !== 0 ? (
                             <>
                                 <div
-                                    className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
+                                    className=" w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
                                     {props.pengiriman.map((item, index) => {
                                         return (
                                             <div
@@ -101,7 +101,7 @@ export default function Pesanan(props) {
                         {props.pengiriman.length !== 0 ? (
                             <>
                                 <div
-                                    className="flex flex-row w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
+                                    className="w-full justify-between grid lg:grid-cols-3 grid-cols-1 gap-12">
                                     {props.riwayat.map((item, index) => {
                                         return (
                                             // <Link href=''

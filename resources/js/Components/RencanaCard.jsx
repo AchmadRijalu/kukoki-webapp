@@ -25,12 +25,12 @@ export default function RencanaCard(props) {
                     </div>
                 </div>
                 <div className="flex text-xs font-normal text-rencanatext mt-1">
-                    <div className="mr-10 flex items-center">
+                    <div className="mr-3 md:mr-10 flex items-center">
                         <img className="w-5 inline-block mr-2" src="img/icon/group.svg"/>
                         <span className="text-md">{props.item.portion} Orang</span>
                     </div>
 
-                    <div className="mr-10 flex items-center">
+                    <div className="mr-1 md:mr-10 flex items-center">
                         <span><img className="w-6 md:w-5 lg:w-4 inline-block mr-2" src="img/icon/chef_hat.svg"/></span>
                         <span className="text-md">{props.item.meal.duration} min</span>
                     </div>

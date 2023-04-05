@@ -68,7 +68,7 @@ export default function Checkout(props) {
                                     Keranjang
                                 </h1>
 
-                                <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
+                                <div className="flex flex-col justify-center w-full lg:w-10/12">
                                     {props.cart.map((item, index) => {
                                         return (
                                             <RencanaCard
@@ -94,14 +94,14 @@ export default function Checkout(props) {
                     <div className="bg-blue bg-blue-bg bg-cover bg-no-repeat">
                         <HeaderNoBg />
                     </div>
-                    <div className="w-full h-max mt-8 mb-14 px-8">
+                    <div className="w-full h-max mt-8 mb-14 px-3 md:px-8">
                         <div className="grid lg:grid-cols-2 mt-5 grid-cols-1">
                             <div className="flex flex-col lg:items-center">
                                 <h1 className="text-blue self-center align-center md:text-4xl sm:text-3xl mini:text-3xl font-bold mb-4">
                                     Keranjang
                                 </h1>
 
-                                <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
+                                <div className="flex flex-col justify-center w-full lg:w-10/12">
                                     <div className="flex flex-col justify-start items-center mt-4">
                                         <div className="shadow-md px-5 pt-5 pb-2 rounded-xl w-full">
                                             {props.cart.map((item, index) => {

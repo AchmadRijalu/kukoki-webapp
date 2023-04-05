@@ -172,7 +172,7 @@ export default function Rencana(props) {
 
                             <div className="flex flex-col justify-center w-full sm:w-9/12 lg:w-10/12">
                                 {filterMeals()?.length === 0 ? (
-                                    <h1 className='text-center text-xl font-semibold text-darkblue mt-10'>Belum ada pesanan!</h1>
+                                    <h1 className='text-center text-xl font-semibold text-darkblue my-10'>Belum ada pesanan!</h1>
                                 ) : (
                                     filterMeals()?.map((item, index) => {
                                         return (
