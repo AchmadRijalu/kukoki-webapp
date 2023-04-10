@@ -5,13 +5,12 @@ import RencanaDateCard from "@/Components/RencanaDateCard";
 import RencanaCard from "@/Components/RencanaCard";
 import RencanaRincian from "@/Components/RencanaRincian";
 import { DateRange } from "react-date-range";
-import DatePicker from "react-datepicker";
 import format from "date-fns/format";
 import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import {Link} from "@inertiajs/inertia-react";
-import {Inertia} from "@inertiajs/inertia";
+import { Link } from "@inertiajs/inertia-react";
+import { Inertia } from "@inertiajs/inertia";
 
 export default function Rencana(props) {
     let options;
@@ -23,8 +22,8 @@ export default function Rencana(props) {
     const referenceContainer = useRef(null);
     const [range, setRange] = useState([
         {
-            startDate: new Date(dateCurrent.setDate(dateCurrent.getDate() - dateCurrent.getDay()+6)),
-            endDate: new Date(dateCurrent.setDate(dateCurrent.getDate() - dateCurrent.getDay()+6)),
+            startDate: new Date(dateCurrent.setDate(dateCurrent.getDate() - dateCurrent.getDay() + 6)),
+            endDate: new Date(dateCurrent.setDate(dateCurrent.getDate() - dateCurrent.getDay() + 6)),
             key: "selection",
         },
     ]);
@@ -50,10 +49,21 @@ export default function Rencana(props) {
 
     function getDates(range) {
         const date = new Date(range[0].startDate.getTime());
+        var dateMinus = new Date();
+        dateMinus.setDate(date.getDate() - 1);
         const dates = [];
-        while (date <= addDays(range[0].startDate, 6)) {
-            dates.push(new Date(date));
-            date.setDate(date.getDate() + 1);
+        let yesterday = date.getDay()
+
+        if (yesterday === 0) {
+            while (dateMinus <= addDays(range[0].startDate, 6)) {
+                dates.push(new Date(dateMinus));
+                dateMinus.setDate(dateMinus.getDate() + 1);
+            }
+        } else {
+            while (date <= addDays(range[0].startDate, 6)) {
+                dates.push(new Date(date));
+                date.setDate(date.getDate() + 1);
+            }
         }
         return dates;
     }
@@ -65,21 +75,21 @@ export default function Rencana(props) {
 
             if (
                 normalizedDate?.getDate() ===
-                    checkerArray[isSelected]?.getDate() &&
+                checkerArray[isSelected]?.getDate() &&
                 normalizedDate?.getMonth() ===
-                    checkerArray[isSelected]?.getMonth() &&
+                checkerArray[isSelected]?.getMonth() &&
                 normalizedDate?.getFullYear() ===
-                    checkerArray[isSelected]?.getFullYear()
+                checkerArray[isSelected]?.getFullYear()
             ) {
                 currentDate = normalizedDate;
             }
             return (
                 normalizedDate?.getDate() ===
-                    checkerArray[isSelected]?.getDate() &&
+                checkerArray[isSelected]?.getDate() &&
                 normalizedDate?.getMonth() ===
-                    checkerArray[isSelected]?.getMonth() &&
+                checkerArray[isSelected]?.getMonth() &&
                 normalizedDate?.getFullYear() ===
-                    checkerArray[isSelected]?.getFullYear()
+                checkerArray[isSelected]?.getFullYear()
             );
         });
         return filteredList;
@@ -110,10 +120,13 @@ export default function Rencana(props) {
                             <div className="calendarWrap mb-5">
                                 <div className="outer-input">
                                     <input
-                                        value={`${format(
-                                            range[0].startDate,
+                                        value={range[0].endDate.getDay() === 0 ? `${format(
+                                            addDays(range[0].startDate, -1),
                                             "dd/MM/yyyy"
-                                        )} - ${format(addDays(range[0].startDate, 1), "dd/MM/yyyy")}`}
+                                        )} - ${format(addDays(range[0].endDate, 0), "dd/MM/yyyy")}` : `${format(
+                                            addDays(range[0].startDate, 0),
+                                            "dd/MM/yyyy"
+                                        )} - ${format(addDays(range[0].endDate, 1), "dd/MM/yyyy")}`}
                                         size="24"
                                         readOnly
                                         className="inputBox"
@@ -126,27 +139,35 @@ export default function Rencana(props) {
                                             <DateRange
                                                 className="calendarElement"
                                                 onChange={(item) => {
+                                                    {
+                                                        getDates(range).map((option, index) => {
+                                                            if (option.getDay() === 6 || option.getDay() === 0) {
+                                                                if (item.selection.startDate.getDay() === option.getDay()) {
+                                                                    setisSelected(index);
+                                                                }
+                                                            }
+                                                        })
+                                                    }
                                                     setRange([
                                                         {
                                                             startDate:
                                                                 item.selection
                                                                     .startDate,
                                                             endDate: item.selection
-                                                            .startDate,
+                                                                .startDate,
                                                             key: "selection",
                                                         },
                                                     ]);
-                                                    setisSelected(0);
                                                 }}
-                                                preview={{startDate: range[0].startDate, endDate: range[0].endDate}}
+                                                preview={{ startDate: range[0].startDate, endDate: range[0].endDate }}
+                                                onPreviewChange={{ startDate: range[0].startDate, endDate: range[0].endDate }}
                                                 retainEndDateOnFirstSelection={false}
                                                 showPreview={true}
-                                                onPreviewChange={false}
                                                 dragSelectionEnabled={false}
                                                 showDateDisplay={false}
                                                 preventSnapRefocus={false}
-                                                minDate={new Date(dateCurrent.setDate(dateCurrent.getDate() - dateCurrent.getDay()+6))}
-                                                disabledDay={(date) => (!(date.getDay() === 6))}
+                                                minDate={new Date(dateCurrent.setDate(dateCurrent.getDate() - dateCurrent.getDay() + 6))}
+                                                disabledDay={(date) => (!(date.getDay() === 6 || date.getDay() === 0))}
                                                 showSelectionPreview={false}
                                                 showMonthArrow={false}
                                                 showMonthAndYearPickers={false}
@@ -162,20 +183,20 @@ export default function Rencana(props) {
                             </div>
                             <div className="grid mt-2 justify-center grid-cols-2 sm:grid-cols-2">
                                 {getDates(range).map((option, index) => {
-                                    
+
                                     options = getDates(range);
-                                        if(option.getDay() === 6 || option.getDay() === 0) {
-                                            return (
-                                                <RencanaDateCard
-                                                    key={index}
-                                                    option={option}
-                                                    selected={isSelected === index}
-                                                    onChange={() =>
-                                                        setisSelected(index)
-                                                    }
-                                                />
-                                            );
-                                        }                        
+                                    if (option.getDay() === 6 || option.getDay() === 0) {
+                                        return (
+                                            <RencanaDateCard
+                                                key={index}
+                                                option={option}
+                                                selected={isSelected === index}
+                                                onChange={() =>
+                                                    setisSelected(index)
+                                                }
+                                            />
+                                        );
+                                    }
                                 })}
                             </div>
 
