@@ -12,7 +12,7 @@ use App\Models\Category;
 use App\Models\CategoryPreferences;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Log;
 class ProfileController extends Controller
 {
     /**
@@ -44,6 +44,9 @@ class ProfileController extends Controller
         $categoryuser = User::find($id);
         $categoryuser->categories()->detach();
         $categoryuser->categories()->attach($request->category);
+        Log::create([
+            'activity' => "Update Preferensi Account ID " . Auth::user()->id 
+        ]);
         return Redirect::route('profil.index');
     }
 
@@ -63,6 +66,9 @@ class ProfileController extends Controller
                 'district' => $request->district,
                 'address' => $request->address,
                 'phone' => $request->phone,
+        ]);
+        Log::create([
+            'activity' => "Update Informasi Pengiriman Account ID " . Auth::user()->id 
         ]);
         return Redirect::route('profil.index');
     }
@@ -110,6 +116,9 @@ class ProfileController extends Controller
             $locateimage =$request->profile_picture->move('img/profile/', $filename);
 
             $userprofile = User::findorFail($user);
+            Log::create([
+                'activity' => "Update Account Account ID " . Auth::user()->id 
+            ]);
             $userprofile->update(
                 [
                     'full_name' => $request->full_name,
@@ -140,6 +149,9 @@ class ProfileController extends Controller
     );
     $getPassword = $request->password;
     $password = Hash::make($getPassword);
+    Log::create([
+        'activity' => "Update Password Account ID " . Auth::user()->id 
+    ]);
     $userprofile->update(
         [
             'full_name' => $request->full_name,
@@ -174,7 +186,9 @@ class ProfileController extends Controller
         Auth::logout();
 
         $user->delete();
-
+        Log::create([
+            'activity' => "Out Action Account ID " . Auth::user()->id
+        ]);
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

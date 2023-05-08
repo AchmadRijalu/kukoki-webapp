@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Midtrans\Config;
-
+use App\Models\Log;
 class PlanController extends Controller
 {
     /**
@@ -26,7 +26,9 @@ class PlanController extends Controller
     {
         $ordered = OrderDetail::query()->with(['meal', 'delivery'])->where('user_id', Auth::id())->get();
         $cart = Cart::query()->with('meal')->where('user_id', Auth::id())->get();
-
+        Log::create([
+            'activity' => "See Plan Action Account ID " . Auth::user()->id
+        ]);
         return Inertia::render('Rencana', compact('cart', 'ordered'));
     }
 
@@ -129,7 +131,9 @@ class PlanController extends Controller
                 'portion' => $meal->portion,
             ]);
         }
-
+        Log::create([
+            'activity' => "Pembayaran Berhasil Action Account ID " . Auth::user()->id
+        ]);
         Cart::query()->where('user_id', Auth::id())->delete();
 
         return Redirect::route('rencana.index');
@@ -175,7 +179,9 @@ class PlanController extends Controller
                 'phone' => $user->phone,
             ),
         );
-
+        Log::create([
+            'activity' => "Checkout Action Account ID " . Auth::user()->id . " | " . $request->ip()
+        ]);
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return Redirect::back()->withErrors(['snapToken' => $snapToken]);

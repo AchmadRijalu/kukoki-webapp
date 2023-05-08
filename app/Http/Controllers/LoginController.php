@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Log;
 
 class LoginController extends Controller
 {
@@ -48,6 +49,9 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
 
+            Log::create([
+                'activity' => "ID Account Login" . Auth::user()->id . " | " . $request->ip()
+            ]);
             //regenerate session
             $request->session()->regenerate();
 
@@ -117,6 +121,9 @@ class LoginController extends Controller
     {
         /** @var \App\Models\User $user */
         $user = Auth::user();
+        Log::create([
+            'activity' => "ID Account Logout" . Auth::user()->id . " | " . $request->ip()
+        ]);
         Auth::logout();
 
         $request->session()->invalidate();
