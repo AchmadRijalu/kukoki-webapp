@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CategoryPreferences;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
@@ -224,15 +225,28 @@ class RegisterController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('google')->user();
-
+        var_dump($user);
         // Check if the user already exists in your database
         $existingUser = User::where('email', $user->email)->first();
 
         if ($existingUser) {
             // Authenticate the user and redirect to the home page
-            auth()->login($existingUser);
-            return redirect()->route('home');
+            if (auth()->login($existingUser)) {
+                //redirect route dashboard
+                if (Auth::user()->admin) {
+                    return redirect()->to('/admin');
+                } else {
+                    return redirect()->intended('/menu');
+    
+                }
+            }
+    
+            return back()->withErrors([
+                'email' => 'Email/Password tidak benar, silahkan coba lagi.',
+            ]);
+            
         } else {
+            return Inertia::render('Register', ['title' => 'Register']);
             // Create a new user with the retrieved information
             // $newUser = new User();
             // $newUser->name = $user->name;
