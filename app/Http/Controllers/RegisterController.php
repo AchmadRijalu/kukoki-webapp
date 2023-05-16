@@ -9,6 +9,7 @@ use App\Models\CategoryPreferences;
 use Illuminate\Contracts\Session\Session;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Laravel\Socialite\Facades\Socialite;
 
 class RegisterController extends Controller
 {
@@ -23,7 +24,8 @@ class RegisterController extends Controller
         return Inertia::render('Register', ['title' => 'Register']);
     }
 
-    public function informasipengiriman(Request $request){
+    public function informasipengiriman(Request $request)
+    {
 
 
         $this->validate($request, [
@@ -40,19 +42,21 @@ class RegisterController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        $request->session()->put('page1', [$name, $email,$password]);
+        $request->session()->put('page1', [$name, $email, $password]);
 
 
         // return Inertia::render('InformasiPengirimanGet', compact('name', 'email', 'password'));
         return Redirect::route('register_informasi_pengiriman.index',);
     }
 
-    public function RegisterInformasiPengiriman(){
+    public function RegisterInformasiPengiriman()
+    {
 
         return Inertia::render('InformasiPengiriman',);
     }
 
-    public function preferensi(Request $request){
+    public function preferensi(Request $request)
+    {
 
         $this->validate($request, [
             'provinsi' => [
@@ -77,12 +81,12 @@ class RegisterController extends Controller
         $title = "Pilih Preferensi";
 
 
-        $request->session()->put('page2', [$provinsi, $kota ,$kecamatan,$kelurahan, $alamatlengkap,  $nomortelepon, $categories ]);
+        $request->session()->put('page2', [$provinsi, $kota, $kecamatan, $kelurahan, $alamatlengkap,  $nomortelepon, $categories]);
         return Redirect::route('register_preferensi.index',);
-
     }
 
-    public function RegisterPreferensi(){
+    public function RegisterPreferensi()
+    {
         $value = session()->pull('page2');
 
         $valueCategories = $value[6];
@@ -110,14 +114,17 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request, [
+        $this->validate(
+            $request,
+            [
 
-            'category' => 'required'
-        ],
-        [
-            'category.required'    => 'Please choose your preferences',
+                'category' => 'required'
+            ],
+            [
+                'category.required'    => 'Please choose your preferences',
 
-        ]);
+            ]
+        );
 
         $value = session()->pull('page1');
         $value2 = session()->pull('page2');
@@ -149,10 +156,10 @@ class RegisterController extends Controller
         $this->lastCreatedUserId = $user->id;
 
 
-        foreach($category as $cat){
+        foreach ($category as $cat) {
             CategoryPreferences::create([
-            'user_id' => $this->lastCreatedUserId,
-            'category_id'     => $cat,
+                'user_id' => $this->lastCreatedUserId,
+                'category_id'     => $cat,
 
             ]);
         }
@@ -161,7 +168,6 @@ class RegisterController extends Controller
 
         // $latestUser = App\User::latest()->first();
         return redirect('/login')->with('status', 'Register Berhasil!');
-
     }
 
     /**
@@ -207,5 +213,36 @@ class RegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //MARK: Google Authentication
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        // Check if the user already exists in your database
+        $existingUser = User::where('email', $user->email)->first();
+
+        if ($existingUser) {
+            // Authenticate the user and redirect to the home page
+            auth()->login($existingUser);
+            return redirect()->route('home');
+        } else {
+            // Create a new user with the retrieved information
+            // $newUser = new User();
+            // $newUser->name = $user->name;
+            // $newUser->email = $user->email;
+            // $newUser->password = Hash::make(Str::random(24));
+            // $newUser->save();
+
+            // Authenticate the user and redirect to the home page
+            // auth()->login($newUser);
+            // return redirect()->route('home');
+        }
     }
 }

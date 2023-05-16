@@ -30,6 +30,9 @@ Route::get('/register_informasi_pengiriman', [RegisterController::class, 'Regist
 Route::post('/preferensi', [RegisterController::class, 'preferensi'])->middleware('guest');
 Route::get('/register_preferensi', [RegisterController::class, 'RegisterPreferensi'])->name('register_preferensi.index')->middleware('guest');
 
+Route::get('/redirect_google', [RegisterController::class, 'redirectToProvider'])->middleware('guest');
+//Google Authentication route
+
 Route::resource('register_account', RegisterController::class);
 
 //Login Route
