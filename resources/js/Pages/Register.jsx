@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Head, } from "@inertiajs/inertia-react";
 import { Inertia } from '@inertiajs/inertia'
 import Footer from "@/Components/Footer";
@@ -10,8 +10,8 @@ import { useForm } from '@inertiajs/inertia-react'
 export default function Register(props) {
 
     const { data, setData, post, processing, errors } = useForm({
-        name: '',
-        email: '',
+        name: props.googleName,
+        email: props.googleEmail,
         password: '',
     })
 
@@ -22,6 +22,7 @@ export default function Register(props) {
         Inertia.post('/informasi_pengiriman', data)
 
     }
+    
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -51,8 +52,14 @@ export default function Register(props) {
 
                                     </div>
 
-
-                                    <input type="text" name="name" onChange={e => setData('name', e.target.value)} value={data.name} className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    {props.googleName ?
+                                        <div type="text" name="name" className="read-only border-1 mb-6  focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline  focus:ring-blue text-black border">
+                                            <p>{data.name}</p>
+                                        </div>
+                                        :
+                                        <input type="text" name="name" onChange={e => setData('name', e.target.value)} value={data.name} className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    }
+                                    
 
 
                                     <label htmlFor="email" className="text-black font-medium ml-4 mb-44">
@@ -62,9 +69,13 @@ export default function Register(props) {
 
                                     </div>
 
-
-                                    <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email} className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
-
+                                    {props.googleEmail ?
+                                        <div type="text" name="email" className="read-only border-1 mb-6 focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black border">
+                                            <p>{data.email}</p>
+                                        </div>
+                                        :
+                                        <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email} className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    }
 
                                     <label htmlFor="password" className="text-black font-medium ml-4 mb-44">Password</label>
                                     <div className="mb-2">

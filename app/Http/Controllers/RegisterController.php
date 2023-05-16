@@ -225,7 +225,7 @@ class RegisterController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('google')->user();
-        var_dump($user);
+        // var_dump($user);
         // Check if the user already exists in your database
         $existingUser = User::where('email', $user->email)->first();
 
@@ -246,7 +246,7 @@ class RegisterController extends Controller
             ]);
             
         } else {
-            return Inertia::render('Register', ['title' => 'Register']);
+            return Inertia::render('Register', ['title' => 'Register', 'googleName' => $user->name, 'googleEmail' => $user->email]);
             // Create a new user with the retrieved information
             // $newUser = new User();
             // $newUser->name = $user->name;
