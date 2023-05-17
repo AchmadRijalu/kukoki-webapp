@@ -219,12 +219,12 @@ class RegisterController extends Controller
     //MARK: Google Authentication
     public function redirectToProvider()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')->stateless()->redirect();
     }
 
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('google')->stateless()->user();
         // var_dump($user);
         // Check if the user already exists in your database
         $existingUser = User::where('email', $user->email)->first();
