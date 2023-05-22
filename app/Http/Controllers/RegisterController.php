@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\Log;
 
 class RegisterController extends Controller
 {
@@ -166,7 +167,9 @@ class RegisterController extends Controller
         }
         // dd($this->lastCreatedUserId);
 
-
+        Log::create([
+            'activity' => "ID Account Login" . Auth::user()->id . " | " . $request->ip()
+        ]);
         // $latestUser = App\User::latest()->first();
         return redirect('/login')->with('status', 'Register Berhasil!');
     }

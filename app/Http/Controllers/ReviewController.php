@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 // Models 
+
 use App\Models\Meal;
 use App\Models\Review;
 use App\Models\User;
+use App\Models\Log;
 class ReviewController extends Controller
 {
     /**
@@ -53,7 +55,9 @@ class ReviewController extends Controller
             'comment' => $request->comment,
             'rating' => $request->rating
         ]);
-
+        Log::create([
+            'activity' => "Create Review Account ID " . Auth::user()->id 
+        ]);
         return Redirect::route('ulasan.store', $request->meal_id);
     }
 

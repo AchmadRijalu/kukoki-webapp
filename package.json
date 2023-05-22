@@ -27,6 +27,7 @@
         "bootstrap": "^5.2.3",
         "date-fns": "^2.29.3",
         "react-bootstrap": "^2.6.0",
-        "react-date-range": "^1.4.0"
+        "react-date-range": "^1.4.0",
+        "react-datepicker": "^4.11.0"
     }
 }

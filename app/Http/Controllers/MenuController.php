@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
-
+use App\Models\Log;
 class MenuController extends Controller
 {
     /**
@@ -63,7 +63,9 @@ class MenuController extends Controller
     public function showRecipe($id)
     {
         $meal = Meal::query()->find($id);
-
+        Log::create([
+            'activity' => "Show Recipe Action Account ID " . Auth::user()->id
+        ]);
         return Inertia::render('Menu/MenuShowRecipe', compact('meal'));
     }
 
@@ -82,14 +84,18 @@ class MenuController extends Controller
             'date' => $request->date,
             'portion' => $request->portion,
         ]);
-
+        Log::create([
+            'activity' => "Add to plan Action Account ID " . Auth::user()->id
+        ]);
         return Redirect::route('rencana.index');
     }
 
     public function removeFromPlan($id)
     {
         Cart::query()->find($id)->delete();
-
+        Log::create([
+            'activity' => "Remove from plan Action Account ID " . Auth::user()->id
+        ]);
         return Redirect::back();
     }
 

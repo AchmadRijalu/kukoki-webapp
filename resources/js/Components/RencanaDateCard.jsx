@@ -18,14 +18,14 @@ export default function RencanaDateCard(props) {
                 props.selected
                     ? `bg-blue text-test`
                     : `bg-rencanacard text-rencanatext`
-            } p-6 lg:p-3 rounded-lg text-rencanatext mx-3 mb-5 cursor-pointer`}
+            } p-20 lg:p-10 rounded-lg text-rencanatext mx-3 mb-5 cursor-pointer`}
             onClick={props.onChange}
             selected={props.selected}
         >
-            <h1 className="text-xs my-1 justify-self-start font-semibold">
+            <h1 className="lg:text-xs text-2xl my-1 justify-self-start font-semibold">
                 {day}
             </h1>
-            <h1 className="text-2xl font-semibold">{props.option.getDate()}</h1>
+            <h1 className="lg:text-2xl text-3xl font-semibold">{props.option.getDate()}</h1>
         </div>
     );
 }

@@ -36,15 +36,20 @@ module.exports = {
                 pembayaranborder: "#D9D9D9",
 
             },
+            fonSize: {
+                '3xl': '1.953rem',
+                '4xl': '2.441rem',
+                '5xl': '3.052rem',
+            },
             backgroundImage: {
                 "blue-bg": "url('/img/blue_background.svg')",
             },
             width: {
                 '68': '17rem',
-              },
-              height: {
+            },
+            height: {
                 '68': '17rem',
-              },
+            },
             screens: {
                 mini: '320px'
             }
