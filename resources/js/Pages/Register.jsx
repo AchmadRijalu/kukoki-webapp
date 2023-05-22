@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Head, } from "@inertiajs/inertia-react";
 import { Inertia } from '@inertiajs/inertia'
 import Footer from "@/Components/Footer";
@@ -10,8 +10,8 @@ import { useForm } from '@inertiajs/inertia-react'
 export default function Register(props) {
 
     const { data, setData, post, processing, errors } = useForm({
-        name: '',
-        email: '',
+        name: props.googleName,
+        email: props.googleEmail,
         password: '',
     })
 
@@ -22,6 +22,7 @@ export default function Register(props) {
         Inertia.post('/informasi_pengiriman', data)
 
     }
+    
 
     return (
         <div className="bg-white w-full min-h-screen flex flex-col justify-between">
@@ -51,8 +52,14 @@ export default function Register(props) {
 
                                     </div>
 
-
-                                    <input type="text" name="name" onChange={e => setData('name', e.target.value)} value={data.name} className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    {props.googleName ?
+                                        <div type="text" name="name" className="read-only border-1 mb-6  focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline  focus:ring-blue text-black border">
+                                            <p>{data.name}</p>
+                                        </div>
+                                        :
+                                        <input type="text" name="name" onChange={e => setData('name', e.target.value)} value={data.name} className="border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    }
+                                    
 
 
                                     <label htmlFor="email" className="text-black font-medium ml-4 mb-44">
@@ -62,9 +69,13 @@ export default function Register(props) {
 
                                     </div>
 
-
-                                    <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email} className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
-
+                                    {props.googleEmail ?
+                                        <div type="text" name="email" className="read-only border-1 mb-6 focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black border">
+                                            <p>{data.email}</p>
+                                        </div>
+                                        :
+                                        <input type="text" name="email" onChange={e => setData('email', e.target.value)} value={data.email} className=" border-1 mb-6  focus:outline-none border-none focus:border-none focus:ring-0  font-medium rounded-md  w-full focus:shadow-outline   focus:ring-blue text-black bg-smoke" />
+                                    }
 
                                     <label htmlFor="password" className="text-black font-medium ml-4 mb-44">Password</label>
                                     <div className="mb-2">
@@ -105,7 +116,10 @@ export default function Register(props) {
                                             Daftar
                                         </button>
                                     </div>
-
+                                    <a href="/auth/google" className="w-full mt-8 px-4 py-2 h-14 border flex gap-2 justify-center items-center border-slate-200 rounded-xl text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                                        <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo"/>
+                                        <span>Masuk dengan Google</span>
+                                    </a>
                                     <div className="w-full mt-6 font-medium  flex lg:flex-row mini:flex-col  lg:justify-center mini:items-center cursor-pointer">
                                         <h6>
                                             Sudah mempunyai akun?

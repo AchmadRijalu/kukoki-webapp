@@ -82,7 +82,10 @@ export default function LoginTry(props) {
                                                 Masuk
                                             </button>
                                         </div>
-
+                                        <a href='/auth/google' className="w-full mt-8 px-4 py-2 h-14 border flex gap-2 justify-center items-center border-slate-200 rounded-xl text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                                            <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo"/>
+                                            <span>Masuk dengan Google</span>
+                                        </a>
                                         <div className="w-full mt-6 font-medium  flex lg:flex-row mini:flex-col  lg:justify-center mini:items-center  cursor-pointer">
                                             <h6>
                                                 Belum mempunyai akun?
