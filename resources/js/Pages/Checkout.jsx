@@ -34,7 +34,7 @@ export default function Checkout(props) {
     for (const meal of props.cart) {
         subtotal += meal.meal.price
     }
-    let ongkir = 20000
+    let ongkir = 10000
     let total = subtotal + ongkir
 
     if (props.errors.snapToken) {
