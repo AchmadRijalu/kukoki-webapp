@@ -41,6 +41,17 @@ services:
         networks:
             - kukoki
 
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8080:80
+        environment:
+            MYSQL_USERNAME: "${DB_USERNAME}"
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+            PMA_HOST: mysql
+        networks:
+            - kukoki
+
 networks:
     kukoki:
         driver: bridge
